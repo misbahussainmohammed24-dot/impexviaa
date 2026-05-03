@@ -2,13 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { db, storage } from "@/lib/firebase";
-import {
-  collection,
-  addDoc,
-  query,
-  where,
-  onSnapshot,
-} from "firebase/firestore";
+import { collection, addDoc, query, where, onSnapshot } from "firebase/firestore";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 export default function VerifyPage() {
@@ -26,7 +20,6 @@ export default function VerifyPage() {
   const [license, setLicense] = useState<File | null>(null);
   const [tax, setTax] = useState<File | null>(null);
 
-  // 🔥 REAL-TIME STATUS LISTENER
   useEffect(() => {
     if (!form.email) return;
 
@@ -41,11 +34,10 @@ export default function VerifyPage() {
       });
     });
 
-    return () => unsubscribe(); // cleanup
+    return () => unsubscribe();
   }, [form.email]);
 
-  // 🔥 SUBMIT
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (!license || !tax) {
@@ -56,17 +48,14 @@ export default function VerifyPage() {
     try {
       setLoading(true);
 
-      // Upload license
       const licenseRef = ref(storage, `licenses/${Date.now()}-${license.name}`);
       await uploadBytes(licenseRef, license);
       const licenseURL = await getDownloadURL(licenseRef);
 
-      // Upload tax
       const taxRef = ref(storage, `tax/${Date.now()}-${tax.name}`);
       await uploadBytes(taxRef, tax);
       const taxURL = await getDownloadURL(taxRef);
 
-      // Save data
       await addDoc(collection(db, "verifications"), {
         ...form,
         licenseURL,
@@ -80,7 +69,6 @@ export default function VerifyPage() {
       setLicense(null);
       setTax(null);
       setStatus("pending");
-
     } catch (err) {
       console.error(err);
       alert("Error submitting");
@@ -94,14 +82,13 @@ export default function VerifyPage() {
       <form onSubmit={handleSubmit} style={styles.card}>
         <h2 style={styles.title}>Business Verification</h2>
 
-        {/* STATUS */}
         {status && (
           <div
             style={{
               padding: "10px",
               borderRadius: "8px",
               marginBottom: "12px",
-              textAlign: "center",
+              textAlign: "center" as const,
               color: "#fff",
               fontWeight: "600",
               background:
@@ -116,65 +103,22 @@ export default function VerifyPage() {
           </div>
         )}
 
-        <input
-          placeholder="Full Name"
-          style={styles.input}
-          value={form.name}
-          onChange={(e) => setForm({ ...form, name: e.target.value })}
-        />
+        <input placeholder="Full Name" style={styles.input} value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} />
+        <input placeholder="Email Address" style={styles.input} value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} />
+        <input placeholder="Phone Number" style={styles.input} value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} />
+        <input placeholder="Company Name" style={styles.input} value={form.company} onChange={(e) => setForm({ ...form, company: e.target.value })} />
+        <input placeholder="Business Type (Exporter, Trader...)" style={styles.input} value={form.type} onChange={(e) => setForm({ ...form, type: e.target.value })} />
 
-        <input
-          placeholder="Email Address"
-          style={styles.input}
-          value={form.email}
-          onChange={(e) => setForm({ ...form, email: e.target.value })}
-        />
-
-        <input
-          placeholder="Phone Number"
-          style={styles.input}
-          value={form.phone}
-          onChange={(e) => setForm({ ...form, phone: e.target.value })}
-        />
-
-        <input
-          placeholder="Company Name"
-          style={styles.input}
-          value={form.company}
-          onChange={(e) => setForm({ ...form, company: e.target.value })}
-        />
-
-        <input
-          placeholder="Business Type (Exporter, Trader...)"
-          style={styles.input}
-          value={form.type}
-          onChange={(e) => setForm({ ...form, type: e.target.value })}
-        />
-
-        {/* LICENSE */}
         <label style={styles.label}>Business License</label>
         <label style={styles.uploadBox}>
           📄 {license ? license.name : "Upload Business License"}
-          <input
-            type="file"
-            accept="image/*"
-            capture="environment"
-            style={{ display: "none" }}
-            onChange={(e) => setLicense(e.target.files?.[0] || null)}
-          />
+          <input type="file" accept="image/*" capture="environment" style={{ display: "none" }} onChange={(e) => setLicense(e.target.files?.[0] || null)} />
         </label>
 
-        {/* TAX */}
         <label style={styles.label}>Tax ID Document</label>
         <label style={styles.uploadBox}>
           📷 {tax ? tax.name : "Upload Tax Document"}
-          <input
-            type="file"
-            accept="image/*"
-            capture="environment"
-            style={{ display: "none" }}
-            onChange={(e) => setTax(e.target.files?.[0] || null)}
-          />
+          <input type="file" accept="image/*" capture="environment" style={{ display: "none" }} onChange={(e) => setTax(e.target.files?.[0] || null)} />
         </label>
 
         <button type="submit" style={styles.button} disabled={loading}>
@@ -205,7 +149,7 @@ const styles = {
   },
 
   title: {
-    textAlign: "center",
+    textAlign: "center" as const,
     marginBottom: "20px",
     fontSize: "22px",
     color: "#111",
@@ -233,7 +177,7 @@ const styles = {
     padding: "16px",
     border: "2px dashed #2563eb",
     borderRadius: "12px",
-    textAlign: "center",
+    textAlign: "center" as const,
     cursor: "pointer",
     marginBottom: "14px",
     background: "#f1f5ff",

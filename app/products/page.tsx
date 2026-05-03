@@ -14,13 +14,12 @@ export default function Page() {
   const filtered = products
     .filter((p) =>
       p.name.toLowerCase().includes(search.toLowerCase()) ||
-      p.hsnCode.includes(search)
+      (p.hsn?.includes(search) ?? false)
     )
     .filter((p) => (category ? p.category === category : true));
 
   return (
     <div className="page">
-
       <h1>Global Product Marketplace</h1>
 
       <Filters
@@ -37,7 +36,6 @@ export default function Page() {
       </div>
 
       <ProductModal product={selected} onClose={() => setSelected(null)} />
-
     </div>
   );
 }

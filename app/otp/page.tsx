@@ -1,19 +1,18 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { Suspense, useState, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
-export default function OTPPage() {
+function OTPContent() {
   const router = useRouter();
   const params = useSearchParams();
 
   const email = params.get("email") || "your email";
 
   const [otp, setOtp] = useState(["", "", "", "", "", ""]);
-  const [loading, setLoading] = useState(false); // ✅ added
-  const [timer, setTimer] = useState(30); // ✅ added
+  const [loading, setLoading] = useState(false);
+  const [timer, setTimer] = useState(30);
 
-  // ⏱ timer
   useEffect(() => {
     if (timer <= 0) return;
 
@@ -24,7 +23,6 @@ export default function OTPPage() {
     return () => clearInterval(interval);
   }, [timer]);
 
-  // handle input change
   const handleChange = (value: string, index: number) => {
     if (!/^[0-9]*$/.test(value)) return;
 
@@ -38,16 +36,17 @@ export default function OTPPage() {
     }
   };
 
-  // handle backspace
-  const handleKeyDown = (e: any, index: number) => {
+  const handleKeyDown = (
+    e: React.KeyboardEvent<HTMLInputElement>,
+    index: number
+  ) => {
     if (e.key === "Backspace" && !otp[index] && index > 0) {
       const prev = document.getElementById(`otp-${index - 1}`);
       prev?.focus();
     }
   };
 
-  // paste full OTP
-  const handlePaste = (e: any) => {
+  const handlePaste = (e: React.ClipboardEvent<HTMLDivElement>) => {
     const paste = e.clipboardData.getData("text").slice(0, 6);
     if (!/^\d+$/.test(paste)) return;
 
@@ -59,7 +58,6 @@ export default function OTPPage() {
 
   const isComplete = otp.every((d) => d !== "");
 
-  // ✅ VERIFY WITH BACKEND
   const handleVerify = async () => {
     if (!isComplete) return;
 
@@ -80,25 +78,23 @@ export default function OTPPage() {
       const data = await res.json();
 
       if (data.success) {
-        // ✅ store session
         localStorage.setItem("user", email);
-
         router.push("/subscription");
       } else {
         alert(data.message || "Invalid OTP ❌");
       }
     } catch (err) {
+      console.error("VERIFY ERROR:", err);
       alert("Something went wrong");
     } finally {
       setLoading(false);
     }
   };
 
-  // ✅ RESEND OTP
   const handleResend = async () => {
     if (timer > 0) return;
 
-    await fetch("/api/send-otp", {
+    await fetch("/api/send-email/send-otp", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -144,5 +140,13 @@ export default function OTPPage() {
         </span>
       </div>
     </div>
+  );
+}
+
+export default function OTPPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <OTPContent />
+    </Suspense>
   );
 }

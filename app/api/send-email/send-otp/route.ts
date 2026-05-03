@@ -1,5 +1,11 @@
 import nodemailer from "nodemailer";
 
+// ✅ FIX: declare global store for TypeScript
+declare global {
+  // eslint-disable-next-line no-var
+  var otpStore: Record<string, string> | undefined;
+}
+
 export async function POST(req: Request) {
   try {
     const { email } = await req.json();
@@ -11,7 +17,7 @@ export async function POST(req: Request) {
     // generate OTP
     const otp = Math.floor(100000 + Math.random() * 900000).toString();
 
-    console.log("OTP for", email, "=", otp); // debug
+    console.log("OTP for", email, "=", otp);
 
     // transporter
     const transporter = nodemailer.createTransport({
@@ -29,7 +35,7 @@ export async function POST(req: Request) {
       html: `<h2>Your OTP is: ${otp}</h2>`,
     });
 
-    // IMPORTANT: store OTP globally (temporary)
+    // ✅ SAFE GLOBAL STORE (FIXED)
     globalThis.otpStore = globalThis.otpStore || {};
     globalThis.otpStore[email] = otp;
 

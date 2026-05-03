@@ -9,7 +9,6 @@ export default function Home() {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
 
-  // validate email (basic)
   const isValidEmail = email.includes("@") && email.includes(".");
 
   const handleStart = async () => {
@@ -58,25 +57,22 @@ export default function Home() {
       } else {
         alert(data.message || "Failed to send OTP");
       }
-
-    } catch (error: any) {
+    } catch (error) {
       console.error("FETCH ERROR:", error);
 
-      if (error.name === "AbortError") {
+      if (error instanceof Error && error.name === "AbortError") {
         alert("Request timed out. Try again.");
       } else {
         alert("Network error. Check your connection.");
       }
-
     } finally {
       setLoading(false);
     }
   };
 
-  // image rows
-  const row1 = ["img1","img2","img3","img4","img5","img6"];
-  const row2 = ["img7","img8","img9","img10","img11","img12"];
-  const row3 = ["img13","img14","img15","img16","img17","img18"];
+  const row1 = ["img1", "img2", "img3", "img4", "img5", "img6"];
+  const row2 = ["img7", "img8", "img9", "img10", "img11", "img12"];
+  const row3 = ["img13", "img14", "img15", "img16", "img17", "img18"];
 
   const renderRow = (row: string[], className: string) => (
     <div className={`row ${className}`}>
@@ -92,10 +88,7 @@ export default function Home() {
 
   return (
     <div>
-
-      {/* ✅ HERO SECTION (UNCHANGED) */}
       <div className="hero">
-
         <div className="navbar">IMPEXVIAA</div>
 
         <div className="bg">
@@ -139,12 +132,9 @@ export default function Home() {
             14-day free trial • Plans starting at $29/month
           </p>
         </div>
-
       </div>
 
-      {/* ✅ BELOW HERO (NEW SECTION) */}
       <BelowHero />
-
     </div>
   );
 }
