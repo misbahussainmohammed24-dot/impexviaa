@@ -334,4 +334,16 @@ body {
   background: black;
   color: white;
   cursor: pointer;
+}.mobile-home {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .desktop-home {
+    display: none;
+  }
+
+  .mobile-home {
+    display: block;
+  }
 }

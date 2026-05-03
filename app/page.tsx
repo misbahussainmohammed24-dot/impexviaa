@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import BelowHero from "@/app/components/BelowHero";
+import MobileHome from "@/app/components/MobileHome";
 
 export default function Home() {
   const router = useRouter();
@@ -87,54 +88,62 @@ export default function Home() {
   );
 
   return (
-    <div>
-      <div className="hero">
-        <div className="navbar">IMPEXVIAA</div>
+    <>
+      {/* 🔥 DESKTOP VERSION */}
+      <div className="desktop-home">
+        <div className="hero">
+          <div className="navbar">IMPEXVIAA</div>
 
-        <div className="bg">
-          {renderRow(row1, "row1")}
-          {renderRow(row2, "row2")}
-          {renderRow(row3, "row3")}
-        </div>
-
-        <div className="hero-card">
-          <span className="badge">IMPEXVIAA GLOBAL TRADE</span>
-
-          <h1>Trade Globally with Verified Businesses</h1>
-
-          <p>
-            Secure global trade with verified buyers, real-time logistics,
-            and protected transactions.
-          </p>
-
-          <div className="input-box">
-            <input
-              type="email"
-              placeholder="Enter your business email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-
-            <button onClick={handleStart} disabled={loading}>
-              {loading ? "..." : "→"}
-            </button>
+          <div className="bg">
+            {renderRow(row1, "row1")}
+            {renderRow(row2, "row2")}
+            {renderRow(row3, "row3")}
           </div>
 
-          <button
-            className={`cta ${!isValidEmail || loading ? "disabled" : ""}`}
-            onClick={handleStart}
-            disabled={loading}
-          >
-            {loading ? "Sending..." : "Get Started"}
-          </button>
+          <div className="hero-card">
+            <span className="badge">IMPEXVIAA GLOBAL TRADE</span>
 
-          <p className="pricing">
-            14-day free trial • Plans starting at $29/month
-          </p>
+            <h1>Trade Globally with Verified Businesses</h1>
+
+            <p>
+              Secure global trade with verified buyers, real-time logistics,
+              and protected transactions.
+            </p>
+
+            <div className="input-box">
+              <input
+                type="email"
+                placeholder="Enter your business email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+
+              <button onClick={handleStart} disabled={loading}>
+                {loading ? "..." : "→"}
+              </button>
+            </div>
+
+            <button
+              className={`cta ${!isValidEmail || loading ? "disabled" : ""}`}
+              onClick={handleStart}
+              disabled={loading}
+            >
+              {loading ? "Sending..." : "Get Started"}
+            </button>
+
+            <p className="pricing">
+              14-day free trial • Plans starting at $29/month
+            </p>
+          </div>
         </div>
+
+        <BelowHero />
       </div>
 
-      <BelowHero />
-    </div>
+      {/* 📱 MOBILE VERSION */}
+      <div className="mobile-home">
+        <MobileHome />
+      </div>
+    </>
   );
 }
