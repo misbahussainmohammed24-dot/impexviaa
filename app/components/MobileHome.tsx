@@ -9,7 +9,7 @@ export default function MobileHome() {
 
   const start = () => {
     if (!email.includes("@") || !email.includes(".")) {
-      alert("Please enter a valid email");
+      alert("Enter valid email");
       return;
     }
 
@@ -25,9 +25,10 @@ export default function MobileHome() {
 
       <section className="mobile-hero-clean">
         <h1>Trade globally with verified businesses</h1>
+
         <p>
-          Discover trusted suppliers, verified buyers, secure quotations, and
-          global trade opportunities in one premium platform.
+          Discover trusted suppliers, secure quotations, and global trade
+          opportunities in one platform.
         </p>
 
         <input
@@ -47,6 +48,7 @@ export default function MobileHome() {
       <section className="mobile-preview-card">
         <div className="mobile-browser">
           <div className="mobile-browser-top">Global Marketplace</div>
+
           <div className="mobile-product-grid">
             <div>Electronics</div>
             <div>Pharma</div>
@@ -57,4 +59,18 @@ export default function MobileHome() {
       </section>
 
       <section className="mobile-dark-section">
-        <p className="mobile-small-title">Trusted B
+        <h2>Smarter global sourcing starts here</h2>
+
+        <div className="mobile-feature-card">
+          <h3>Verified suppliers</h3>
+          <p>Trust real businesses with proper verification.</p>
+        </div>
+
+        <div className="mobile-feature-card">
+          <h3>Secure quotations</h3>
+          <p>Request pricing and trade safely.</p>
+        </div>
+      </section>
+    </main>
+  );
+}
