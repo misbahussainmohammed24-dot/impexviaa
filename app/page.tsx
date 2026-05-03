@@ -1,65 +1,150 @@
-import Image from "next/image";
+"use client";
+
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import BelowHero from "@/app/components/BelowHero";
 
 export default function Home() {
+  const router = useRouter();
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  // validate email (basic)
+  const isValidEmail = email.includes("@") && email.includes(".");
+
+  const handleStart = async () => {
+    if (!isValidEmail) {
+      alert("Please enter a valid email");
+      return;
+    }
+
+    if (loading) return;
+
+    setLoading(true);
+
+    try {
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 10000);
+
+      const res = await fetch("/api/send-email/send-otp", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+        signal: controller.signal,
+      });
+
+      clearTimeout(timeout);
+
+      const text = await res.text();
+      let data;
+
+      try {
+        data = JSON.parse(text);
+      } catch {
+        console.error("❌ NOT JSON RESPONSE:", text);
+        alert("Server error. Check backend.");
+        return;
+      }
+
+      if (!res.ok) {
+        alert(data.message || "Server failed to process request");
+        return;
+      }
+
+      if (data.success) {
+        router.push(`/otp?email=${encodeURIComponent(email)}`);
+      } else {
+        alert(data.message || "Failed to send OTP");
+      }
+
+    } catch (error: any) {
+      console.error("FETCH ERROR:", error);
+
+      if (error.name === "AbortError") {
+        alert("Request timed out. Try again.");
+      } else {
+        alert("Network error. Check your connection.");
+      }
+
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // image rows
+  const row1 = ["img1","img2","img3","img4","img5","img6"];
+  const row2 = ["img7","img8","img9","img10","img11","img12"];
+  const row3 = ["img13","img14","img15","img16","img17","img18"];
+
+  const renderRow = (row: string[], className: string) => (
+    <div className={`row ${className}`}>
+      <div className="track">
+        {[...row, ...row].map((img, i) => (
+          <div key={i} className="card-img">
+            <img src={`/images/${img}.jpeg`} alt="product" />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div>
+
+      {/* ✅ HERO SECTION (UNCHANGED) */}
+      <div className="hero">
+
+        <div className="navbar">IMPEXVIAA</div>
+
+        <div className="bg">
+          {renderRow(row1, "row1")}
+          {renderRow(row2, "row2")}
+          {renderRow(row3, "row3")}
+        </div>
+
+        <div className="hero-card">
+          <span className="badge">IMPEXVIAA GLOBAL TRADE</span>
+
+          <h1>Trade Globally with Verified Businesses</h1>
+
+          <p>
+            Secure global trade with verified buyers, real-time logistics,
+            and protected transactions.
+          </p>
+
+          <div className="input-box">
+            <input
+              type="email"
+              placeholder="Enter your business email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+
+            <button onClick={handleStart} disabled={loading}>
+              {loading ? "..." : "→"}
+            </button>
+          </div>
+
+          <button
+            className={`cta ${!isValidEmail || loading ? "disabled" : ""}`}
+            onClick={handleStart}
+            disabled={loading}
+          >
+            {loading ? "Sending..." : "Get Started"}
+          </button>
+
+          <p className="pricing">
+            14-day free trial • Plans starting at $29/month
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+
+      </div>
+
+      {/* ✅ BELOW HERO (NEW SECTION) */}
+      <BelowHero />
+
     </div>
   );
 }

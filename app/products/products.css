@@ -1,0 +1,68 @@
+.page {
+  padding: 40px;
+  background: #f5f7fb;
+}
+
+h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 16px;
+  padding: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+}
+
+.card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.rating {
+  color: #f5a623;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+  background: white;
+  width: 600px;
+  margin: 50px auto;
+  padding: 30px;
+  border-radius: 20px;
+  overflow-y: auto;
+}
+
+blockquote {
+  background: #f1f5ff;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px 0;
+}
+
+.quote-btn {
+  background: #0066ff;
+  color: white;
+  padding: 12px;
+  border-radius: 10px;
+  margin-top: 20px;
+}

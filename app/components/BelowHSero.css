@@ -1,0 +1,59 @@
+.countries-section {
+  width: 100%;
+  background: #ffffff;
+  padding: 40px 0;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Fade edges (premium effect) */
+.countries-section::before,
+.countries-section::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 120px;
+  height: 100%;
+  z-index: 2;
+}
+
+.countries-section::before {
+  left: 0;
+  background: linear-gradient(to right, white, transparent);
+}
+
+.countries-section::after {
+  right: 0;
+  background: linear-gradient(to left, white, transparent);
+}
+
+/* scrolling container */
+.countries-track {
+  display: flex;
+  gap: 60px;
+  width: max-content;
+  animation: scrollCountries 25s linear infinite;
+}
+
+/* country item */
+.country {
+  font-size: 20px;
+  font-weight: 600;
+  color: #222;
+  white-space: nowrap;
+  transition: transform 0.3s ease;
+}
+
+.country:hover {
+  transform: scale(1.1);
+}
+
+/* animation */
+@keyframes scrollCountries {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
