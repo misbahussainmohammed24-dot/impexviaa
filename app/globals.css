@@ -346,4 +346,229 @@ body {
   .mobile-home {
     display: block;
   }
+}.mobile-home {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .desktop-home {
+    display: none;
+  }
+
+  .mobile-home {
+    display: block;
+  }
+
+  .mobile-impex-page {
+    width: 100%;
+    min-height: 100vh;
+    background: #020807;
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", Arial, sans-serif;
+    color: #ffffff;
+    overflow-x: hidden;
+  }
+
+  .mobile-impex-hero {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+    border-radius: 0 0 38px 38px;
+  }
+
+  .mobile-video-wrapper {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .mobile-hero-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.18);
+    filter: brightness(0.78);
+  }
+
+  .mobile-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.28) 0%,
+      rgba(0, 0, 0, 0.55) 45%,
+      rgba(0, 0, 0, 0.9) 100%
+    );
+  }
+
+  .mobile-impex-nav {
+    position: relative;
+    z-index: 2;
+    padding: 26px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .mobile-impex-logo {
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: -0.8px;
+    color: #ffffff;
+  }
+
+  .mobile-nav-link {
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 17px;
+    text-decoration: underline;
+    font-weight: 500;
+  }
+
+  .mobile-menu-btn {
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 30px;
+    line-height: 1;
+  }
+
+  .mobile-hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 120px 26px 34px;
+  }
+
+  .mobile-hero-content h1 {
+    font-size: 58px;
+    line-height: 0.96;
+    letter-spacing: -3px;
+    font-weight: 400;
+    color: #ffffff;
+    margin: 0 0 28px;
+  }
+
+  .mobile-hero-content p {
+    font-size: 22px;
+    line-height: 1.25;
+    color: rgba(255, 255, 255, 0.86);
+    margin: 0 0 28px;
+  }
+
+  .mobile-email-box {
+    width: 100%;
+    height: 60px;
+    background: #ffffff;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    margin-bottom: 14px;
+  }
+
+  .mobile-email-box input {
+    flex: 1;
+    height: 100%;
+    border: none;
+    outline: none;
+    padding: 0 22px;
+    font-size: 16px;
+    color: #050505;
+    background: #ffffff;
+  }
+
+  .mobile-email-box button {
+    width: 58px;
+    height: 58px;
+    border: none;
+    border-radius: 50%;
+    background: #050505;
+    color: #ffffff;
+    font-size: 24px;
+    margin-right: 1px;
+  }
+
+  .mobile-primary-cta {
+    width: 100%;
+    height: 66px;
+    border-radius: 999px;
+    border: none;
+    background: #ffffff;
+    color: #050505;
+    font-size: 19px;
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
+
+  .mobile-secondary-cta {
+    width: 100%;
+    height: 66px;
+    border-radius: 999px;
+    border: 2px solid rgba(255, 255, 255, 0.9);
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 700;
+    backdrop-filter: blur(8px);
+  }
+
+  .mobile-dark-panel {
+    background: #020807;
+    padding: 72px 26px 90px;
+    margin-top: -34px;
+    border-radius: 40px 40px 0 0;
+    position: relative;
+    z-index: 3;
+  }
+
+  .mobile-dark-panel h2 {
+    font-size: 48px;
+    line-height: 1.02;
+    font-weight: 400;
+    letter-spacing: -2.5px;
+    margin: 0 0 34px;
+    color: #ffffff;
+  }
+
+  .mobile-dark-panel h2 span {
+    color: rgba(255, 255, 255, 0.35);
+  }
+
+  .mobile-info-card {
+    background: #101a18;
+    border-radius: 28px;
+    padding: 26px;
+    margin-bottom: 18px;
+  }
+
+  .mobile-info-card h3 {
+    font-size: 26px;
+    margin: 0 0 10px;
+    color: #ffffff;
+  }
+
+  .mobile-info-card p {
+    font-size: 17px;
+    line-height: 1.45;
+    color: rgba(255, 255, 255, 0.68);
+    margin: 0;
+  }
+}
+
+@media (max-width: 420px) {
+  .mobile-hero-content h1 {
+    font-size: 50px;
+  }
+
+  .mobile-hero-content p {
+    font-size: 20px;
+  }
+
+  .mobile-dark-panel h2 {
+    font-size: 42px;
+  }
 }
