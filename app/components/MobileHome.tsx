@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function MobileHome() {
   const router = useRouter();
@@ -9,6 +9,27 @@ export default function MobileHome() {
   const [loading, setLoading] = useState(false);
 
   const isValidEmail = email.includes("@") && email.includes(".");
+
+  useEffect(() => {
+    const images = document.querySelector(".showcase-images");
+    if (!images) return;
+
+    const handleScroll = () => {
+      const box = images as HTMLElement;
+      const index = Math.round(box.scrollLeft / box.clientWidth);
+
+      document.querySelectorAll(".showcase-line").forEach((el, i) => {
+        if (i === index) {
+          el.classList.add("active");
+        } else {
+          el.classList.remove("active");
+        }
+      });
+    };
+
+    images.addEventListener("scroll", handleScroll);
+    return () => images.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const handleStart = async () => {
     if (!isValidEmail) {
@@ -95,8 +116,9 @@ export default function MobileHome() {
             className="mobile-secondary-cta"
             href="https://youtube.com"
             target="_blank"
+            rel="noopener noreferrer"
           >
-            ▶ Why we built IMPEXVIAA
+            ▶️ Why we built IMPEXVIAA
           </a>
         </div>
       </section>
@@ -119,6 +141,20 @@ export default function MobileHome() {
           <p>
             Request prices, trade terms, and supplier details with confidence.
           </p>
+        </div>
+      </section>
+
+      <section className="mobile-scroll-showcase">
+        <div className="showcase-text">
+          <h2 className="showcase-line active">Source products globally.</h2>
+          <h2 className="showcase-line">Trade across industries.</h2>
+          <h2 className="showcase-line">Connect with verified suppliers.</h2>
+        </div>
+
+        <div className="showcase-images">
+          <img src="/images/trade1.jpg" alt="Global sourcing" />
+          <img src="/images/trade2.jpg" alt="Trade industries" />
+          <img src="/images/trade3.jpg" alt="Verified suppliers" />
         </div>
       </section>
     </main>

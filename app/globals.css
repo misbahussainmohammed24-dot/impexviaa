@@ -571,4 +571,52 @@ body {
   .mobile-dark-panel h2 {
     font-size: 42px;
   }
+}@media (max-width: 768px) {
+  .mobile-scroll-showcase {
+    background: #020807;
+    padding: 80px 0 95px;
+    overflow: hidden;
+  }
+
+  .showcase-text {
+    padding: 0 26px;
+    margin-bottom: 34px;
+  }
+
+  .showcase-line {
+    font-size: 42px;
+    line-height: 1.04;
+    letter-spacing: -2px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.28);
+    margin: 0 0 8px;
+    transition: color 0.35s ease;
+  }
+
+  .showcase-line.active {
+    color: #ffffff;
+  }
+
+  .showcase-images {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    padding: 0 26px 10px;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  .showcase-images::-webkit-scrollbar {
+    display: none;
+  }
+
+  .showcase-images img {
+    width: 82%;
+    height: 360px;
+    object-fit: cover;
+    border-radius: 22px;
+    flex-shrink: 0;
+    scroll-snap-align: center;
+    border: 1px solid rgba(214, 165, 82, 0.25);
+  }
 }
