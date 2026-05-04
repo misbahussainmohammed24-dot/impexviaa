@@ -1,35 +1,58 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+
+const showcaseItems = [
+  {
+    text: "Source products globally.",
+    image: "/images/trade1.webp",
+    alt: "Global product sourcing",
+  },
+  {
+    text: "Discover verified suppliers.",
+    image: "/images/trade2.webp",
+    alt: "Verified suppliers",
+  },
+  {
+    text: "Trade across high-value industries.",
+    image: "/images/trade3.webp",
+    alt: "Trade industries",
+  },
+  {
+    text: "Move faster with secure quotations.",
+    image: "/images/trade4.webp",
+    alt: "Secure quotations",
+  },
+  {
+    text: "Connect buyers and sellers worldwide.",
+    image: "/images/trade5.webp",
+    alt: "Global buyer seller network",
+  },
+  {
+    text: "Power trade with intelligent automation.",
+    image: "/images/trade6.webp",
+    alt: "AI trade automation",
+  },
+  {
+    text: "Build trust before business begins.",
+    image: "/images/trade7.webp",
+    alt: "Trusted global trade",
+  },
+  {
+    text: "Scale globally with IMPEXVIAA.",
+    image: "/images/trade8.webp",
+    alt: "Impexviaa global platform",
+  },
+];
 
 export default function MobileHome() {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
+  const [activeShowcase, setActiveShowcase] = useState(0);
 
   const isValidEmail = email.includes("@") && email.includes(".");
-
-  useEffect(() => {
-    const images = document.querySelector(".showcase-images");
-    if (!images) return;
-
-    const handleScroll = () => {
-      const box = images as HTMLElement;
-      const index = Math.round(box.scrollLeft / box.clientWidth);
-
-      document.querySelectorAll(".showcase-line").forEach((el, i) => {
-        if (i === index) {
-          el.classList.add("active");
-        } else {
-          el.classList.remove("active");
-        }
-      });
-    };
-
-    images.addEventListener("scroll", handleScroll);
-    return () => images.removeEventListener("scroll", handleScroll);
-  }, []);
 
   const handleStart = async () => {
     if (!isValidEmail) {
@@ -61,6 +84,13 @@ export default function MobileHome() {
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleShowcaseScroll = (e: React.UIEvent<HTMLDivElement>) => {
+    const box = e.currentTarget;
+    const cardWidth = box.clientWidth * 0.82 + 16;
+    const index = Math.round(box.scrollLeft / cardWidth);
+    setActiveShowcase(Math.min(index, showcaseItems.length - 1));
   };
 
   return (
@@ -146,15 +176,27 @@ export default function MobileHome() {
 
       <section className="mobile-scroll-showcase">
         <div className="showcase-text">
-          <h2 className="showcase-line active">Source products globally.</h2>
-          <h2 className="showcase-line">Trade across industries.</h2>
-          <h2 className="showcase-line">Connect with verified suppliers.</h2>
+          {showcaseItems.map((item, index) => (
+            <h2
+              key={index}
+              className={`showcase-line ${
+                activeShowcase === index ? "active" : ""
+              }`}
+            >
+              {item.text}
+            </h2>
+          ))}
         </div>
 
-        <div className="showcase-images">
-          <img src="/images/trade1.jpg" alt="Global sourcing" />
-          <img src="/images/trade2.jpg" alt="Trade industries" />
-          <img src="/images/trade3.jpg" alt="Verified suppliers" />
+        <div className="showcase-images" onScroll={handleShowcaseScroll}>
+          {showcaseItems.map((item, index) => (
+            <img
+              key={index}
+              src={item.image}
+              alt={item.alt}
+              loading={index === 0 ? "eager" : "lazy"}
+            />
+          ))}
         </div>
       </section>
     </main>
