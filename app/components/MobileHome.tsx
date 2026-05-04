@@ -6,69 +6,119 @@ import { useState } from "react";
 export default function MobileHome() {
   const router = useRouter();
   const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const start = () => {
-    if (!email.includes("@") || !email.includes(".")) {
-      alert("Enter valid email");
+  const isValidEmail = email.includes("@") && email.includes(".");
+
+  const handleStart = async () => {
+    if (!isValidEmail) {
+      alert("Please enter a valid business email");
       return;
     }
 
-    router.push(`/otp?email=${encodeURIComponent(email)}`);
+    if (loading) return;
+    setLoading(true);
+
+    try {
+      const res = await fetch("/api/send-email/send-otp", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        router.push(`/otp?email=${encodeURIComponent(email)}`);
+      } else {
+        alert(data.message || "Failed to send OTP");
+      }
+    } catch {
+      alert("Network error. Try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
-    <main className="mobile-page">
-      <header className="mobile-nav">
-        <div className="mobile-logo">IMPEXVIAA</div>
-        <button onClick={start}>Start for free</button>
-      </header>
+    <main className="mobile-impex-page">
+      <section className="mobile-impex-hero">
+        <div className="mobile-video-wrapper">
+          <video autoPlay muted loop playsInline className="mobile-hero-video">
+            <source src="/videos/hero.mp4" type="video/mp4" />
+          </video>
+          <div className="mobile-hero-overlay" />
+        </div>
 
-      <section className="mobile-hero-clean">
-        <h1>Trade globally with verified businesses</h1>
+        <header className="mobile-impex-nav">
+          <div className="mobile-impex-logo">IMPEXVIAA</div>
 
-        <p>
-          Discover trusted suppliers, secure quotations, and global trade
-          opportunities in one platform.
-        </p>
+          <button className="mobile-nav-link" onClick={handleStart}>
+            Start for free
+          </button>
 
-        <input
-          type="email"
-          placeholder="Enter your business email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
+          <button className="mobile-menu-btn">☰</button>
+        </header>
 
-        <button className="mobile-main-btn" onClick={start}>
-          Start free trial
-        </button>
+        <div className="mobile-hero-content">
+          <h1>Be the next global trade brand buyers trust</h1>
 
-        <span>14-day free trial • No credit card required</span>
-      </section>
+          <p>
+            Build faster with verified suppliers, secure quotations, and global
+            business access through IMPEXVIAA.
+          </p>
 
-      <section className="mobile-preview-card">
-        <div className="mobile-browser">
-          <div className="mobile-browser-top">Global Marketplace</div>
+          <div className="mobile-email-box">
+            <input
+              type="email"
+              placeholder="Enter your business email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
 
-          <div className="mobile-product-grid">
-            <div>Electronics</div>
-            <div>Pharma</div>
-            <div>Agriculture</div>
-            <div>Auto Parts</div>
+            <button onClick={handleStart} disabled={loading}>
+              →
+            </button>
           </div>
+
+          <button
+            className="mobile-primary-cta"
+            onClick={handleStart}
+            disabled={loading}
+          >
+            {loading ? "Starting..." : "Start trading now"}
+          </button>
+
+          <a
+            className="mobile-secondary-cta"
+            href="https://youtube.com"
+            target="_blank"
+          >
+            ▶ Why we built IMPEXVIAA
+          </a>
         </div>
       </section>
 
-      <section className="mobile-dark-section">
-        <h2>Smarter global sourcing starts here</h2>
+      <section className="mobile-dark-panel">
+        <h2>
+          Trade everywhere business happens.{" "}
+          <span>Across borders, suppliers, and global markets.</span>
+        </h2>
 
-        <div className="mobile-feature-card">
+        <div className="mobile-info-card">
           <h3>Verified suppliers</h3>
-          <p>Trust real businesses with proper verification.</p>
+          <p>
+            Connect with genuine businesses and build trust before trade begins.
+          </p>
         </div>
 
-        <div className="mobile-feature-card">
+        <div className="mobile-info-card">
           <h3>Secure quotations</h3>
-          <p>Request pricing and trade safely.</p>
+          <p>
+            Request prices, trade terms, and supplier details with confidence.
+          </p>
         </div>
       </section>
     </main>
