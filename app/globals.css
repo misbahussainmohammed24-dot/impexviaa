@@ -622,23 +622,23 @@ body {
 }@media (max-width: 768px) {
   .mobile-scroll-showcase {
     background: #020807;
-    padding: 80px 0 95px;
+    padding: 55px 0 75px;
     overflow: hidden;
   }
 
   .showcase-text {
-    padding: 0 26px;
-    margin-bottom: 34px;
+    padding: 0 22px;
+    margin-bottom: 22px;
   }
 
   .showcase-line {
-    font-size: 40px;
-    line-height: 1.04;
-    letter-spacing: -2px;
+    font-size: 34px;
+    line-height: 1.05;
+    letter-spacing: -1.8px;
     font-weight: 400;
-    color: rgba(255, 255, 255, 0.24);
-    margin: 0 0 10px;
-    transition: color 0.35s ease, transform 0.35s ease;
+    color: rgba(255, 255, 255, 0.22);
+    margin: 0 0 6px;
+    transition: color 0.3s ease, transform 0.3s ease;
   }
 
   .showcase-line.active {
@@ -648,9 +648,9 @@ body {
 
   .showcase-images {
     display: flex;
-    gap: 16px;
+    gap: 6px;
     overflow-x: auto;
-    padding: 0 26px 10px;
+    padding: 0 16px 10px;
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
   }
@@ -660,13 +660,13 @@ body {
   }
 
   .showcase-images img {
-    width: 82%;
-    height: 390px;
+    width: 58%;
+    height: 230px;
     object-fit: cover;
-    border-radius: 24px;
+    border-radius: 18px;
     flex-shrink: 0;
     scroll-snap-align: center;
-    border: 1px solid rgba(214, 165, 82, 0.35);
-    box-shadow: 0 22px 55px rgba(0, 0, 0, 0.45);
+    border: 1px solid rgba(214, 165, 82, 0.28);
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.42);
   }
 }

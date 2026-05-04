@@ -5,42 +5,42 @@ import { useState } from "react";
 
 const showcaseItems = [
   {
-    text: "Source products globally.",
+    text: "Global sourcing",
     image: "/images/trade1.webp",
     alt: "Global product sourcing",
   },
   {
-    text: "Discover verified suppliers.",
+    text: "Verified suppliers",
     image: "/images/trade2.webp",
     alt: "Verified suppliers",
   },
   {
-    text: "Trade across high-value industries.",
+    text: "Smart quotations",
     image: "/images/trade3.webp",
     alt: "Trade industries",
   },
   {
-    text: "Move faster with secure quotations.",
+    text: "Cross-border trade",
     image: "/images/trade4.webp",
     alt: "Secure quotations",
   },
   {
-    text: "Connect buyers and sellers worldwide.",
+    text: "Trusted transactions",
     image: "/images/trade5.webp",
     alt: "Global buyer seller network",
   },
   {
-    text: "Power trade with intelligent automation.",
+    text: "AI-powered selling",
     image: "/images/trade6.webp",
     alt: "AI trade automation",
   },
   {
-    text: "Build trust before business begins.",
+    text: "Secure payments",
     image: "/images/trade7.webp",
     alt: "Trusted global trade",
   },
   {
-    text: "Scale globally with IMPEXVIAA.",
+    text: "Scale worldwide",
     image: "/images/trade8.webp",
     alt: "Impexviaa global platform",
   },
@@ -88,7 +88,7 @@ export default function MobileHome() {
 
   const handleShowcaseScroll = (e: React.UIEvent<HTMLDivElement>) => {
     const box = e.currentTarget;
-    const cardWidth = box.clientWidth * 0.82 + 16;
+    const cardWidth = box.clientWidth * 0.58 + 6;
     const index = Math.round(box.scrollLeft / cardWidth);
     setActiveShowcase(Math.min(index, showcaseItems.length - 1));
   };
