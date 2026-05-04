@@ -1,46 +1,46 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const showcaseItems = [
   {
-    text: "Global sourcing",
+    text: "Source globally through verified suppliers, trusted markets, and secure trade access.",
     image: "/images/trade1.webp",
     alt: "Global product sourcing",
   },
   {
-    text: "Verified suppliers",
+    text: "Discover real businesses across agriculture, pharma, electronics, machinery, and more.",
     image: "/images/trade2.webp",
     alt: "Verified suppliers",
   },
   {
-    text: "Smart quotations",
+    text: "Request quotations, compare suppliers, and move faster with confidence.",
     image: "/images/trade3.webp",
     alt: "Trade industries",
   },
   {
-    text: "Cross-border trade",
+    text: "Connect buyers and sellers across borders through one professional trade platform.",
     image: "/images/trade4.webp",
     alt: "Secure quotations",
   },
   {
-    text: "Trusted transactions",
+    text: "Build trust before business begins with cleaner profiles and verified access.",
     image: "/images/trade5.webp",
     alt: "Global buyer seller network",
   },
   {
-    text: "AI-powered selling",
+    text: "Use intelligent automation to create stores, product pages, and trade opportunities.",
     image: "/images/trade6.webp",
     alt: "AI trade automation",
   },
   {
-    text: "Secure payments",
+    text: "Support safer transactions with Impexviaa Pay and protected trade workflows.",
     image: "/images/trade7.webp",
     alt: "Trusted global trade",
   },
   {
-    text: "Scale worldwide",
+    text: "Scale worldwide with a premium import-export network built for modern businesses.",
     image: "/images/trade8.webp",
     alt: "Impexviaa global platform",
   },
@@ -48,11 +48,36 @@ const showcaseItems = [
 
 export default function MobileHome() {
   const router = useRouter();
+  const showcaseRef = useRef<HTMLDivElement | null>(null);
+
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const [activeShowcase, setActiveShowcase] = useState(0);
 
   const isValidEmail = email.includes("@") && email.includes(".");
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveShowcase((current) => {
+        const next = (current + 1) % showcaseItems.length;
+
+        const box = showcaseRef.current;
+        if (box) {
+          const firstCard = box.querySelector("img") as HTMLImageElement | null;
+          const cardWidth = firstCard ? firstCard.offsetWidth + 6 : box.clientWidth * 0.58 + 6;
+
+          box.scrollTo({
+            left: next * cardWidth,
+            behavior: "smooth",
+          });
+        }
+
+        return next;
+      });
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   const handleStart = async () => {
     if (!isValidEmail) {
@@ -88,8 +113,10 @@ export default function MobileHome() {
 
   const handleShowcaseScroll = (e: React.UIEvent<HTMLDivElement>) => {
     const box = e.currentTarget;
-    const cardWidth = box.clientWidth * 0.58 + 6;
+    const firstCard = box.querySelector("img") as HTMLImageElement | null;
+    const cardWidth = firstCard ? firstCard.offsetWidth + 6 : box.clientWidth * 0.58 + 6;
     const index = Math.round(box.scrollLeft / cardWidth);
+
     setActiveShowcase(Math.min(index, showcaseItems.length - 1));
   };
 
@@ -176,19 +203,16 @@ export default function MobileHome() {
 
       <section className="mobile-scroll-showcase">
         <div className="showcase-text">
-          {showcaseItems.map((item, index) => (
-            <h2
-              key={index}
-              className={`showcase-line ${
-                activeShowcase === index ? "active" : ""
-              }`}
-            >
-              {item.text}
-            </h2>
-          ))}
+          <p className="showcase-premium-text">
+            {showcaseItems[activeShowcase].text}
+          </p>
         </div>
 
-        <div className="showcase-images" onScroll={handleShowcaseScroll}>
+        <div
+          ref={showcaseRef}
+          className="showcase-images"
+          onScroll={handleShowcaseScroll}
+        >
           {showcaseItems.map((item, index) => (
             <img
               key={index}
