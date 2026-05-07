@@ -257,10 +257,13 @@ export default function MobileHome() {
             </p>
           </div>
 
-          <div className="hxn-chat-box">
-            <span>I need verified pharmaceutical suppliers from Europe</span>
-            <button>↑</button>
-          </div>
+         <div className="hxn-chat-box">
+  <div className="typing-text">
+    I need verified pharmaceutical suppliers from Europe
+  </div>
+
+  <button>↑</button>
+</div>
         </div>
       </section>
     </main>
