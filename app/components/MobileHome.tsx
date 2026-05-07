@@ -1,54 +1,53 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 const showcaseItems = [
   {
-    text: "Source globally through verified suppliers, trusted markets, and secure trade access.",
+    text: "Global sourcing, built for serious buyers.",
     image: "/images/trade1.webp",
-    alt: "Global product sourcing",
+    alt: "Global sourcing",
   },
   {
-    text: "Discover real businesses across agriculture, pharma, electronics, machinery, and more.",
+    text: "Verified suppliers across trusted markets.",
     image: "/images/trade2.webp",
     alt: "Verified suppliers",
   },
   {
-    text: "Request quotations, compare suppliers, and move faster with confidence.",
+    text: "Smart quotations before every deal begins.",
     image: "/images/trade3.webp",
-    alt: "Trade industries",
+    alt: "Smart quotations",
   },
   {
-    text: "Connect buyers and sellers across borders through one professional trade platform.",
+    text: "Cross-border trade with confidence.",
     image: "/images/trade4.webp",
-    alt: "Secure quotations",
+    alt: "Cross-border trade",
   },
   {
-    text: "Build trust before business begins with cleaner profiles and verified access.",
+    text: "Trusted transactions for global businesses.",
     image: "/images/trade5.webp",
-    alt: "Global buyer seller network",
+    alt: "Trusted transactions",
   },
   {
-    text: "Use intelligent automation to create stores, product pages, and trade opportunities.",
+    text: "AI-powered stores for modern exporters.",
     image: "/images/trade6.webp",
-    alt: "AI trade automation",
+    alt: "AI-powered selling",
   },
   {
-    text: "Support safer transactions with Impexviaa Pay and protected trade workflows.",
+    text: "Secure payments through IMPEXVIAA Pay.",
     image: "/images/trade7.webp",
-    alt: "Trusted global trade",
+    alt: "Secure payments",
   },
   {
-    text: "Scale worldwide with a premium import-export network built for modern businesses.",
+    text: "Scale worldwide with one premium trade platform.",
     image: "/images/trade8.webp",
-    alt: "Impexviaa global platform",
+    alt: "Scale worldwide",
   },
 ];
 
 export default function MobileHome() {
   const router = useRouter();
-  const showcaseRef = useRef<HTMLDivElement | null>(null);
 
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
@@ -58,22 +57,7 @@ export default function MobileHome() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setActiveShowcase((current) => {
-        const next = (current + 1) % showcaseItems.length;
-
-        const box = showcaseRef.current;
-        if (box) {
-          const firstCard = box.querySelector("img") as HTMLImageElement | null;
-          const cardWidth = firstCard ? firstCard.offsetWidth + 6 : box.clientWidth * 0.58 + 6;
-
-          box.scrollTo({
-            left: next * cardWidth,
-            behavior: "smooth",
-          });
-        }
-
-        return next;
-      });
+      setActiveShowcase((prev) => (prev + 1) % showcaseItems.length);
     }, 4000);
 
     return () => clearInterval(interval);
@@ -109,15 +93,6 @@ export default function MobileHome() {
     } finally {
       setLoading(false);
     }
-  };
-
-  const handleShowcaseScroll = (e: React.UIEvent<HTMLDivElement>) => {
-    const box = e.currentTarget;
-    const firstCard = box.querySelector("img") as HTMLImageElement | null;
-    const cardWidth = firstCard ? firstCard.offsetWidth + 6 : box.clientWidth * 0.58 + 6;
-    const index = Math.round(box.scrollLeft / cardWidth);
-
-    setActiveShowcase(Math.min(index, showcaseItems.length - 1));
   };
 
   return (
@@ -182,21 +157,34 @@ export default function MobileHome() {
 
       <section className="mobile-dark-panel">
         <h2>
-          Trade everywhere business happens.{" "}
-          <span>Across borders, suppliers, and global markets.</span>
+          Global trade, rebuilt for trust.{" "}
+          <span>
+            Verified suppliers, protected quotations, and premium business
+            access.
+          </span>
         </h2>
 
-        <div className="mobile-info-card">
-          <h3>Verified suppliers</h3>
+        <div className="mobile-info-card glitter-card">
+          <h3>Verified global suppliers</h3>
           <p>
-            Connect with genuine businesses and build trust before trade begins.
+            Work with credible businesses, cleaner profiles, and supplier access
+            designed for serious international trade.
           </p>
         </div>
 
-        <div className="mobile-info-card">
-          <h3>Secure quotations</h3>
+        <div className="mobile-info-card glitter-card">
+          <h3>Secure trade quotations</h3>
           <p>
-            Request prices, trade terms, and supplier details with confidence.
+            Request prices, compare terms, and begin business conversations with
+            clarity before every deal.
+          </p>
+        </div>
+
+        <div className="mobile-info-card glitter-card">
+          <h3>IMPEXVIAA Pay</h3>
+          <p>
+            A premium payment layer built to support safer, faster, and more
+            trusted global transactions.
           </p>
         </div>
       </section>
@@ -208,19 +196,71 @@ export default function MobileHome() {
           </p>
         </div>
 
-        <div
-          ref={showcaseRef}
-          className="showcase-images"
-          onScroll={handleShowcaseScroll}
-        >
-          {showcaseItems.map((item, index) => (
-            <img
+        <div className="single-showcase-card">
+          <img
+            key={showcaseItems[activeShowcase].image}
+            src={showcaseItems[activeShowcase].image}
+            alt={showcaseItems[activeShowcase].alt}
+          />
+        </div>
+
+        <div className="showcase-dots">
+          {showcaseItems.map((_, index) => (
+            <button
               key={index}
-              src={item.image}
-              alt={item.alt}
-              loading={index === 0 ? "eager" : "lazy"}
+              className={activeShowcase === index ? "active" : ""}
+              onClick={() => setActiveShowcase(index)}
             />
           ))}
+        </div>
+      </section>
+
+      <section className="hxn-ai-section">
+        <div className="hxn-ai-card">
+          <div className="hxn-badge">HXN AI</div>
+
+          <h2>One AI assistant for exporters, buyers, and global trade.</h2>
+
+          <p>
+            HXN helps exporters create premium product stores, generate product
+            descriptions, organise listings, and present their business in a
+            trusted global marketplace.
+          </p>
+
+          <div className="hxn-video-box">
+            <video autoPlay muted loop playsInline>
+              <source src="/ai-card-hxn.mp4" type="video/mp4" />
+            </video>
+          </div>
+
+          <div className="hxn-feature-card">
+            <h3>For exporters</h3>
+            <p>
+              Ask HXN to build your store, write product details, create selling
+              pages, and prepare your business for international buyers.
+            </p>
+          </div>
+
+          <div className="hxn-feature-card">
+            <h3>For buyers</h3>
+            <p>
+              Buyers can ask HXN for trusted suppliers, niche products,
+              quotations, product categories, and sourcing suggestions.
+            </p>
+          </div>
+
+          <div className="hxn-feature-card">
+            <h3>For trade teams</h3>
+            <p>
+              HXN supports supplier discovery, product matching, quotation
+              preparation, business verification, and faster decision-making.
+            </p>
+          </div>
+
+          <div className="hxn-chat-box">
+            <span>I need verified pharmaceutical suppliers from Europe</span>
+            <button>↑</button>
+          </div>
         </div>
       </section>
     </main>
