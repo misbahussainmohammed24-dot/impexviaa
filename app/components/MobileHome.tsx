@@ -261,9 +261,70 @@ export default function MobileHome() {
   <div className="typing-text">
     I need verified pharmaceutical suppliers from Europe
   </div>
-
   <button>↑</button>
 </div>
+<section className="global-trade-section">
+  <div className="global-trade-card">
+    <h2>Scale trade across global markets</h2>
+
+    <p className="global-trade-subtext">
+      IMPEXVIAA helps exporters connect with international buyers,
+      manage quotations, discover suppliers, and expand across
+      industries through one intelligent trade ecosystem.
+    </p>
+
+    <div className="trade-world-ui">
+      <div className="trade-flags">
+        <span>🇺🇸</span>
+        <span>🇬🇧</span>
+        <span>🇦🇺</span>
+        <span>🇩🇪</span>
+        <span>🇧🇷</span>
+        <span>🇮🇳</span>
+        <span>🇦🇪</span>
+      </div>
+
+      <div className="trade-order-card">
+        <img
+          src="/images/trade8.webp"
+          alt="Global trade"
+        />
+
+        <div className="trade-order-popup">
+          <span>🌍 New buyer request from Europe</span>
+        </div>
+
+        <button>View quotation</button>
+      </div>
+
+      <div className="trade-shipping-box">
+        <div className="shipping-row">
+          <span>Sea freight</span>
+          <strong>$2,450</strong>
+        </div>
+
+        <div className="shipping-row">
+          <span>Air cargo</span>
+          <strong>$5,980</strong>
+        </div>
+
+        <div className="shipping-row">
+          <span>Custom clearance</span>
+          <strong>Included</strong>
+        </div>
+
+        <div className="shipping-total">
+          <span>Total trade value</span>
+          <strong>$48,700 USD</strong>
+        </div>
+
+        <button className="trade-action-btn">
+          Continue global trade
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
         </div>
       </section>
     </main>
