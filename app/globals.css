@@ -973,22 +973,43 @@ body {
   gap: 20px;
 }
 
-.trade-flags {
-  display: flex;
-  gap: 12px;
-  overflow-x: auto;
+.trade-flags-wrapper {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
 }
 
-.trade-flags span {
-  min-width: 54px;
-  height: 54px;
+.trade-flags-track {
+  display: flex;
+  gap: 12px;
+  width: max-content;
+  animation: tradeFlagsMove 18s linear infinite;
+}
+
+.trade-flags-track span {
+  min-width: 58px;
+  height: 58px;
   border-radius: 18px;
   background: rgba(255,255,255,0.06);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 26px;
-  backdrop-filter: blur(10px);
+  font-size: 28px;
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255,255,255,0.05);
+  box-shadow:
+    0 0 20px rgba(0,255,180,0.08),
+    inset 0 0 10px rgba(255,255,255,0.03);
+}
+
+@keyframes tradeFlagsMove {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .trade-order-card {

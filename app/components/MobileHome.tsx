@@ -4,51 +4,18 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const showcaseItems = [
-  {
-    text: "Global sourcing, built for serious buyers.",
-    image: "/images/trade1.webp",
-    alt: "Global sourcing",
-  },
-  {
-    text: "Verified suppliers across trusted markets.",
-    image: "/images/trade2.webp",
-    alt: "Verified suppliers",
-  },
-  {
-    text: "Smart quotations before every deal begins.",
-    image: "/images/trade3.webp",
-    alt: "Smart quotations",
-  },
-  {
-    text: "Cross-border trade with confidence.",
-    image: "/images/trade4.webp",
-    alt: "Cross-border trade",
-  },
-  {
-    text: "Trusted transactions for global businesses.",
-    image: "/images/trade5.webp",
-    alt: "Trusted transactions",
-  },
-  {
-    text: "AI-powered stores for modern exporters.",
-    image: "/images/trade6.webp",
-    alt: "AI-powered selling",
-  },
-  {
-    text: "Secure payments through IMPEXVIAA Pay.",
-    image: "/images/trade7.webp",
-    alt: "Secure payments",
-  },
-  {
-    text: "Scale worldwide with one premium trade platform.",
-    image: "/images/trade8.webp",
-    alt: "Scale worldwide",
-  },
+  { text: "Global sourcing, built for serious buyers.", image: "/images/trade1.webp", alt: "Global sourcing" },
+  { text: "Verified suppliers across trusted markets.", image: "/images/trade2.webp", alt: "Verified suppliers" },
+  { text: "Smart quotations before every deal begins.", image: "/images/trade3.webp", alt: "Smart quotations" },
+  { text: "Cross-border trade with confidence.", image: "/images/trade4.webp", alt: "Cross-border trade" },
+  { text: "Trusted transactions for global businesses.", image: "/images/trade5.webp", alt: "Trusted transactions" },
+  { text: "AI-powered stores for modern exporters.", image: "/images/trade6.webp", alt: "AI-powered selling" },
+  { text: "Secure payments through IMPEXVIAA Pay.", image: "/images/trade7.webp", alt: "Secure payments" },
+  { text: "Scale worldwide with one premium trade platform.", image: "/images/trade8.webp", alt: "Scale worldwide" },
 ];
 
 export default function MobileHome() {
   const router = useRouter();
-
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const [activeShowcase, setActiveShowcase] = useState(0);
@@ -75,9 +42,7 @@ export default function MobileHome() {
     try {
       const res = await fetch("/api/send-email/send-otp", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),
       });
 
@@ -257,74 +222,80 @@ export default function MobileHome() {
             </p>
           </div>
 
-         <div className="hxn-chat-box">
-  <div className="typing-text">
-    I need verified pharmaceutical suppliers from Europe
-  </div>
-  <button>↑</button>
-</div>
-<section className="global-trade-section">
-  <div className="global-trade-card">
-    <h2>Scale trade across global markets</h2>
-
-    <p className="global-trade-subtext">
-      IMPEXVIAA helps exporters connect with international buyers,
-      manage quotations, discover suppliers, and expand across
-      industries through one intelligent trade ecosystem.
-    </p>
-
-    <div className="trade-world-ui">
-      <div className="trade-flags">
-        <span>🇺🇸</span>
-        <span>🇬🇧</span>
-        <span>🇦🇺</span>
-        <span>🇩🇪</span>
-        <span>🇧🇷</span>
-        <span>🇮🇳</span>
-        <span>🇦🇪</span>
-      </div>
-
-      <div className="trade-order-card">
-        <img
-          src="/images/trade8.webp"
-          alt="Global trade"
-        />
-
-        <div className="trade-order-popup">
-          <span>🌍 New buyer request from Europe</span>
+          <div className="hxn-chat-box">
+            <div className="typing-text">
+              I need verified pharmaceutical suppliers from Europe
+            </div>
+            <button>↑</button>
+          </div>
         </div>
+      </section>
 
-        <button>View quotation</button>
-      </div>
+      <section className="global-trade-section">
+        <div className="global-trade-card">
+          <h2>Scale trade across global markets</h2>
 
-      <div className="trade-shipping-box">
-        <div className="shipping-row">
-          <span>Sea freight</span>
-          <strong>$2,450</strong>
-        </div>
+          <p className="global-trade-subtext">
+            IMPEXVIAA helps exporters connect with international buyers, manage
+            quotations, discover suppliers, and expand across industries through
+            one intelligent trade ecosystem.
+          </p>
 
-        <div className="shipping-row">
-          <span>Air cargo</span>
-          <strong>$5,980</strong>
-        </div>
+          <div className="trade-flags-wrapper">
+            <div className="trade-flags-track">
+              <span>🇺🇸</span>
+              <span>🇬🇧</span>
+              <span>🇦🇺</span>
+              <span>🇩🇪</span>
+              <span>🇧🇷</span>
+              <span>🇮🇳</span>
+              <span>🇦🇪</span>
+              <span>🇬🇪</span>
 
-        <div className="shipping-row">
-          <span>Custom clearance</span>
-          <strong>Included</strong>
-        </div>
+              <span>🇺🇸</span>
+              <span>🇬🇧</span>
+              <span>🇦🇺</span>
+              <span>🇩🇪</span>
+              <span>🇧🇷</span>
+              <span>🇮🇳</span>
+              <span>🇦🇪</span>
+              <span>🇬🇪</span>
+            </div>
+          </div>
 
-        <div className="shipping-total">
-          <span>Total trade value</span>
-          <strong>$48,700 USD</strong>
-        </div>
+          <div className="trade-order-card">
+            <img src="/images/trade8.webp" alt="Global trade" />
 
-        <button className="trade-action-btn">
-          Continue global trade
-        </button>
-      </div>
-    </div>
-  </div>
-</section>
+            <div className="trade-order-popup">
+              <span>🌍 New buyer request from Europe</span>
+            </div>
+
+            <button>View quotation</button>
+          </div>
+
+          <div className="trade-shipping-box">
+            <div className="shipping-row">
+              <span>Sea freight</span>
+              <strong>$2,450</strong>
+            </div>
+
+            <div className="shipping-row">
+              <span>Air cargo</span>
+              <strong>$5,980</strong>
+            </div>
+
+            <div className="shipping-row">
+              <span>Custom clearance</span>
+              <strong>Included</strong>
+            </div>
+
+            <div className="shipping-total">
+              <span>Total trade value</span>
+              <strong>$48,700 USD</strong>
+            </div>
+
+            <button className="trade-action-btn">Continue global trade</button>
+          </div>
         </div>
       </section>
     </main>
