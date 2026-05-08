@@ -1088,4 +1088,62 @@ body {
   color: black;
   font-size: 16px;
   font-weight: 700;
+}.mobile-footer-section {
+  background: #000;
+  padding: 58px 28px 90px;
+  color: #fff;
+}
+
+.footer-column {
+  margin-bottom: 48px;
+}
+
+.footer-column h3 {
+  font-size: 25px;
+  font-weight: 500;
+  margin-bottom: 22px;
+  color: #ffffff;
+}
+
+.footer-column p,
+.footer-legal p {
+  font-size: 20px;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 0 0 20px;
+}
+
+.footer-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.14);
+  margin: 20px 0 30px;
+}
+
+.footer-region {
+  font-size: 20px;
+  color: #ffffff;
+  margin-bottom: 38px;
+}
+
+.footer-legal {
+  margin-bottom: 35px;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.footer-socials span {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 800;
 }

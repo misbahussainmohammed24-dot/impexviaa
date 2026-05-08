@@ -16,6 +16,7 @@ const showcaseItems = [
 
 export default function MobileHome() {
   const router = useRouter();
+
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const [activeShowcase, setActiveShowcase] = useState(0);
@@ -124,8 +125,7 @@ export default function MobileHome() {
         <h2>
           Global trade, rebuilt for trust.{" "}
           <span>
-            Verified suppliers, protected quotations, and premium business
-            access.
+            Verified suppliers, protected quotations, and premium business access.
           </span>
         </h2>
 
@@ -251,7 +251,6 @@ export default function MobileHome() {
               <span>🇮🇳</span>
               <span>🇦🇪</span>
               <span>🇬🇪</span>
-
               <span>🇺🇸</span>
               <span>🇬🇧</span>
               <span>🇦🇺</span>
@@ -296,6 +295,62 @@ export default function MobileHome() {
 
             <button className="trade-action-btn">Continue global trade</button>
           </div>
+        </div>
+      </section>
+
+      <section className="mobile-footer-section">
+        <div className="footer-column">
+          <h3>IMPEXVIAA</h3>
+          <p>About IMPEXVIAA</p>
+          <p>How global trade works</p>
+          <p>AI-generated stores</p>
+          <p>IMPEXVIAA Pay</p>
+          <p>Supplier verification</p>
+        </div>
+
+        <div className="footer-column">
+          <h3>Marketplace</h3>
+          <p>Agriculture</p>
+          <p>Pharmaceuticals</p>
+          <p>Electronics</p>
+          <p>Machinery</p>
+          <p>Auto parts</p>
+        </div>
+
+        <div className="footer-column">
+          <h3>Resources</h3>
+          <p>Trade guides</p>
+          <p>Export support</p>
+          <p>Buyer protection</p>
+          <p>Seller tools</p>
+          <p>Global sourcing</p>
+        </div>
+
+        <div className="footer-column">
+          <h3>Support</h3>
+          <p>Help Center</p>
+          <p>Contact support</p>
+          <p>Service status</p>
+          <p>Report supplier</p>
+        </div>
+
+        <div className="footer-divider" />
+
+        <div className="footer-region">🌍 Georgia | English ▾</div>
+
+        <div className="footer-legal">
+          <p>Terms of Service</p>
+          <p>Legal</p>
+          <p>Privacy Policy</p>
+          <p>Sitemap</p>
+        </div>
+
+        <div className="footer-socials">
+          <span>f</span>
+          <span>𝕏</span>
+          <span>▶</span>
+          <span>◎</span>
+          <span>in</span>
         </div>
       </section>
     </main>
