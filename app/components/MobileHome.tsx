@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-
+import Link from "next/link";
 const showcaseItems = [
   { text: "Global sourcing, built for serious buyers.", image: "/images/trade1.webp", alt: "Global sourcing" },
   { text: "Verified suppliers across trusted markets.", image: "/images/trade2.webp", alt: "Verified suppliers" },
@@ -297,62 +297,71 @@ export default function MobileHome() {
           </div>
         </div>
       </section>
+ <section className="mobile-footer-section">
+  <div className="footer-column">
+    <h3>IMPEXVIAA</h3>
+    <a href="/about">About IMPEXVIAA</a>
+    <a href="/how-global-trade-works">How global trade works</a>
+    <a href="/ai-generated-stores">AI-generated stores</a>
+    <a href="/impexviaa-pay">IMPEXVIAA Pay</a>
+    <a href="/supplier-verification">Supplier verification</a>
+  </div>
 
-      <section className="mobile-footer-section">
-        <div className="footer-column">
-          <h3>IMPEXVIAA</h3>
-          <p>About IMPEXVIAA</p>
-          <p>How global trade works</p>
-          <p>AI-generated stores</p>
-          <p>IMPEXVIAA Pay</p>
-          <p>Supplier verification</p>
-        </div>
+  <div className="footer-column">
+    <h3>Marketplace</h3>
+    <a href="/marketplace/agriculture">Agriculture</a>
+    <a href="/marketplace/pharmaceuticals">Pharmaceuticals</a>
+    <a href="/marketplace/electronics">Electronics</a>
+    <a href="/marketplace/machinery">Machinery</a>
+    <a href="/marketplace/auto-parts">Auto parts</a>
+    <a href="/marketplace/textiles">Textiles</a>
+    <a href="/marketplace/chemicals">Chemicals</a>
+    <a href="/marketplace/food-beverages">Food & beverages</a>
+    <a href="/marketplace/construction-materials">Construction materials</a>
+    <a href="/marketplace/logistics">Logistics services</a>
+    <a href="/marketplace/metals-steel">Metals & steel</a>
+    <a href="/marketplace/packaging">Packaging</a>
+  </div>
 
-        <div className="footer-column">
-          <h3>Marketplace</h3>
-          <p>Agriculture</p>
-          <p>Pharmaceuticals</p>
-          <p>Electronics</p>
-          <p>Machinery</p>
-          <p>Auto parts</p>
-        </div>
+  <div className="footer-column">
+    <h3>Resources</h3>
+    <a href="/resources/trade-guides">Trade guides</a>
+    <a href="/resources/export-support">Export support</a>
+    <a href="/resources/buyer-protection">Buyer protection</a>
+    <a href="/resources/seller-tools">Seller tools</a>
+    <a href="/resources/global-sourcing">Global sourcing</a>
+  </div>
 
-        <div className="footer-column">
-          <h3>Resources</h3>
-          <p>Trade guides</p>
-          <p>Export support</p>
-          <p>Buyer protection</p>
-          <p>Seller tools</p>
-          <p>Global sourcing</p>
-        </div>
+  <div className="footer-column">
+    <h3>Support</h3>
+    <a href="/support/help-center">Help Center</a>
+    <a href="/support/contact-support">Contact support</a>
+    <a href="/support/service-status">Service status</a>
+    <a href="/support/report-supplier">Report supplier</a>
+  </div>
 
-        <div className="footer-column">
-          <h3>Support</h3>
-          <p>Help Center</p>
-          <p>Contact support</p>
-          <p>Service status</p>
-          <p>Report supplier</p>
-        </div>
+  <div className="footer-divider" />
 
-        <div className="footer-divider" />
+  <div className="footer-region">
+    <a href="/?lang=en-GE">🌍 Georgia | English</a>
+    <a href="/ge">🇬🇪 ქართული</a>
+  </div>
 
-        <div className="footer-region">🌍 Georgia | English ▾</div>
+  <div className="footer-legal">
+    <a href="/terms">Terms of Service</a>
+    <a href="/legal">Legal</a>
+    <a href="/privacy-policy">Privacy Policy</a>
+    <a href="/sitemap">Sitemap</a>
+  </div>
 
-        <div className="footer-legal">
-          <p>Terms of Service</p>
-          <p>Legal</p>
-          <p>Privacy Policy</p>
-          <p>Sitemap</p>
-        </div>
-
-        <div className="footer-socials">
-          <span>f</span>
-          <span>𝕏</span>
-          <span>▶</span>
-          <span>◎</span>
-          <span>in</span>
-        </div>
-      </section>
-    </main>
+  <div className="footer-socials">
+    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">f</a>
+    <a href="https://x.com" target="_blank" rel="noopener noreferrer">𝕏</a>
+    <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">▶️</a>
+    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">◎</a>
+    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">in</a>
+  </div>
+</section>
+</main>
   );
 }
