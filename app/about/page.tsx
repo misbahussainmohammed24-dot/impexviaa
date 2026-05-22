@@ -2,96 +2,115 @@ export default function AboutPage() {
   return (
     <main className="about-page">
       <section className="about-hero">
-        <div className="about-overlay" />
-
         <div className="about-content">
-          <span className="about-badge">GLOBAL B2B PLATFORM</span>
+          <span className="about-badge">ABOUT IMPEXVIAA</span>
 
-          <h1>
-            Building the future of
-            <br />
-            global trade.
-          </h1>
+          <h1>Building a smarter global trade ecosystem.</h1>
 
           <p className="about-description">
-            IMPEXVIAA is a premium AI-powered B2B import-export ecosystem
-            helping suppliers, exporters, manufacturers, and buyers trade
-            globally with trust, verification, secure quotations, and
-            intelligent sourcing tools.
+            IMPEXVIAA is a premium B2B import-export platform designed to help
+            exporters, suppliers, manufacturers, and buyers connect globally
+            through trusted sourcing, AI-powered business tools, and secure
+            international trade workflows.
           </p>
 
-          <div className="about-stats">
-            <div className="about-stat-card">
-              <h2>120+</h2>
-              <span>Countries supported</span>
-            </div>
-
-            <div className="about-stat-card">
-              <h2>AI</h2>
-              <span>Trade intelligence engine</span>
-            </div>
-
-            <div className="about-stat-card">
-              <h2>24/7</h2>
-              <span>Global marketplace access</span>
-            </div>
-          </div>
+          <p className="about-description">
+            Our platform combines supplier discovery, quotations,
+            AI-generated stores, trade intelligence, and future-ready payment
+            systems into one modern global ecosystem.
+          </p>
         </div>
       </section>
 
       <section className="about-section">
-        <h2>What IMPEXVIAA does</h2>
+        <h2>Why IMPEXVIAA exists</h2>
+
+        <p className="about-long-text">
+          International trade is still fragmented, outdated, and difficult for
+          many businesses. Companies struggle with supplier trust, product
+          discovery, quotations, verification, communication delays, and market
+          expansion.
+        </p>
+
+        <p className="about-long-text">
+          IMPEXVIAA was created to modernise global B2B trade by building a
+          cleaner, faster, and more intelligent ecosystem where exporters,
+          manufacturers, suppliers, and buyers can connect professionally.
+        </p>
+      </section>
+
+      <section className="about-grid-section">
+        <h2>What we provide</h2>
 
         <div className="about-grid">
           <div className="about-card">
             <h3>Verified suppliers</h3>
             <p>
-              Discover trusted global suppliers with cleaner business
-              verification and professional trade profiles.
+              Discover supplier profiles and global sourcing opportunities with
+              improved trust and verification systems.
             </p>
           </div>
 
           <div className="about-card">
             <h3>AI-generated stores</h3>
             <p>
-              Exporters can create premium AI-powered product stores in
-              minutes using HXN AI.
+              Exporters can instantly create premium AI-powered business stores,
+              product pages, and professional trade listings.
             </p>
           </div>
 
           <div className="about-card">
             <h3>Secure quotations</h3>
             <p>
-              Buyers and suppliers can negotiate quotations with transparent
-              communication and faster deal flow.
+              Buyers and suppliers can manage quotations and business
+              communication through structured workflows.
             </p>
           </div>
 
           <div className="about-card">
-            <h3>Global payments</h3>
+            <h3>HXN AI</h3>
             <p>
-              IMPEXVIAA Pay helps businesses move toward safer and more
-              trusted cross-border transactions.
+              Our AI assistant supports product discovery, sourcing,
+              descriptions, trade automation, and business intelligence.
+            </p>
+          </div>
+
+          <div className="about-card">
+            <h3>Global marketplace</h3>
+            <p>
+              IMPEXVIAA supports industries including agriculture,
+              pharmaceuticals, electronics, machinery, textiles, auto parts,
+              packaging, and industrial goods.
+            </p>
+          </div>
+
+          <div className="about-card">
+            <h3>IMPEXVIAA Pay</h3>
+            <p>
+              A future-focused trade payment infrastructure designed for safer
+              and more trusted international business transactions.
             </p>
           </div>
         </div>
       </section>
 
       <section className="about-vision">
-        <div className="vision-card">
-          <h2>Our vision</h2>
+        <h2>Our vision</h2>
 
-          <p>
-            We believe global trade should feel modern, intelligent,
-            transparent, and accessible — not outdated and complicated.
-          </p>
+        <p>
+          We believe global trade should feel as modern and intelligent as the
+          world’s leading technology platforms.
+        </p>
 
-          <p>
-            IMPEXVIAA combines AI, supplier discovery, quotation systems,
-            secure trade infrastructure, and marketplace technology into one
-            scalable global ecosystem.
-          </p>
-        </div>
+        <p>
+          IMPEXVIAA is being built as a scalable digital trade ecosystem where
+          sourcing, AI, verification, quotations, stores, and payments work
+          together seamlessly.
+        </p>
+
+        <a href="/" className="about-cta">
+          Explore IMPEXVIAA
+        </a>
       </section>
     </main>
   );
