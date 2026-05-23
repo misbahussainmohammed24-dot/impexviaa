@@ -1390,6 +1390,175 @@ export default function AboutPage() {
   .floatingCard {
     opacity: 0.22 !important;
   }
+/* FINAL ANIMATION FIX */
+
+.floatingCardsWrap {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 1 !important;
+  pointer-events: none !important;
+}
+
+.heroContent {
+  position: relative !important;
+  z-index: 5 !important;
+}
+
+.floatingCard {
+  opacity: 0.28 !important;
+  filter: blur(0.2px);
+  animation: floatCardDown 14s ease-in-out infinite !important;
+}
+
+.floatOne {
+  top: 160px !important;
+  right: -85px !important;
+}
+
+.floatTwo {
+  top: 880px !important;
+  left: -95px !important;
+}
+
+.floatThree {
+  display: none !important;
+}
+
+@keyframes floatCardDown {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(180px) rotate(8deg);
+  }
+  100% {
+    transform: translateY(360px) rotate(-6deg);
+  }
+}
+
+/* CORE ICON ANIMATIONS */
+
+.coreCard:nth-child(1) .iconBox {
+  animation: globeRevolve 4s linear infinite !important;
+}
+
+@keyframes globeRevolve {
+  from {
+    transform: rotate(0deg) scale(1);
+  }
+  to {
+    transform: rotate(360deg) scale(1.08);
+  }
+}
+
+.coreCard:nth-child(2) .iconBox {
+  animation: robotScan 3s ease-in-out infinite !important;
+}
+
+@keyframes robotScan {
+  0%, 100% {
+    transform: translateX(0) scale(1);
+    box-shadow: 0 0 25px rgba(0,255,204,0.18);
+  }
+  50% {
+    transform: translateX(18px) scale(1.12);
+    box-shadow: 0 0 55px rgba(0,255,204,0.45);
+  }
+}
+
+.coreCard:nth-child(3) .iconBox {
+  animation: shieldPulse 2.6s ease-in-out infinite !important;
+}
+
+@keyframes shieldPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.18) rotate(-6deg);
+  }
+}
+
+.coreCard:nth-child(4) .iconBox {
+  animation: cardToss 2.8s ease-in-out infinite !important;
+}
+
+@keyframes cardToss {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  45% {
+    transform: translateY(-22px) rotate(14deg);
+  }
+  70% {
+    transform: translateY(4px) rotate(-8deg);
+  }
+}
+
+.coreCard:nth-child(5) .iconBox {
+  animation: boxOpen 3s ease-in-out infinite !important;
+}
+
+@keyframes boxOpen {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.15) rotate(-10deg);
+  }
+}
+
+.coreCard:nth-child(6) .iconBox {
+  animation: rocketLaunch 2.8s ease-in-out infinite !important;
+}
+
+@keyframes rocketLaunch {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-24px) rotate(14deg);
+  }
+}
+
+/* CARD PREMIUM MOTION */
+
+.coreCard,
+.ecosystemCard,
+.glassCard,
+.hxnCard,
+.premiumCard,
+.visionCard {
+  animation: cardRevealPremium linear both !important;
+  animation-timeline: view() !important;
+  animation-range: entry 0% cover 35% !important;
+}
+
+@keyframes cardRevealPremium {
+  from {
+    opacity: 0;
+    transform: translateY(70px) scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.industryItem,
+.problemItem,
+.bulletItem,
+.lineItem {
+  animation: chipLuxuryFloat 4s ease-in-out infinite !important;
+}
+
+@keyframes chipLuxuryFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
 }
 `}</style>
   </>
