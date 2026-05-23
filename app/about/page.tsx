@@ -1619,6 +1619,45 @@ export default function AboutPage() {
   opacity: 1 !important;
   background: #ffffff !important;
   color: #000000 !important;
+}/* FINAL FIX: remove dim/faded scroll bug */
+.animatedCard,
+.glassCard,
+.ecosystemCard,
+.miniCard,
+.coreCard,
+.visionCard,
+.hxnCard,
+.premiumCard,
+.metricCard {
+  opacity: 1 !important;
+  filter: none !important;
+  color: #ffffff !important;
+  animation-fill-mode: both !important;
+}
+
+.visionCard *,
+.premiumCard *,
+.glassCard *,
+.ecosystemCard *,
+.hxnCard *,
+.coreCard *,
+.miniCard * {
+  opacity: 1 !important;
+}
+
+.visionCard p,
+.premiumCard p,
+.glassCard p,
+.ecosystemCard p,
+.hxnCard p,
+.coreCard p,
+.miniCard p {
+  color: rgba(255,255,255,0.9) !important;
+}
+
+.sectionHeading h2 {
+  color: #ffffff !important;
+}
 }
 `}</style>
   </>
