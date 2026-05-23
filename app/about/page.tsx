@@ -382,7 +382,7 @@ export default function AboutPage() {
       <style jsx>{`
   .aboutPage {
     background: #020404;
-    color: #ffffff;
+    color: #fff;
     overflow-x: hidden;
     font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   }
@@ -452,67 +452,26 @@ export default function AboutPage() {
     opacity: 0.8;
   }
 
-  .floatingCardsWrap {
-    position: absolute;
-    inset: 0;
-    z-index: 2;
-    pointer-events: none;
-  }
-
-  .floatingCard {
-    position: absolute;
-    width: 210px;
-    padding: 20px;
-    border-radius: 26px;
-    background: rgba(18, 32, 38, 0.72);
-    border: 1px solid rgba(214,165,82,0.45);
-    backdrop-filter: blur(24px);
-    box-shadow: 0 30px 90px rgba(0,0,0,0.55);
-    opacity: 0.6;
-    animation: floatCard 7s ease-in-out infinite;
-  }
-
-  .floatingCard small {
-    color: #d6a552;
-    font-weight: 900;
-    letter-spacing: 2px;
-    font-size: 11px;
-  }
-
-  .floatingCard strong {
-    display: block;
-    margin-top: 8px;
-    font-size: 18px;
-    line-height: 1.25;
-  }
-
-  .floatOne {
-    top: 170px;
-    right: 5%;
-  }
-
-  .floatTwo {
-    top: 760px;
-    left: 4%;
-    animation-delay: 1.2s;
-  }
-
+  .floatingCardsWrap,
+  .floatingCard,
+  .floatOne,
+  .floatTwo,
   .floatThree {
-    display: none;
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
   }
 
   .topBadge {
     display: inline-flex;
-    max-width: 100%;
     padding: 12px 18px;
     border-radius: 999px;
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.16);
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.18);
     font-size: 12px;
     letter-spacing: 2px;
     margin-bottom: 30px;
     backdrop-filter: blur(20px);
-    box-shadow: 0 0 45px rgba(0,255,204,0.16);
   }
 
   h1 {
@@ -533,32 +492,30 @@ export default function AboutPage() {
     max-width: 920px;
     font-size: 22px;
     line-height: 1.75;
-    color: rgba(255,255,255,0.78);
+    color: rgba(255,255,255,0.88);
     margin-bottom: 24px;
   }
 
   .heroText.secondary {
-    color: rgba(255,255,255,0.58);
+    color: rgba(255,255,255,0.78);
   }
 
   .quoteBox {
     margin-top: 40px;
     display: flex;
     gap: 20px;
-    align-items: flex-start;
     padding: 30px;
     border-radius: 30px;
-    background: rgba(255,255,255,0.045);
-    border: 1px solid rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.055);
+    border: 1px solid rgba(255,255,255,0.14);
     backdrop-filter: blur(24px);
-    box-shadow: 0 35px 100px rgba(0,0,0,0.45);
   }
-.quoteBox span {
+
+  .quoteBox span {
     width: 5px;
     border-radius: 999px;
     background: linear-gradient(to bottom, #00ffcc, #005eff, #d6a552);
     align-self: stretch;
-    animation: linePulse 2.8s infinite;
   }
 
   .quoteBox p {
@@ -566,6 +523,7 @@ export default function AboutPage() {
     line-height: 1.4;
     font-weight: 800;
     margin: 0;
+    color: #fff;
   }
 
   .heroButtons {
@@ -593,29 +551,15 @@ export default function AboutPage() {
 
   .primaryBtn {
     background: #ffffff;
-    color: #050505;
+    color: #000000;
   }
 
   .secondaryBtn,
   .miniBtn {
-    border: 1px solid rgba(255,255,255,0.16);
+    border: 1px solid rgba(255,255,255,0.18);
     color: white;
-    background: rgba(255,255,255,0.045);
+    background: rgba(255,255,255,0.06);
     backdrop-filter: blur(20px);
-  }
-
-  .primaryBtn::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      120deg,
-      transparent,
-      rgba(255,255,255,0.8),
-      transparent
-    );
-    transform: translateX(-120%);
-    animation: btnShine 3.5s infinite;
   }
 
   .primaryBtn:hover,
@@ -635,18 +579,19 @@ export default function AboutPage() {
   .metricCard {
     padding: 30px;
     border-radius: 30px;
-    background: rgba(255,255,255,0.045);
-    border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.055);
+    border: 1px solid rgba(255,255,255,0.12);
     backdrop-filter: blur(30px);
   }
 
   .metricCard h3 {
     font-size: 44px;
     margin: 0 0 12px;
+    color: #fff;
   }
 
   .metricCard p {
-    color: rgba(255,255,255,0.68);
+    color: rgba(255,255,255,0.86);
     line-height: 1.6;
     margin: 0;
   }
@@ -672,7 +617,7 @@ export default function AboutPage() {
     background: rgba(255,255,255,0.05);
     border: 1px solid rgba(255,255,255,0.08);
     white-space: nowrap;
-    color: rgba(255,255,255,0.8);
+    color: rgba(255,255,255,0.86);
   }
 
   .sectionWrap {
@@ -698,24 +643,7 @@ export default function AboutPage() {
     line-height: 1.05;
     letter-spacing: -3px;
     max-width: 950px;
-  }
-
-  .glassCard,
-  .ecosystemCard,
-  .miniCard,
-  .coreCard,
-  .visionCard,
-  .hxnCard {
-    border-radius: 34px;
-    background:
-      linear-gradient(
-        145deg,
-        rgba(255,255,255,0.075),
-        rgba(255,255,255,0.025)
-      );
-    border: 1px solid rgba(255,255,255,0.09);
-    backdrop-filter: blur(30px);
-    box-shadow: 0 35px 110px rgba(0,0,0,0.45);
+    color: #fff;
   }
 
   .glassCard,
@@ -726,6 +654,13 @@ export default function AboutPage() {
   .hxnCard {
     position: relative;
     overflow: hidden;
+    border-radius: 34px;
+    background: linear-gradient(145deg, rgba(255,255,255,0.085), rgba(255,255,255,0.03));
+    border: 1px solid rgba(255,255,255,0.11);
+    backdrop-filter: blur(30px);
+    box-shadow: 0 35px 110px rgba(0,0,0,0.45);
+    opacity: 1 !important;
+    filter: none !important;
   }
 
   .glassCard {
@@ -737,27 +672,22 @@ export default function AboutPage() {
   .miniCard p,
   .coreCard p,
   .visionCard p,
-  .hxnCard p {
+  .hxnCard p,
+  .premiumCard p {
     font-size: 20px;
     line-height: 1.85;
-    color: rgba(255,255,255,0.8);
+    color: rgba(255,255,255,0.9) !important;
+    opacity: 1 !important;
+    filter: none !important;
   }
 
   .animatedCard {
-    animation: revealScroll linear both;
-    animation-timeline: view();
-    animation-range: entry 0% cover 35%;
-    transition: 0.4s ease;
+    opacity: 1 !important;
+    filter: none !important;
+    animation: revealScroll 0.9s ease both;
   }
 
-  .animatedCard:hover {
-    transform: translateY(-10px) scale(1.015);
-    border-color: rgba(0,255,204,0.32);
-    box-shadow:
-      0 45px 140px rgba(0,0,0,0.65),
-      0 0 60px rgba(0,255,204,0.08);
-  }
-.problemGrid,
+  .problemGrid,
   .industryGrid,
   .bulletGrid {
     display: flex;
@@ -772,18 +702,9 @@ export default function AboutPage() {
   .lineItem {
     padding: 14px 20px;
     border-radius: 999px;
-    background: rgba(255,255,255,0.055);
-    border: 1px solid rgba(255,255,255,0.09);
-    transition: 0.3s ease;
-  }
-
-  .problemItem:hover,
-  .industryItem:hover,
-  .bulletItem:hover,
-  .lineItem:hover {
-    transform: translateY(-4px);
-    background: rgba(0,255,204,0.08);
-    border-color: rgba(0,255,204,0.25);
+    background: rgba(255,255,255,0.065);
+    border: 1px solid rgba(255,255,255,0.11);
+    color: rgba(255,255,255,0.9);
   }
 
   .ecosystemGrid,
@@ -809,23 +730,22 @@ export default function AboutPage() {
   }
 
   .ecosystemCard h3,
+  .coreCard h3,
+  .miniCard h4 {
+    color: #fff;
+  }
+
+  .ecosystemCard h3,
   .coreCard h3 {
     font-size: 34px;
     margin-bottom: 20px;
   }
 
-  .goldGlow {
+  .goldGlow,
+  .premiumCard {
     background:
-      radial-gradient(
-        circle at top right,
-        rgba(214,165,82,0.16),
-        transparent 35%
-      ),
-      linear-gradient(
-        145deg,
-        rgba(255,255,255,0.075),
-        rgba(255,255,255,0.025)
-      );
+      radial-gradient(circle at top right, rgba(214,165,82,0.16), transparent 35%),
+      linear-gradient(145deg, rgba(255,255,255,0.085), rgba(255,255,255,0.03));
   }
 
   .highlightText {
@@ -833,10 +753,6 @@ export default function AboutPage() {
     font-size: 24px;
     font-weight: 800;
     color: #d6a552;
-  }
-
-  .miniBtn {
-    margin-top: 28px;
   }
 
   .hxnCard {
@@ -853,7 +769,6 @@ export default function AboutPage() {
     background: rgba(0,0,0,0.55);
     border: 1px solid rgba(0,255,204,0.18);
     padding: 18px;
-    box-shadow: inset 0 0 30px rgba(0,255,204,0.05);
   }
 
   .consoleTop {
@@ -874,59 +789,22 @@ export default function AboutPage() {
     white-space: nowrap;
     width: 0;
     border-right: 2px solid #00ffcc;
-    animation:
-      typing 5s steps(54, end) infinite,
-      blink 0.8s infinite;
-    color: rgba(255,255,255,0.85);
+    animation: typing 5s steps(54, end) infinite, blink 0.8s infinite;
+    color: rgba(255,255,255,0.9) !important;
     margin: 0;
-  }
-
-  .miniCard h4 {
-    margin-bottom: 24px;
-    font-size: 26px;
-  }
-
-  .lineItem {
-    margin-bottom: 12px;
   }
 
   .iconBox {
     width: 72px;
     height: 72px;
     border-radius: 24px;
-    background:
-      radial-gradient(
-        circle,
-        rgba(0,255,204,0.14),
-        rgba(255,255,255,0.06)
-      );
+    background: radial-gradient(circle, rgba(0,255,204,0.16), rgba(255,255,255,0.07));
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 34px;
     margin-bottom: 26px;
     animation: iconPulse 3s ease-in-out infinite;
-  }
-
-  .coreCard::before {
-    content: "";
-    position: absolute;
-    inset: -80%;
-    background: linear-gradient(
-      120deg,
-      transparent,
-      rgba(214,165,82,0.18),
-      transparent
-    );
-    transform: rotate(25deg);
-    animation: cardShine 5s infinite;
-  }
-
-  .premiumCard {
-    background:
-      radial-gradient(circle at top right, rgba(0,255,200,0.12), transparent 30%),
-      radial-gradient(circle at bottom left, rgba(214,165,82,0.12), transparent 30%),
-      rgba(255,255,255,0.04);
   }
 
   .visionSection {
@@ -938,10 +816,6 @@ export default function AboutPage() {
     margin: 0 auto;
     text-align: center;
     padding: 80px 40px;
-    background:
-      radial-gradient(circle at top, rgba(0,255,204,0.14), transparent 34%),
-      radial-gradient(circle at bottom, rgba(214,165,82,0.12), transparent 32%),
-      rgba(255,255,255,0.04);
   }
 
   .center {
@@ -956,8 +830,8 @@ export default function AboutPage() {
     margin-top: 60px;
     padding: 34px;
     border-radius: 30px;
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(214,165,82,0.2);
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(214,165,82,0.24);
   }
 
   .finalStatement h3 {
@@ -972,144 +846,50 @@ export default function AboutPage() {
     color: #00ffcc;
     font-size: 20px;
     font-weight: 800;
-  }@keyframes floatOrb {
-    0%, 100% {
-      transform: translateY(0px) scale(1);
-    }
-
-    50% {
-      transform: translateY(35px) scale(1.12);
-    }
   }
 
-  @keyframes floatCard {
-    0%, 100% {
-      transform: translateY(0) rotate(0deg);
-    }
-
-    50% {
-      transform: translateY(-24px) rotate(1.5deg);
-    }
+  @keyframes floatOrb {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(35px) scale(1.12); }
   }
 
   @keyframes revealHero {
-    from {
-      opacity: 0;
-      transform: translateY(40px) scale(0.98);
-    }
-
-    to {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
+    from { opacity: 0; transform: translateY(40px) scale(0.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
   }
 
   @keyframes revealScroll {
-    from {
-      opacity: 0;
-      transform: translateY(60px) scale(0.96);
-    }
-
-    to {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
+    from { opacity: 0; transform: translateY(45px) scale(0.97); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
   }
 
   @keyframes textShine {
-    0%, 100% {
-      background-position: 0% 50%;
-    }
-
-    50% {
-      background-position: 100% 50%;
-    }
-  }
-
-  @keyframes linePulse {
-    0%, 100% {
-      opacity: 0.55;
-    }
-
-    50% {
-      opacity: 1;
-    }
-  }
-
-  @keyframes btnShine {
-    0% {
-      transform: translateX(-120%);
-    }
-
-    45% {
-      transform: translateX(120%);
-    }
-
-    100% {
-      transform: translateX(120%);
-    }
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
   }
 
   @keyframes marqueeMove {
-    from {
-      transform: translateX(0);
-    }
-
-    to {
-      transform: translateX(-50%);
-    }
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
   }
 
   @keyframes typing {
-    0% {
-      width: 0;
-    }
-
-    45% {
-      width: 100%;
-    }
-
-    75% {
-      width: 100%;
-    }
-
-    100% {
-      width: 0;
-    }
+    0% { width: 0; }
+    45% { width: 100%; }
+    75% { width: 100%; }
+    100% { width: 0; }
   }
 
   @keyframes blink {
-    50% {
-      border-color: transparent;
-    }
+    50% { border-color: transparent; }
   }
 
   @keyframes iconPulse {
-    0%, 100% {
-      box-shadow: 0 0 0 rgba(0,255,204,0);
-    }
-
-    50% {
-      box-shadow: 0 0 40px rgba(0,255,204,0.16);
-    }
-  }
-
-  @keyframes cardShine {
-    0% {
-      transform: translateX(-120%) rotate(25deg);
-    }
-
-    50% {
-      transform: translateX(120%) rotate(25deg);
-    }
-
-    100% {
-      transform: translateX(120%) rotate(25deg);
-    }
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-8px) scale(1.08); }
   }
 
   @media (max-width: 980px) {
-
     .metricsGrid,
     .ecosystemGrid,
     .doubleGrid,
@@ -1159,39 +939,6 @@ export default function AboutPage() {
       letter-spacing: -2px;
     }
 
-    .metricsGrid {
-      margin-top: 50px;
-    }
-
-    .floatingCard {
-      width: 135px;
-      padding: 12px;
-      opacity: 0.45;
-    }
-
-    .floatingCard small {
-      font-size: 8px;
-      letter-spacing: 1px;
-    }
-
-    .floatingCard strong {
-      font-size: 13px;
-    }
-
-    .floatOne {
-      top: 150px;
-      right: -55px;
-    }
-
-    .floatTwo {
-      top: 880px;
-      left: -55px;
-    }
-
-    .floatThree {
-      display: none;
-    }
-
     .heroButtons {
       flex-direction: column;
       align-items: stretch;
@@ -1202,30 +949,20 @@ export default function AboutPage() {
     .miniBtn {
       width: 100%;
     }
-
-    .finalStatement h3 {
-      font-size: 38px;
-    }
   }
 
   @media (max-width: 640px) {
-
     h1 {
       font-size: 48px;
       line-height: 0.98;
     }
 
-    .topBadge {
-      font-size: 10px;
-      letter-spacing: 1.5px;
+    .sectionWrap {
+      padding: 90px 22px;
     }
 
     .sectionHeading h2 {
       font-size: 38px;
-    }
-
-    .metricCard h3 {
-      font-size: 34px;
     }
 
     .ecosystemCard h3,
@@ -1233,564 +970,11 @@ export default function AboutPage() {
       font-size: 28px;
     }
 
-    .quoteBox {
-      gap: 14px;
+    .visionCard {
+      padding: 55px 26px;
     }
-
-    .quoteBox span {
-      width: 4px;
-    }
-  /* FINAL FIX: mobile alignment, bright text, floating cards, animations */
-
-.floatingCardsWrap {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-}
-
-  from { transform: translateY(0); }
-  to { transform: translateY(900px); }
-}
-
-.heroContent {
-  z-index: 5;
-}
-
-.floatingCard {
-}
-
-.floatOne {
-}
-
-.floatTwo {
-}
-
-.sectionHeading h2,
-.ecosystemCard h3,
-.coreCard h3,
-.premiumCard h2,
-.visionCard h2 {
-  text-align: left;
-  color: #ffffff !important;
-  opacity: 1 !important;
-}
-
-.glassCard p,
-.ecosystemCard p,
-.coreCard p,
-.hxnCard p,
-.visionCard p,
-.premiumCard p,
-.finalStatement p {
-  color: rgba(255,255,255,0.88) !important;
-  opacity: 1 !important;
-}
-
-.iconBox {
-  animation: iconFloat 2.8s ease-in-out infinite;
-}
-
-.coreCard:first-child .iconBox {
-  animation: globeSpin 3s linear infinite, iconFloat 2.8s ease-in-out infinite;
-}
-
-@keyframes globeSpin {
-  from { transform: rotateY(0deg) rotateZ(0deg); }
-  to { transform: rotateY(360deg) rotateZ(360deg); }
-}
-
-@keyframes iconFloat {
-  0%,100% { transform: translateY(0) scale(1); }
-  50% { transform: translateY(-10px) scale(1.08); }
-}
-
-.coreCard,
-.ecosystemCard,
-.glassCard,
-.hxnCard,
-.premiumCard,
-.visionCard,
-.metricCard {
-  animation: cardReveal 0.9s ease both, cardGlow 5s ease-in-out infinite;
-}
-
-@keyframes cardGlow {
-  0%,100% { box-shadow: 0 35px 110px rgba(0,0,0,0.45); }
-  50% { box-shadow: 0 45px 140px rgba(0,255,204,0.10); }
-}
-
-@keyframes cardReveal {
-  from { opacity: 0; transform: translateY(45px) scale(0.97); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
-}
-
-@media (max-width: 640px) {
-  .sectionWrap {
-    padding: 90px 22px;
   }
-
-  .sectionHeading {
-    margin-bottom: 40px;
-  }
-
-  .sectionHeading h2 {
-    font-size: 42px !important;
-    line-height: 1.08 !important;
-    letter-spacing: -2px !important;
-  }
-
-  .ecosystemCard,
-  .coreCard,
-  .glassCard,
-  .hxnCard,
-  .premiumCard,
-  .visionCard {
-    padding: 30px 26px !important;
-  }
-
-  .coreCard h3,
-  .ecosystemCard h3 {
-    font-size: 31px !important;
-    line-height: 1.15 !important;
-  }
-
-  .coreCard p,
-  .ecosystemCard p,
-  .glassCard p,
-  .hxnCard p,
-  .premiumCard p,
-  .visionCard p {
-    font-size: 18px !important;
-    line-height: 1.75 !important;
-  }
-
-  .floatingCard {
-    opacity: 0.22 !important;
-  }
-/* FINAL ANIMATION FIX */
-
-.floatingCardsWrap {
-  position: absolute !important;
-  inset: 0 !important;
-  z-index: 1 !important;
-  pointer-events: none !important;
-}
-
-.heroContent {
-  position: relative !important;
-  z-index: 5 !important;
-}
-
-.floatingCard {
-  opacity: 0.28 !important;
-  animation: floatCardDown 14s ease-in-out infinite !important;
-}
-
-.floatOne {
-  top: 160px !important;
-  right: -85px !important;
-}
-
-.floatTwo {
-  top: 880px !important;
-  left: -95px !important;
-}
-
-.floatThree {
-  display: none !important;
-}
-
-@keyframes floatCardDown {
-  0% {
-    transform: translateY(0) rotate(0deg);
-  }
-  50% {
-    transform: translateY(180px) rotate(8deg);
-  }
-  100% {
-    transform: translateY(360px) rotate(-6deg);
-  }
-}
-
-/* CORE ICON ANIMATIONS */
-
-.coreCard:nth-child(1) .iconBox {
-  animation: globeRevolve 4s linear infinite !important;
-}
-
-@keyframes globeRevolve {
-  from {
-    transform: rotate(0deg) scale(1);
-  }
-  to {
-    transform: rotate(360deg) scale(1.08);
-  }
-}
-
-.coreCard:nth-child(2) .iconBox {
-  animation: robotScan 3s ease-in-out infinite !important;
-}
-
-@keyframes robotScan {
-  0%, 100% {
-    transform: translateX(0) scale(1);
-    box-shadow: 0 0 25px rgba(0,255,204,0.18);
-  }
-  50% {
-    transform: translateX(18px) scale(1.12);
-    box-shadow: 0 0 55px rgba(0,255,204,0.45);
-  }
-}
-
-.coreCard:nth-child(3) .iconBox {
-  animation: shieldPulse 2.6s ease-in-out infinite !important;
-}
-
-@keyframes shieldPulse {
-  0%, 100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.18) rotate(-6deg);
-  }
-}
-
-.coreCard:nth-child(4) .iconBox {
-  animation: cardToss 2.8s ease-in-out infinite !important;
-}
-
-@keyframes cardToss {
-  0%, 100% {
-    transform: translateY(0) rotate(0deg);
-  }
-  45% {
-    transform: translateY(-22px) rotate(14deg);
-  }
-  70% {
-    transform: translateY(4px) rotate(-8deg);
-  }
-}
-
-.coreCard:nth-child(5) .iconBox {
-  animation: boxOpen 3s ease-in-out infinite !important;
-}
-
-@keyframes boxOpen {
-  0%, 100% {
-    transform: scale(1) rotate(0deg);
-  }
-  50% {
-    transform: scale(1.15) rotate(-10deg);
-  }
-}
-
-.coreCard:nth-child(6) .iconBox {
-  animation: rocketLaunch 2.8s ease-in-out infinite !important;
-}
-
-@keyframes rocketLaunch {
-  0%, 100% {
-    transform: translateY(0) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-24px) rotate(14deg);
-  }
-}
-
-/* CARD PREMIUM MOTION */
-
-.coreCard,
-.ecosystemCard,
-.glassCard,
-.hxnCard,
-.premiumCard,
-.visionCard {
-  animation: cardRevealPremium linear both !important;
-  animation-timeline: view() !important;
-  animation-range: entry 0% cover 35% !important;
-}
-
-@keyframes cardRevealPremium {
-  from {
-    opacity: 0;
-    transform: translateY(70px) scale(0.94);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-.industryItem,
-.problemItem,
-.bulletItem,
-.lineItem {
-  animation: chipLuxuryFloat 4s ease-in-out infinite !important;
-}
-
-@keyframes chipLuxuryFloat {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-7px);
-  }
-.floatingCard {
-  opacity: 0.75 !important;
-}
-
-.floatOne {
-  top: 180px !important;
-  right: -25px !important;
-}
-
-.floatTwo {
-  top: 760px !important;
-  left: -25px !important;
-}
-
-@media (max-width: 980px) {
-  .floatingCard {
-    opacity: 0.7 !important;
-    width: 145px !important;
-  }
-
-  .floatOne {
-    top: 180px !important;
-    right: -18px !important;
-  }
-
-  .floatTwo {
-    top: 850px !important;
-    left: -18px !important;
-  }
-/* FIX DIM TEXT */
-.visionCard,
-.premiumCard {
-  opacity: 1 !important;
-}
-
-.visionCard h2,
-.premiumCard h2,
-.visionCard p,
-.premiumCard p,
-.finalStatement p,
-.finalStatement span {
-  opacity: 1 !important;
-  color: rgba(255,255,255,0.9) !important;
-}
-
-.visionCard h2,
-.premiumCard h2 {
-  color: #ffffff !important;
-}
-
-.finalStatement h3 {
-  opacity: 1 !important;
-  color: #d6a552 !important;
-}
-
-.premiumCard .primaryBtn,
-.visionCard .primaryBtn {
-  opacity: 1 !important;
-  background: #ffffff !important;
-  color: #000000 !important;
-}/* FINAL FIX: remove dim/faded scroll bug */
-.animatedCard,
-.glassCard,
-.ecosystemCard,
-.miniCard,
-.coreCard,
-.visionCard,
-.hxnCard,
-.premiumCard,
-.metricCard {
-  opacity: 1 !important;
-  filter: none !important;
-  color: #ffffff !important;
-  animation-fill-mode: both !important;
-}
-
-.visionCard *,
-.premiumCard *,
-.glassCard *,
-.ecosystemCard *,
-.hxnCard *,
-.coreCard *,
-.miniCard * {
-  opacity: 1 !important;
-}
-
-.visionCard p,
-.premiumCard p,
-.glassCard p,
-.ecosystemCard p,
-.hxnCard p,
-.coreCard p,
-.miniCard p {
-  color: rgba(255,255,255,0.9) !important;
-}
-
-.sectionHeading h2 {
-  color: #ffffff !important;
-}
-/* REMOVE FLOATING CARDS COMPLETELY */
-.floatingCardsWrap,
-.floatingCard,
-.floatOne,
-.floatTwo,
-.floatThree {
-  display: none !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
-}
-/* FINAL EMERGENCY FIX */
-.floatingCardsWrap,
-.floatingCard,
-.floatOne,
-.floatTwo,
-.floatThree {
-  display: none !important;
-}
-
-.animatedCard,
-.glassCard,
-.ecosystemCard,
-.miniCard,
-.coreCard,
-.visionCard,
-.hxnCard,
-.premiumCard,
-.metricCard {
-  opacity: 1 !important;
-  filter: none !important;
-}
-
-.heroText,
-.glassCard p,
-.ecosystemCard p,
-.miniCard p,
-.coreCard p,
-.visionCard p,
-.hxnCard p,
-.premiumCard p {
-  opacity: 1 !important;
-  filter: none !important;
-  color: rgba(255,255,255,0.86) !important;
-}
-
-.sectionHeading span {
-  color: #00ffcc !important;
-}
-
-.sectionHeading h2,
-h1 {
-  opacity: 1 !important;
-  filter: none !important;
-  color: white !important;
-}
-
-/* FINAL EMERGENCY FIX */
-.floatingCardsWrap,
-.floatingCard,
-.floatOne,
-.floatTwo,
-.floatThree {
-  display: none !important;
-}
-
-.animatedCard,
-.glassCard,
-.ecosystemCard,
-.miniCard,
-.coreCard,
-.visionCard,
-.hxnCard,
-.premiumCard,
-.metricCard {
-  opacity: 1 !important;
-  filter: none !important;
-}
-
-.heroText,
-.glassCard p,
-.ecosystemCard p,
-.miniCard p,
-.coreCard p,
-.visionCard p,
-.hxnCard p,
-.premiumCard p {
-  opacity: 1 !important;
-  filter: none !important;
-  color: rgba(255,255,255,0.86) !important;
-}
-
-.sectionHeading span {
-  color: #00ffcc !important;
-}
-
-.sectionHeading h2,
-h1 {
-  opacity: 1 !important;
-  filter: none !important;
-  color: white !important;
-}
-}
-
-/* REAL FINAL FIX */
-.floatingCardsWrap,
-.floatingCard,
-.floatOne,
-.floatTwo,
-.floatThree {
-  display: none !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
-}
-
-.animatedCard,
-.glassCard,
-.ecosystemCard,
-.miniCard,
-.coreCard,
-.visionCard,
-.hxnCard,
-.premiumCard,
-.metricCard {
-  opacity: 1 !important;
-  filter: none !important;
-  transform: none;
-}
-
-.visionCard *,
-.premiumCard *,
-.glassCard *,
-.ecosystemCard *,
-.hxnCard *,
-.coreCard *,
-.miniCard * {
-  opacity: 1 !important;
-  filter: none !important;
-}
-
-.visionCard p,
-.premiumCard p,
-.glassCard p,
-.ecosystemCard p,
-.hxnCard p,
-.coreCard p,
-.miniCard p,
-.heroText {
-  color: rgba(255,255,255,0.92) !important;
-}
-
-.sectionHeading h2,
-h1 {
-  opacity: 1 !important;
-  filter: none !important;
-}
-}</style>
+`}</style>
     </>
   );
 }
