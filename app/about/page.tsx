@@ -1078,71 +1078,131 @@ export default function AboutPage() {
             grid-template-columns: 1fr;
           }
         }
-          /* FINAL FIXES */
+          /* FINAL MOBILE + PREMIUM FIX */
+
+.heroSection {
+  padding: 120px 22px 90px;
+}
+
+.heroContent {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+h1 {
+  font-size: clamp(48px, 14vw, 92px);
+  line-height: 0.95;
+  letter-spacing: -3px;
+  max-width: 100%;
+}
+
+.heroText {
+  font-size: 20px;
+  line-height: 1.65;
+  max-width: 100%;
+}
+
+.floatingCard {
+  animation: floatCard 6s ease-in-out infinite;
+}
+
+.floatOne {
+  top: 150px;
+  right: -70px;
+}
+
+.floatTwo {
+  top: 760px;
+  left: -85px;
+}
+
+.floatThree {
+  display: none;
+}
 
 .heroButtons {
   display: grid;
-  grid-template-columns: repeat(3, minmax(180px, 1fr));
+  grid-template-columns: 1fr;
   gap: 16px;
-  margin-top: 44px;
-  max-width: 760px;
+  margin-top: 40px;
+  max-width: 100%;
 }
 
 .primaryBtn,
 .secondaryBtn,
 .miniBtn {
   width: 100%;
-  height: 64px;
-  border-radius: 22px;
+  height: 68px;
+  border-radius: 26px;
 }
 
-.floatingCard {
-  animation:
-    floatCard 6s ease-in-out infinite,
-    cardMoveDown linear both;
-  animation-timeline: auto, scroll(root);
-  animation-range: auto, 0 100%;
+.metricsGrid {
+  margin-top: 80px;
 }
 
-@keyframes cardMoveDown {
-  from {
-    translate: 0 0;
-  }
-  to {
-    translate: 0 520px;
-  }
-}
-
-.visionCard,
-.premiumCard,
+.metricCard,
 .glassCard,
 .ecosystemCard,
 .hxnCard,
 .coreCard,
-.miniCard {
+.miniCard,
+.visionCard,
+.premiumCard {
   background:
-    radial-gradient(circle at top right, rgba(0, 255, 204, 0.22), transparent 38%),
-    radial-gradient(circle at bottom left, rgba(214, 165, 82, 0.18), transparent 42%),
-    linear-gradient(145deg, rgba(255,255,255,0.09), rgba(255,255,255,0.035)) !important;
+    radial-gradient(circle at top right, rgba(0,255,204,0.24), transparent 42%),
+    radial-gradient(circle at bottom left, rgba(214,165,82,0.2), transparent 42%),
+    linear-gradient(145deg, rgba(255,255,255,0.1), rgba(255,255,255,0.035)) !important;
+  border: 1px solid rgba(0,255,204,0.18);
+  box-shadow:
+    0 40px 120px rgba(0,0,0,0.55),
+    0 0 60px rgba(0,255,204,0.08);
 }
 
-.visionCard p,
-.premiumCard p,
 .glassCard p,
 .ecosystemCard p,
 .hxnCard p,
 .coreCard p,
-.miniCard p {
-  color: rgba(255, 255, 255, 0.82) !important;
+.miniCard p,
+.visionCard p,
+.premiumCard p {
+  color: rgba(255,255,255,0.84) !important;
 }
 
-.sectionHeading h2 {
-  color: #ffffff;
-  text-shadow: 0 0 30px rgba(0, 255, 204, 0.18);
+.animatedCard {
+  animation: revealScroll 0.9s ease both, cardBreath 5s ease-in-out infinite;
+}
+
+.iconBox {
+  animation: iconFloat 3s ease-in-out infinite;
 }
 
 .coreCard:first-child .iconBox {
-  animation: globeRotate 4s linear infinite, iconPulse 3s ease-in-out infinite;
+  animation: globeRotate 4s linear infinite;
+}
+
+.problemItem,
+.industryItem,
+.bulletItem,
+.lineItem {
+  animation: chipFloat 4s ease-in-out infinite;
+}
+
+@keyframes cardBreath {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes iconFloat {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-8px) scale(1.08);
+  }
 }
 
 @keyframes globeRotate {
@@ -1154,64 +1214,12 @@ export default function AboutPage() {
   }
 }
 
-.problemItem,
-.industryItem,
-.bulletItem,
-.lineItem {
-  animation: softFloat 5s ease-in-out infinite;
-}
-
-@keyframes softFloat {
+@keyframes chipFloat {
   0%, 100% {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-6px);
-  }
-}
-
-@media (max-width: 980px) {
-  .heroButtons {
-    grid-template-columns: 1fr;
-    max-width: 100%;
-    gap: 14px;
-    margin-top: 34px;
-  }
-
-  .primaryBtn,
-  .secondaryBtn,
-  .miniBtn {
-    width: 100%;
-    height: 66px;
-    border-radius: 24px;
-  }
-
-  .floatingCard {
-    width: 150px;
-    padding: 13px;
-    opacity: 0.88;
-  }
-
-  .floatOne {
-    top: 120px;
-    right: -50px;
-  }
-
-  .floatTwo {
-    top: 690px;
-    left: -50px;
-  }
-
-  .floatThree {
-    display: none;
-  }
-
-  .visionCard,
-  .premiumCard {
-    background:
-      radial-gradient(circle at top right, rgba(0,255,204,0.28), transparent 45%),
-      radial-gradient(circle at bottom left, rgba(214,165,82,0.22), transparent 45%),
-      linear-gradient(145deg, rgba(255,255,255,0.1), rgba(255,255,255,0.04)) !important;
+    transform: translateY(-5px);
   }
 }
       `}</style>
