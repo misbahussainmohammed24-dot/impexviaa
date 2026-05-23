@@ -116,22 +116,7 @@ export default function AboutPage() {
           <div className="orb orbThree" />
           <div className="gridOverlay" />
 
-          <div className="floatingCardsWrap">
-  <div className="floatingCard floatOne">
-    <small>VERIFIED SUPPLIER</small>
-    <strong>Global Trade Ready</strong>
-  </div>
-
-  <div className="floatingCard floatTwo">
-    <small>HXN AI</small>
-    <strong>Building export store...</strong>
-  </div>
-
-  <div className="floatingCard floatThree">
-    <small>SECURE QUOTE</small>
-    <strong>$48,700 USD</strong>
-  </div>
-</div>
+         
 
           <div className="heroContent">
             <div className="topBadge">GLOBAL AI-POWERED B2B ECOSYSTEM</div>
@@ -1262,11 +1247,8 @@ export default function AboutPage() {
   inset: 0;
   z-index: 1;
   pointer-events: none;
-  animation: cardsFall linear both;
-  animation-timeline: scroll(root);
 }
 
-@keyframes cardsFall {
   from { transform: translateY(0); }
   to { transform: translateY(900px); }
 }
@@ -1276,16 +1258,12 @@ export default function AboutPage() {
 }
 
 .floatingCard {
-  opacity: 0.35;
-  filter: blur(0.2px);
 }
 
 .floatOne {
-  right: -70px;
 }
 
 .floatTwo {
-  left: -80px;
 }
 
 .sectionHeading h2,
@@ -1406,7 +1384,6 @@ export default function AboutPage() {
 
 .floatingCard {
   opacity: 0.28 !important;
-  filter: blur(0.2px);
   animation: floatCardDown 14s ease-in-out infinite !important;
 }
 
@@ -1658,8 +1635,162 @@ export default function AboutPage() {
 .sectionHeading h2 {
   color: #ffffff !important;
 }
+/* REMOVE FLOATING CARDS COMPLETELY */
+.floatingCardsWrap,
+.floatingCard,
+.floatOne,
+.floatTwo,
+.floatThree {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
 }
-`}</style>
-  </>
+/* FINAL EMERGENCY FIX */
+.floatingCardsWrap,
+.floatingCard,
+.floatOne,
+.floatTwo,
+.floatThree {
+  display: none !important;
+}
+
+.animatedCard,
+.glassCard,
+.ecosystemCard,
+.miniCard,
+.coreCard,
+.visionCard,
+.hxnCard,
+.premiumCard,
+.metricCard {
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+.heroText,
+.glassCard p,
+.ecosystemCard p,
+.miniCard p,
+.coreCard p,
+.visionCard p,
+.hxnCard p,
+.premiumCard p {
+  opacity: 1 !important;
+  filter: none !important;
+  color: rgba(255,255,255,0.86) !important;
+}
+
+.sectionHeading span {
+  color: #00ffcc !important;
+}
+
+.sectionHeading h2,
+h1 {
+  opacity: 1 !important;
+  filter: none !important;
+  color: white !important;
+}
+
+/* FINAL EMERGENCY FIX */
+.floatingCardsWrap,
+.floatingCard,
+.floatOne,
+.floatTwo,
+.floatThree {
+  display: none !important;
+}
+
+.animatedCard,
+.glassCard,
+.ecosystemCard,
+.miniCard,
+.coreCard,
+.visionCard,
+.hxnCard,
+.premiumCard,
+.metricCard {
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+.heroText,
+.glassCard p,
+.ecosystemCard p,
+.miniCard p,
+.coreCard p,
+.visionCard p,
+.hxnCard p,
+.premiumCard p {
+  opacity: 1 !important;
+  filter: none !important;
+  color: rgba(255,255,255,0.86) !important;
+}
+
+.sectionHeading span {
+  color: #00ffcc !important;
+}
+
+.sectionHeading h2,
+h1 {
+  opacity: 1 !important;
+  filter: none !important;
+  color: white !important;
+}
+}
+
+/* REAL FINAL FIX */
+.floatingCardsWrap,
+.floatingCard,
+.floatOne,
+.floatTwo,
+.floatThree {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+.animatedCard,
+.glassCard,
+.ecosystemCard,
+.miniCard,
+.coreCard,
+.visionCard,
+.hxnCard,
+.premiumCard,
+.metricCard {
+  opacity: 1 !important;
+  filter: none !important;
+  transform: none;
+}
+
+.visionCard *,
+.premiumCard *,
+.glassCard *,
+.ecosystemCard *,
+.hxnCard *,
+.coreCard *,
+.miniCard * {
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+.visionCard p,
+.premiumCard p,
+.glassCard p,
+.ecosystemCard p,
+.hxnCard p,
+.coreCard p,
+.miniCard p,
+.heroText {
+  color: rgba(255,255,255,0.92) !important;
+}
+
+.sectionHeading h2,
+h1 {
+  opacity: 1 !important;
+  filter: none !important;
+}
+}</style>
+    </>
   );
 }
