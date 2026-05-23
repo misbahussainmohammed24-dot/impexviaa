@@ -1294,6 +1294,55 @@ h1 {
     right: 10px;
   }
 }
+  /* FIX FLOATING CARDS COVERING TEXT */
+
+.floatingCardsWrap {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 1 !important;
+  pointer-events: none !important;
+}
+
+.heroContent {
+  position: relative !important;
+  z-index: 5 !important;
+}
+
+.floatingCard {
+  opacity: 0.55 !important;
+  animation: floatAway 8s ease-in-out infinite !important;
+}
+
+@keyframes floatAway {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+
+  50% {
+    transform: translateY(35px) scale(0.96);
+  }
+}
+
+@media (max-width: 980px) {
+  .floatingCard {
+    opacity: 0.35 !important;
+    filter: blur(0.3px);
+  }
+
+  .floatOne {
+    top: 130px !important;
+    right: -80px !important;
+  }
+
+  .floatTwo {
+    top: 760px !important;
+    left: -95px !important;
+  }
+
+  .floatThree {
+    display: none !important;
+  }
+}
       `}</style>
     </>
   );
