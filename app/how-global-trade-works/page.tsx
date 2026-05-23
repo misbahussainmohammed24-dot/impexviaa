@@ -179,514 +179,483 @@ export default function HowGlobalTradeWorksPage() {
       </main>
 
       <style jsx>{`
-        .tradePage {
-          background: #020404;
-          color: #ffffff;
-          overflow-x: hidden;
-          font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-        }
-
-        .tradeHero {
-          position: relative;
-          min-height: 100vh;
-          padding: 150px 24px 120px;
-          overflow: hidden;
-          background:
-            radial-gradient(circle at top left, rgba(0,255,204,0.24), transparent 34%),
-            radial-gradient(circle at top right, rgba(0,94,255,0.22), transparent 36%),
-            radial-gradient(circle at bottom, rgba(214,165,82,0.16), transparent 38%),
-            #020404;
-        }
-
-        .heroInner {
-          position: relative;
-          z-index: 5;
-          max-width: 1180px;
-          margin: 0 auto;
-          animation: revealHero 1s ease both;
-        }
-
-        .orb {
-          position: absolute;
-          border-radius: 50%;
-          filter: blur(110px);
-          opacity: 0.75;
-          animation: floatOrb 8s ease-in-out infinite;
-        }
-
-        .orbOne {
-          width: 340px;
-          height: 340px;
-          background: #00ffcc;
-          top: -120px;
-          left: -100px;
-        }
-
-        .orbTwo {
-          width: 320px;
-          height: 320px;
-          background: #005eff;
-          top: 40px;
-          right: -120px;
-          animation-delay: 2s;
-        }
-
-        .orbThree {
-          width: 260px;
-          height: 260px;
-          background: #d6a552;
-          bottom: 120px;
-          right: 20%;
-          animation-delay: 1s;
-        }
-
-        .gridOverlay {
-          position: absolute;
-          inset: 0;
-          background-image:
-            linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
-          background-size: 80px 80px;
-          animation: gridMove 18s linear infinite;
-          opacity: 0.8;
-        }
-
-        .topBadge {
-          display: inline-flex;
-          padding: 12px 18px;
-          border-radius: 999px;
-          background: rgba(255,255,255,0.075);
-          border: 1px solid rgba(255,255,255,0.16);
-          font-size: 12px;
-          letter-spacing: 2px;
-          margin-bottom: 30px;
-          backdrop-filter: blur(20px);
-          box-shadow: 0 0 45px rgba(0,255,204,0.16);
-        }
-
-        h1 {
-          font-size: clamp(58px, 10vw, 132px);
-          line-height: 0.92;
-          letter-spacing: -5px;
-          max-width: 1000px;
-          margin-bottom: 36px;
-          font-weight: 900;
-          background: linear-gradient(110deg, #ffffff, #dcfff8, #d6a552, #ffffff);
-          background-size: 300% 300%;
-          -webkit-background-clip: text;
-          color: transparent;
-          animation: textShine 6s ease infinite;
-        }
-
-        .heroText {
-          max-width: 930px;
-          font-size: 22px;
-          line-height: 1.75;
-          color: rgba(255,255,255,0.86);
-          margin-bottom: 24px;
-        }
-
-        .heroText.secondary {
-          color: rgba(255,255,255,0.72);
-        }
-
-        .heroButtons {
-          display: flex;
-          gap: 18px;
-          margin-top: 44px;
-          flex-wrap: wrap;
-        }
-
-        .primaryBtn,
-        .secondaryBtn {
-          min-height: 64px;
-          padding: 0 36px;
-          border-radius: 22px;
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          text-decoration: none;
-          font-weight: 850;
-          position: relative;
-          overflow: hidden;
-          transition: 0.35s ease;
-        }
-
-        .primaryBtn {
-          background: #ffffff;
-          color: #050505;
-        }
-
-        .secondaryBtn {
-          border: 1px solid rgba(255,255,255,0.18);
-          color: white;
-          background: rgba(255,255,255,0.055);
-          backdrop-filter: blur(20px);
-        }
-
-        .primaryBtn::after {
-          content: "";
-          position: absolute;
-          inset: 0;
-          background: linear-gradient(120deg, transparent, rgba(255,255,255,0.8), transparent);
-          transform: translateX(-120%);
-          animation: btnShine 3.8s infinite;
-        }
-
-        .primaryBtn:hover,
-        .secondaryBtn:hover {
-          transform: translateY(-6px) scale(1.02);
-          box-shadow: 0 28px 80px rgba(255,255,255,0.18);
-        }
-
-        .introWrap,
-        .timelineWrap,
-        .evolutionWrap,
-        .futureWrap {
-          max-width: 1250px;
-          margin: 0 auto;
-          padding: 120px 24px;
-        }
-
-        .introCard,
-        .stepCard,
-        .compareCard,
-        .futureCard {
-          border-radius: 34px;
-          background:
-            radial-gradient(circle at top right, rgba(0,255,204,0.12), transparent 35%),
-            linear-gradient(145deg, rgba(255,255,255,0.085), rgba(255,255,255,0.03));
-          border: 1px solid rgba(255,255,255,0.11);
-          backdrop-filter: blur(30px);
-          box-shadow: 0 35px 110px rgba(0,0,0,0.45);
-        }
-
-        .introCard {
-          padding: 58px;
-        }
-
-        .introCard span,
-        .sectionHeading span,
-        .futureCard span {
-          color: #00ffcc;
-          letter-spacing: 2px;
-          font-size: 13px;
-          font-weight: 900;
-        }
-
-        .introCard h2,
-        .sectionHeading h2 {
-          margin-top: 20px;
-          font-size: clamp(42px, 6vw, 76px);
-          line-height: 1.05;
-          letter-spacing: -3px;
-          color: white;
-        }
-
-        .introCard p,
-        .futureCard p {
-          margin-top: 28px;
-          font-size: 21px;
-          line-height: 1.85;
-          color: rgba(255,255,255,0.88);
-        }
-
-        .sectionHeading {
-          margin-bottom: 70px;
-        }
-
-        .center {
-          text-align: center;
-        }
-
-        .sectionHeading.center h2 {
-          margin-left: auto;
-          margin-right: auto;
-          max-width: 1000px;
-        }
-
-        .timelineGrid {
-          display: grid;
-          gap: 26px;
-        }
-
-        .stepCard {
-          display: grid;
-          grid-template-columns: 120px 1fr;
-          gap: 32px;
-          padding: 36px;
-          position: relative;
-          overflow: hidden;
-        }
-
-        .stepCard::before {
-          content: "";
-          position: absolute;
-          inset: -80%;
-          background: linear-gradient(120deg, transparent, rgba(214,165,82,0.15), transparent);
-          transform: rotate(25deg);
-          animation: cardShine 7s infinite;
-        }
-
-        .stepNumber {
-          position: relative;
-          z-index: 2;
-          width: 90px;
-          height: 90px;
-          border-radius: 28px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          background: rgba(0,255,204,0.12);
-          border: 1px solid rgba(0,255,204,0.28);
-          color: #00ffcc;
-          font-size: 30px;
-          font-weight: 900;
-          animation: numberPulse 3s ease-in-out infinite;
-        }
-
-        .stepContent {
-          position: relative;
-          z-index: 2;
-        }
-
-        .stepContent h3 {
-          font-size: 32px;
-          margin-bottom: 14px;
-          color: #ffffff;
-        }
-
-        .stepContent p {
-          font-size: 19px;
-          line-height: 1.75;
-          color: rgba(255,255,255,0.86);
-        }
-
-        .chipGrid {
-          display: flex;
-          gap: 12px;
-          flex-wrap: wrap;
-          margin-top: 24px;
-        }
-
-        .chipGrid span,
-        .futureItem {
-          padding: 12px 18px;
-          border-radius: 999px;
-          background: rgba(255,255,255,0.065);
-          border: 1px solid rgba(255,255,255,0.1);
-          color: rgba(255,255,255,0.9);
-          animation: chipFloat 4s ease-in-out infinite;
-        }
-
-        .compareGrid {
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          gap: 24px;
-        }
-
-        .compareCard {
-          padding: 42px;
-        }
-
-        .compareCard h3 {
-          font-size: 34px;
-          margin-bottom: 18px;
-        }
-
-        .compareCard p {
-          font-size: 20px;
-          line-height: 1.8;
-          color: rgba(255,255,255,0.86);
-        }
-
-        .compareCard.old {
-          background:
-            radial-gradient(circle at top right, rgba(255,255,255,0.08), transparent 34%),
-            linear-gradient(145deg, rgba(255,255,255,0.075), rgba(255,255,255,0.025));
-        }
-
-        .compareCard.new {
-          background:
-            radial-gradient(circle at top right, rgba(0,255,204,0.16), transparent 34%),
-            radial-gradient(circle at bottom left, rgba(214,165,82,0.12), transparent 34%),
-            linear-gradient(145deg, rgba(255,255,255,0.085), rgba(255,255,255,0.03));
-        }
-
-        .futureCard {
-          padding: 70px 42px;
-          text-align: center;
-        }
-
-        .futureGrid {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 14px;
-          justify-content: center;
-          margin-top: 40px;
-        }
-
-        .finalStatement {
-          margin-top: 60px;
-          padding: 36px;
-          border-radius: 30px;
-          background: rgba(255,255,255,0.06);
-          border: 1px solid rgba(214,165,82,0.24);
-        }
-
-        .finalStatement h3 {
-          font-size: 42px;
-          color: #d6a552;
-          margin-bottom: 18px;
-        }
-
-        .finalStatement span {
-          display: block;
-          margin-top: 24px;
-          font-weight: 900;
-          color: #00ffcc;
-          font-size: 20px;
-        }
-
-        .animatedCard {
-          animation: revealScroll 0.9s ease both;
-          opacity: 1 !important;
-          filter: none !important;
-        }
-
-        @keyframes floatOrb {
-          0%, 100% { transform: translateY(0) scale(1); }
-          50% { transform: translateY(34px) scale(1.12); }
-        }
-
-        @keyframes gridMove {
-          from { background-position: 0 0; }
-          to { background-position: 80px 80px; }
-        }
-
-        @keyframes revealHero {
-          from { opacity: 0; transform: translateY(40px) scale(0.98); }
-          to { opacity: 1; transform: translateY(0) scale(1); }
-        }
-
-        @keyframes revealScroll {
-          from { opacity: 0; transform: translateY(48px) scale(0.97); }
-          to { opacity: 1; transform: translateY(0) scale(1); }
-        }
-
-        @keyframes textShine {
-          0%, 100% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-        }
-
-        @keyframes btnShine {
-          0% { transform: translateX(-120%); }
-          45% { transform: translateX(120%); }
-          100% { transform: translateX(120%); }
-        }
-
-        @keyframes numberPulse {
-          0%, 100% { transform: scale(1); box-shadow: 0 0 0 rgba(0,255,204,0); }
-          50% { transform: scale(1.08); box-shadow: 0 0 45px rgba(0,255,204,0.18); }
-        }
-
-        @keyframes chipFloat {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-6px); }
-        }
-
-        @keyframes cardShine {
-          0% { transform: translateX(-120%) rotate(25deg); }
-          55% { transform: translateX(120%) rotate(25deg); }
-          100% { transform: translateX(120%) rotate(25deg); }
-        }
-
-        @media (max-width: 980px) {
-          .tradeHero {
-            padding: 120px 20px 90px;
-          }
-
-          h1 {
-            font-size: 62px;
-            letter-spacing: -3px;
-          }
-
-          .heroText {
-            font-size: 18px;
-            line-height: 1.75;
-          }
-
-          .heroButtons {
-            flex-direction: column;
-            align-items: stretch;
-          }
-
-          .primaryBtn,
-          .secondaryBtn {
-            width: 100%;
-          }
-
-          .introWrap,
-          .timelineWrap,
-          .evolutionWrap,
-          .futureWrap {
-            padding: 90px 22px;
-          }
-
-          .introCard,
-          .futureCard {
-            padding: 34px 28px;
-          }
-
-          .stepCard {
-            grid-template-columns: 1fr;
-            gap: 22px;
-            padding: 30px 26px;
-          }
-
-          .compareGrid {
-            grid-template-columns: 1fr;
-          }
-
-          .introCard h2,
-          .sectionHeading h2 {
-            font-size: 44px;
-            letter-spacing: -2px;
-          }
-
-          .stepContent h3 {
-            font-size: 28px;
-          }
-
-          .stepContent p,
-          .introCard p,
-          .futureCard p,
-          .compareCard p {
-            font-size: 18px;
-          }
-        }
-
-        @media (max-width: 640px) {
-          h1 {
-            font-size: 48px;
-            line-height: 0.98;
-          }
-
-          .topBadge {
-            font-size: 10px;
-            letter-spacing: 1.4px;
-          }
-
-          .introCard h2,
-          .sectionHeading h2 {
-            font-size: 38px;
-          }
-
-          .finalStatement h3 {
-            font-size: 32px;
-          }
-        }
-      `}</style>
-    </>
+  .tradePage {
+    background: #070812;
+    color: #ffffff;
+    overflow-x: hidden;
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+
+  .tradeHero {
+    position: relative;
+    min-height: 100vh;
+    padding: 155px 24px 125px;
+    overflow: hidden;
+    background:
+      radial-gradient(circle at 15% 15%, rgba(255,88,180,0.28), transparent 32%),
+      radial-gradient(circle at 85% 10%, rgba(105,92,255,0.34), transparent 34%),
+      radial-gradient(circle at 50% 90%, rgba(255,190,80,0.18), transparent 36%),
+      linear-gradient(135deg, #070812, #0b1024 45%, #120918);
+  }
+
+  .tradeHero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px);
+    background-size: 70px 70px;
+    animation: gridDrift 20s linear infinite;
+    opacity: 0.55;
+  }
+
+  .heroInner {
+    position: relative;
+    z-index: 5;
+    max-width: 1180px;
+    margin: 0 auto;
+    animation: heroRise 1s ease both;
+  }
+
+  .orb {
+    position: absolute;
+    border-radius: 999px;
+    filter: blur(95px);
+    opacity: 0.75;
+    animation: orbFloat 9s ease-in-out infinite;
+  }
+
+  .orbOne {
+    width: 340px;
+    height: 340px;
+    background: #ff58b4;
+    top: -90px;
+    left: -90px;
+  }
+
+  .orbTwo {
+    width: 340px;
+    height: 340px;
+    background: #695cff;
+    top: 70px;
+    right: -110px;
+    animation-delay: 2s;
+  }
+
+  .orbThree {
+    width: 260px;
+    height: 260px;
+    background: #ffbe50;
+    bottom: 110px;
+    right: 25%;
+    animation-delay: 1s;
+  }
+
+  .gridOverlay {
+    display: none;
+  }
+
+  .topBadge {
+    display: inline-flex;
+    padding: 12px 18px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.18);
+    color: #ffd36b;
+    font-size: 12px;
+    letter-spacing: 2px;
+    font-weight: 900;
+    margin-bottom: 30px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 45px rgba(255,88,180,0.22);
+  }
+
+  h1 {
+    font-size: clamp(58px, 10vw, 132px);
+    line-height: 0.92;
+    letter-spacing: -5px;
+    max-width: 1000px;
+    margin-bottom: 36px;
+    font-weight: 950;
+    background: linear-gradient(110deg, #ffffff, #ffd36b, #ff58b4, #8f86ff, #ffffff);
+    background-size: 360% 360%;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: gradientFlow 7s ease infinite;
+  }
+
+  .heroText {
+    max-width: 930px;
+    font-size: 22px;
+    line-height: 1.75;
+    color: rgba(255,255,255,0.88);
+    margin-bottom: 24px;
+  }
+
+  .heroText.secondary {
+    color: rgba(255,255,255,0.72);
+  }
+
+  .heroButtons {
+    display: flex;
+    gap: 18px;
+    margin-top: 44px;
+    flex-wrap: wrap;
+  }
+
+  .primaryBtn,
+  .secondaryBtn {
+    min-height: 64px;
+    padding: 0 36px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-weight: 900;
+    position: relative;
+    overflow: hidden;
+    transition: 0.35s ease;
+  }
+
+  .primaryBtn {
+    background: linear-gradient(135deg, #ffd36b, #ff58b4);
+    color: #070812;
+    box-shadow: 0 20px 70px rgba(255,88,180,0.28);
+  }
+
+  .secondaryBtn {
+    color: white;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.18);
+    backdrop-filter: blur(20px);
+  }
+
+  .primaryBtn:hover,
+  .secondaryBtn:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 28px 90px rgba(255,88,180,0.28);
+  }
+
+  .introWrap,
+  .timelineWrap,
+  .evolutionWrap,
+  .futureWrap {
+    max-width: 1250px;
+    margin: 0 auto;
+    padding: 120px 24px;
+  }
+
+  .introCard,
+  .stepCard,
+  .compareCard,
+  .futureCard {
+    border-radius: 36px;
+    background:
+      radial-gradient(circle at top right, rgba(255,88,180,0.14), transparent 36%),
+      linear-gradient(145deg, rgba(255,255,255,0.09), rgba(255,255,255,0.03));
+    border: 1px solid rgba(255,255,255,0.14);
+    backdrop-filter: blur(30px);
+    box-shadow: 0 40px 120px rgba(0,0,0,0.48);
+  }
+
+  .introCard {
+    padding: 58px;
+  }
+
+  .sectionHeading {
+    margin-bottom: 70px;
+  }
+
+  .sectionHeading span,
+  .introCard span {
+    color: #ffd36b;
+    letter-spacing: 2px;
+    font-size: 13px;
+    font-weight: 950;
+  }
+
+  .sectionHeading h2,
+  .introCard h2 {
+    margin-top: 20px;
+    font-size: clamp(42px, 6vw, 76px);
+    line-height: 1.05;
+    letter-spacing: -3px;
+    color: #ffffff;
+  }
+
+  .introCard p,
+  .compareCard p,
+  .futureCard p {
+    font-size: 20px;
+    line-height: 1.85;
+    color: rgba(255,255,255,0.88);
+    margin-top: 24px;
+  }
+
+  .timelineGrid {
+    display: grid;
+    gap: 28px;
+  }
+
+  .stepCard {
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 34px;
+    padding: 40px;
+  }
+
+  .stepCard::before {
+    content: "";
+    position: absolute;
+    inset: -80%;
+    background: linear-gradient(120deg, transparent, rgba(255,211,107,0.16), transparent);
+    transform: rotate(25deg);
+    animation: luxuryShine 7s infinite;
+  }
+
+  .stepNumber {
+    position: relative;
+    z-index: 2;
+    width: 92px;
+    height: 92px;
+    border-radius: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(255,211,107,0.16), rgba(255,88,180,0.18));
+    border: 1px solid rgba(255,211,107,0.26);
+    color: #ffd36b;
+    font-size: 30px;
+    font-weight: 950;
+    animation: numberFloat 3.2s ease-in-out infinite;
+  }
+
+  .stepContent {
+    position: relative;
+    z-index: 2;
+  }
+
+  .stepContent h3 {
+    font-size: 34px;
+    margin-bottom: 18px;
+    color: #ffffff;
+  }
+
+  .stepContent p {
+    font-size: 19px;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.86);
+  }
+
+  .chipGrid {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 28px;
+  }
+
+  .chipGrid span,
+  .futureItem {
+    padding: 14px 20px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: rgba(255,255,255,0.9);
+    animation: chipFloat 4s ease-in-out infinite;
+  }
+
+  .compareGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .compareCard {
+    padding: 44px;
+  }
+
+  .compareCard h3 {
+    font-size: 34px;
+    margin-bottom: 18px;
+    color: #ffffff;
+  }
+
+  .compareCard.old {
+    background:
+      radial-gradient(circle at top right, rgba(255,255,255,0.08), transparent 36%),
+      rgba(255,255,255,0.05);
+  }
+
+  .compareCard.new {
+    background:
+      radial-gradient(circle at top right, rgba(255,88,180,0.18), transparent 34%),
+      radial-gradient(circle at bottom left, rgba(255,211,107,0.14), transparent 34%),
+      rgba(255,255,255,0.08);
+  }
+
+  .futureCard {
+    padding: 72px 42px;
+    text-align: center;
+  }
+
+  .futureGrid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    justify-content: center;
+    margin-top: 40px;
+  }
+
+  .finalStatement {
+    margin-top: 60px;
+    padding: 40px;
+    border-radius: 34px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,211,107,0.24);
+  }
+
+  .finalStatement h3 {
+    font-size: 42px;
+    margin-bottom: 18px;
+    color: #ffd36b;
+  }
+
+  .finalStatement span {
+    display: block;
+    margin-top: 24px;
+    color: #ff58b4;
+    font-weight: 950;
+    font-size: 20px;
+  }
+
+  .animatedCard {
+    opacity: 1 !important;
+    filter: none !important;
+    animation: cardEntrance 0.9s ease both, softBreath 5.5s ease-in-out infinite;
+  }
+
+  @keyframes orbFloat {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(36px) scale(1.12); }
+  }
+
+  @keyframes gridDrift {
+    from { background-position: 0 0; }
+    to { background-position: 70px 70px; }
+  }
+
+  @keyframes heroRise {
+    from { opacity: 0; transform: translateY(42px) scale(0.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  @keyframes cardEntrance {
+    from { opacity: 0; transform: translateY(50px) scale(0.97); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  @keyframes softBreath {
+    0%, 100% { box-shadow: 0 40px 120px rgba(0,0,0,0.48); }
+    50% { box-shadow: 0 45px 140px rgba(255,88,180,0.14); }
+  }
+
+  @keyframes gradientFlow {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  @keyframes numberFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(4deg); }
+  }
+
+  @keyframes chipFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+
+  @keyframes luxuryShine {
+    0% { transform: translateX(-120%) rotate(25deg); }
+    55% { transform: translateX(120%) rotate(25deg); }
+    100% { transform: translateX(120%) rotate(25deg); }
+  }
+
+  @media (max-width: 980px) {
+    .tradeHero {
+      padding: 120px 20px 90px;
+    }
+
+    h1 {
+      font-size: 62px;
+      letter-spacing: -3px;
+    }
+
+    .heroText {
+      font-size: 18px;
+      line-height: 1.75;
+    }
+
+    .heroButtons {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .primaryBtn,
+    .secondaryBtn {
+      width: 100%;
+    }
+
+    .introWrap,
+    .timelineWrap,
+    .evolutionWrap,
+    .futureWrap {
+      padding: 90px 22px;
+    }
+
+    .stepCard,
+    .compareGrid {
+      grid-template-columns: 1fr;
+    }
+
+    .introCard,
+    .futureCard,
+    .stepCard,
+    .compareCard {
+      padding: 30px 26px;
+    }
+
+    .sectionHeading h2,
+    .introCard h2 {
+      font-size: 44px;
+      letter-spacing: -2px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    h1 {
+      font-size: 48px;
+      line-height: 0.98;
+    }
+
+    .sectionHeading h2,
+    .introCard h2 {
+      font-size: 38px;
+    }
+
+    .stepContent h3,
+    .compareCard h3 {
+      font-size: 28px;
+    }
+
+    .finalStatement h3 {
+      font-size: 32px;
+    }
+  }
+`}</style>
+</>
   );
 }
