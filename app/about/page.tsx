@@ -116,20 +116,22 @@ export default function AboutPage() {
           <div className="orb orbThree" />
           <div className="gridOverlay" />
 
-          <div className="floatingCard floatOne">
-            <small>VERIFIED SUPPLIER</small>
-            <strong>Global Trade Ready</strong>
-          </div>
+          <div className="floatingCardsWrap">
+  <div className="floatingCard floatOne">
+    <small>VERIFIED SUPPLIER</small>
+    <strong>Global Trade Ready</strong>
+  </div>
 
-          <div className="floatingCard floatTwo">
-            <small>HXN AI</small>
-            <strong>Building export store...</strong>
-          </div>
+  <div className="floatingCard floatTwo">
+    <small>HXN AI</small>
+    <strong>Building export store...</strong>
+  </div>
 
-          <div className="floatingCard floatThree">
-            <small>SECURE QUOTE</small>
-            <strong>$48,700 USD</strong>
-          </div>
+  <div className="floatingCard floatThree">
+    <small>SECURE QUOTE</small>
+    <strong>$48,700 USD</strong>
+  </div>
+</div>s
 
           <div className="heroContent">
             <div className="topBadge">GLOBAL AI-POWERED B2B ECOSYSTEM</div>
@@ -1220,6 +1222,76 @@ h1 {
   }
   50% {
     transform: translateY(-5px);
+  }
+}
+  .floatingCardsWrap {
+  position: sticky;
+  top: 120px;
+  z-index: 20;
+  height: 0;
+  pointer-events: none;
+}
+
+.floatingCard {
+  position: absolute !important;
+  width: 190px;
+  padding: 18px;
+  border-radius: 24px;
+  background: rgba(18, 32, 38, 0.72);
+  border: 1px solid rgba(214, 165, 82, 0.45);
+  backdrop-filter: blur(22px);
+  box-shadow: 0 25px 80px rgba(0,0,0,0.55);
+  animation: floatCard 5s ease-in-out infinite !important;
+}
+
+.floatOne {
+  top: 0;
+  right: 14px;
+}
+
+.floatTwo {
+  top: 430px;
+  left: 14px;
+}
+
+.floatThree {
+  top: 720px;
+  right: 14px;
+  display: block;
+}
+
+@media (max-width: 980px) {
+  .floatingCardsWrap {
+    top: 90px;
+  }
+
+  .floatingCard {
+    width: 145px;
+    padding: 13px;
+    opacity: 0.95;
+  }
+
+  .floatingCard small {
+    font-size: 10px;
+  }
+
+  .floatingCard strong {
+    font-size: 15px;
+  }
+
+  .floatOne {
+    top: 0;
+    right: 10px;
+  }
+
+  .floatTwo {
+    top: 500px;
+    left: 10px;
+  }
+
+  .floatThree {
+    top: 780px;
+    right: 10px;
   }
 }
       `}</style>
