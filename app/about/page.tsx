@@ -1,22 +1,11 @@
 "use client";
+
 export default function AboutPage() {
   const metrics = [
-    {
-      title: "AI",
-      text: "Intelligent trade infrastructure powered by advanced AI systems.",
-    },
-    {
-      title: "Global",
-      text: "Cross-border marketplace connecting businesses worldwide.",
-    },
-    {
-      title: "24/7",
-      text: "International sourcing access without geographical limitations.",
-    },
-    {
-      title: "HXN",
-      text: "AI-powered business assistant for modern global trade.",
-    },
+    { title: "AI", text: "Intelligent trade infrastructure powered by advanced AI systems." },
+    { title: "Global", text: "Cross-border marketplace connecting businesses worldwide." },
+    { title: "24/7", text: "International sourcing access without geographical limitations." },
+    { title: "HXN", text: "AI-powered business assistant for modern global trade." },
   ];
 
   const problems = [
@@ -121,21 +110,31 @@ export default function AboutPage() {
   return (
     <>
       <main className="aboutPage">
-
         <section className="heroSection">
           <div className="orb orbOne" />
           <div className="orb orbTwo" />
+          <div className="orb orbThree" />
           <div className="gridOverlay" />
 
+          <div className="floatingCard floatOne">
+            <small>VERIFIED SUPPLIER</small>
+            <strong>Global Trade Ready</strong>
+          </div>
+
+          <div className="floatingCard floatTwo">
+            <small>HXN AI</small>
+            <strong>Building export store...</strong>
+          </div>
+
+          <div className="floatingCard floatThree">
+            <small>SECURE QUOTE</small>
+            <strong>$48,700 USD</strong>
+          </div>
+
           <div className="heroContent">
+            <div className="topBadge">GLOBAL AI-POWERED B2B ECOSYSTEM</div>
 
-            <div className="topBadge">
-              GLOBAL AI-POWERED B2B ECOSYSTEM
-            </div>
-
-            <h1>
-              The Future of Intelligent Global Trade
-            </h1>
+            <h1>The Future of Intelligent Global Trade</h1>
 
             <p className="heroText">
               IMPEXVIAA is a next-generation AI-powered B2B import-export ecosystem designed to transform how businesses discover suppliers, build trusted trade relationships, manage sourcing, negotiate quotations, create digital stores, and scale internationally.
@@ -155,29 +154,29 @@ export default function AboutPage() {
             </div>
 
             <div className="heroButtons">
-              <a href="/" className="primaryBtn">
-                Enter IMPEXVIAA
-              </a>
-
-              <a
-                href="/ai-generated-stores"
-                className="secondaryBtn"
-              >
-                Explore HXN AI
-              </a>
+              <a href="/" className="primaryBtn">Enter IMPEXVIAA</a>
+              <a href="/ai-generated-stores" className="secondaryBtn">Explore HXN AI</a>
+              <a href="/supplier-verification" className="secondaryBtn">Verify Suppliers</a>
             </div>
 
             <div className="metricsGrid">
               {metrics.map((item, index) => (
-                <div key={index} className="metricCard">
+                <div key={index} className="metricCard animatedCard">
                   <h3>{item.title}</h3>
                   <p>{item.text}</p>
                 </div>
               ))}
             </div>
-
           </div>
         </section>
+
+        <div className="marquee">
+          <div>
+            {industries.concat(industries).map((item, index) => (
+              <span key={index}>{item}</span>
+            ))}
+          </div>
+        </div>
 
         <section className="sectionWrap">
           <div className="sectionHeading">
@@ -185,20 +184,16 @@ export default function AboutPage() {
             <h2>Rebuilding International Trade for the Modern Era</h2>
           </div>
 
-          <div className="glassCard">
+          <div className="glassCard animatedCard">
             <p>
               Global trade still operates through fragmented systems, outdated sourcing methods, inefficient communication, supplier uncertainty, scattered quotation workflows, disconnected marketplaces, and trust issues between buyers and suppliers.
             </p>
 
-            <p>
-              Every year, businesses lose opportunities, money, and confidence because of:
-            </p>
+            <p>Every year, businesses lose opportunities, money, and confidence because of:</p>
 
             <div className="problemGrid">
               {problems.map((item, index) => (
-                <div key={index} className="problemItem">
-                  {item}
-                </div>
+                <div key={index} className="problemItem">{item}</div>
               ))}
             </div>
 
@@ -223,19 +218,14 @@ export default function AboutPage() {
           </div>
 
           <div className="ecosystemGrid">
-
-            <div className="ecosystemCard">
+            <div className="ecosystemCard animatedCard">
               <h3>1. Global Business Marketplace</h3>
 
-              <p>
-                A complete B2B ecosystem for existing businesses to:
-              </p>
+              <p>A complete B2B ecosystem for existing businesses to:</p>
 
               <div className="bulletGrid">
                 {marketplacePoints.map((item, index) => (
-                  <div key={index} className="bulletItem">
-                    {item}
-                  </div>
+                  <div key={index} className="bulletItem">{item}</div>
                 ))}
               </div>
 
@@ -243,31 +233,26 @@ export default function AboutPage() {
                 IMPEXVIAA focuses on building a safer and smarter trade environment where businesses feel supported throughout the entire sourcing and trading process.
               </p>
 
-              <div className="highlightText">
-                Because global trade should not feel risky or uncertain.
-              </div>
+              <div className="highlightText">Because global trade should not feel risky or uncertain.</div>
             </div>
 
-            <div className="ecosystemCard">
+            <div className="ecosystemCard goldGlow animatedCard">
               <h3>2. The IMPEXVIAA Tradepreneur Network</h3>
 
-              <p>
-                A next-generation ecosystem designed for:
-              </p>
+              <p>A next-generation ecosystem designed for:</p>
 
               <div className="bulletGrid">
                 {tradepreneurUsers.map((item, index) => (
-                  <div key={index} className="bulletItem">
-                    {item}
-                  </div>
+                  <div key={index} className="bulletItem">{item}</div>
                 ))}
               </div>
 
               <p>
                 This segment focuses on helping people build international businesses completely from scratch using AI-powered guidance and intelligent trade systems.
               </p>
-            </div>
 
+              <a href="/ai-generated-stores" className="miniBtn">Start with HXN AI</a>
+            </div>
           </div>
         </section>
 
@@ -277,34 +262,34 @@ export default function AboutPage() {
             <h2>The Intelligent Trade & Business Assistant</h2>
           </div>
 
-          <div className="hxnCard">
+          <div className="hxnCard animatedCard">
+            <div className="aiConsole">
+              <div className="consoleTop">
+                <span />
+                <span />
+                <span />
+              </div>
+              <p className="typingLine">HXN AI is preparing your global trade roadmap...</p>
+            </div>
 
             <p>
               At the center of IMPEXVIAA is HXN AI — an advanced AI-powered business intelligence system designed to guide users step-by-step through the world of import and export.
             </p>
 
             <div className="doubleGrid">
-
-              <div className="miniCard">
+              <div className="miniCard animatedCard">
                 <h4>HXN AI is being built with:</h4>
-
                 {hxnBuiltWith.map((item, index) => (
-                  <div key={index} className="lineItem">
-                    {item}
-                  </div>
+                  <div key={index} className="lineItem">{item}</div>
                 ))}
               </div>
 
-              <div className="miniCard">
+              <div className="miniCard animatedCard">
                 <h4>HXN AI helps users:</h4>
-
                 {hxnHelps.map((item, index) => (
-                  <div key={index} className="lineItem">
-                    {item}
-                  </div>
+                  <div key={index} className="lineItem">{item}</div>
                 ))}
               </div>
-
             </div>
 
             <div className="quoteBox large">
@@ -315,7 +300,6 @@ export default function AboutPage() {
                 We help people build them.
               </p>
             </div>
-
           </div>
         </section>
 
@@ -327,16 +311,10 @@ export default function AboutPage() {
 
           <div className="coreGrid">
             {coreCards.map((item, index) => (
-              <div key={index} className="coreCard">
-
-                <div className="iconBox">
-                  {item.icon}
-                </div>
-
+              <div key={index} className="coreCard animatedCard">
+                <div className="iconBox">{item.icon}</div>
                 <h3>{item.title}</h3>
-
                 <p>{item.text}</p>
-
               </div>
             ))}
           </div>
@@ -350,58 +328,38 @@ export default function AboutPage() {
 
           <div className="industryGrid">
             {industries.map((item, index) => (
-              <div key={index} className="industryItem">
-                {item}
-              </div>
+              <div key={index} className="industryItem animatedCard">{item}</div>
             ))}
           </div>
         </section>
 
         <section className="sectionWrap">
-          <div className="glassCard premiumCard">
-
+          <div className="glassCard premiumCard animatedCard">
             <div className="sectionHeading">
               <span>WE STAND BESIDE BUSINESSES</span>
-              <h2>
-                Modern trade infrastructure designed to support businesses at every stage.
-              </h2>
+              <h2>Modern trade infrastructure designed to support businesses at every stage.</h2>
             </div>
 
-            <p>
-              Most platforms stop after creating a connection.
-            </p>
+            <p>Most platforms stop after creating a connection.</p>
 
             <p>
               IMPEXVIAA is being designed to support businesses and entrepreneurs throughout their journey by combining AI intelligence, supplier discovery, business education, trade guidance, verification systems, quotation infrastructure, global sourcing workflows, and future-ready payment systems.
             </p>
 
-            <p>
-              We believe businesses should never feel alone while entering global trade.
-            </p>
+            <p>We believe businesses should never feel alone while entering global trade.</p>
 
             <div className="heroButtons">
-              <a href="/" className="primaryBtn">
-                Start Global Trade
-              </a>
-
-              <a href="/marketplace" className="secondaryBtn">
-                Explore Marketplace
-              </a>
+              <a href="/" className="primaryBtn">Start Global Trade</a>
+              <a href="/marketplace/agriculture" className="secondaryBtn">Explore Marketplace</a>
             </div>
-
           </div>
         </section>
 
         <section className="visionSection">
-
-          <div className="visionCard">
-
+          <div className="visionCard animatedCard">
             <div className="sectionHeading center">
               <span>OUR LONG-TERM VISION</span>
-
-              <h2>
-                Creating One of the World’s Most Intelligent Digital Trade Ecosystems
-              </h2>
+              <h2>Creating One of the World’s Most Intelligent Digital Trade Ecosystems</h2>
             </div>
 
             <p>
@@ -421,29 +379,17 @@ export default function AboutPage() {
                 We help build them.
               </p>
 
-              <p>
-                We stand beside businesses at every step of global growth.
-              </p>
+              <p>We stand beside businesses at every step of global growth.</p>
 
-              <span>
-                IMPEXVIAA — The Future of Intelligent Global Trade.
-              </span>
+              <span>IMPEXVIAA — The Future of Intelligent Global Trade.</span>
             </div>
 
             <div className="heroButtons centerButtons">
-              <a href="/" className="primaryBtn">
-                Enter IMPEXVIAA
-              </a>
-
-              <a href="/impexviaa-pay" className="secondaryBtn">
-                Explore IMPEXVIAA Pay
-              </a>
+              <a href="/" className="primaryBtn">Enter IMPEXVIAA</a>
+              <a href="/impexviaa-pay" className="secondaryBtn">Explore IMPEXVIAA Pay</a>
             </div>
-
           </div>
-
         </section>
-
       </main>
 
       <style jsx>{`
@@ -451,7 +397,7 @@ export default function AboutPage() {
           background: #020404;
           color: white;
           overflow: hidden;
-          font-family: Inter, sans-serif;
+          font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
         }
 
         .heroSection {
@@ -460,16 +406,18 @@ export default function AboutPage() {
           padding: 140px 24px 120px;
           overflow: hidden;
           background:
-            radial-gradient(circle at top left, rgba(0,255,180,0.15), transparent 30%),
-            radial-gradient(circle at top right, rgba(0,140,255,0.14), transparent 30%),
+            radial-gradient(circle at top left, rgba(0,255,180,0.22), transparent 30%),
+            radial-gradient(circle at top right, rgba(214,165,82,0.2), transparent 32%),
+            radial-gradient(circle at bottom, rgba(0,94,255,0.16), transparent 32%),
             #020404;
         }
 
         .orb {
           position: absolute;
           border-radius: 50%;
-          filter: blur(120px);
+          filter: blur(115px);
           animation: floatOrb 8s ease-in-out infinite;
+          opacity: 0.75;
         }
 
         .orbOne {
@@ -489,21 +437,37 @@ export default function AboutPage() {
           animation-delay: 2s;
         }
 
+        .orbThree {
+          width: 240px;
+          height: 240px;
+          background: #d6a552;
+          bottom: 140px;
+          right: 20%;
+          animation-delay: 1s;
+        }
+
         .gridOverlay {
           position: absolute;
           inset: 0;
           background-image:
-            linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
           background-size: 80px 80px;
           mask-image: linear-gradient(to bottom, rgba(0,0,0,1), transparent);
+          animation: gridMove 18s linear infinite;
+        }
+
+        @keyframes gridMove {
+          from { background-position: 0 0; }
+          to { background-position: 80px 80px; }
         }
 
         .heroContent {
           position: relative;
-          z-index: 2;
+          z-index: 3;
           max-width: 1200px;
           margin: 0 auto;
+          animation: revealHero 1s ease both;
         }
 
         .topBadge {
@@ -511,11 +475,12 @@ export default function AboutPage() {
           padding: 12px 18px;
           border-radius: 999px;
           background: rgba(255,255,255,0.06);
-          border: 1px solid rgba(255,255,255,0.1);
+          border: 1px solid rgba(255,255,255,0.12);
           font-size: 12px;
           letter-spacing: 2px;
           margin-bottom: 30px;
           backdrop-filter: blur(20px);
+          box-shadow: 0 0 40px rgba(0,255,204,0.12);
         }
 
         h1 {
@@ -524,14 +489,19 @@ export default function AboutPage() {
           letter-spacing: -6px;
           max-width: 1000px;
           margin-bottom: 34px;
-          font-weight: 800;
+          font-weight: 900;
+          background: linear-gradient(110deg, #ffffff, #d6fff6, #d6a552, #ffffff);
+          background-size: 300% 300%;
+          -webkit-background-clip: text;
+          color: transparent;
+          animation: textShine 6s ease infinite;
         }
 
         .heroText {
           max-width: 920px;
           font-size: 22px;
           line-height: 1.8;
-          color: rgba(255,255,255,0.75);
+          color: rgba(255,255,255,0.76);
           margin-bottom: 24px;
         }
 
@@ -546,21 +516,24 @@ export default function AboutPage() {
           align-items: flex-start;
           padding: 30px;
           border-radius: 28px;
-          background: rgba(255,255,255,0.04);
-          border: 1px solid rgba(255,255,255,0.08);
+          background: rgba(255,255,255,0.045);
+          border: 1px solid rgba(255,255,255,0.1);
+          backdrop-filter: blur(24px);
+          box-shadow: 0 35px 100px rgba(0,0,0,0.45);
         }
 
         .quoteBox span {
           width: 5px;
           border-radius: 999px;
-          background: linear-gradient(to bottom,#00ffcc,#005eff);
+          background: linear-gradient(to bottom,#00ffcc,#005eff,#d6a552);
           min-height: 100%;
+          animation: linePulse 2.8s infinite;
         }
 
         .quoteBox p {
           font-size: 30px;
           line-height: 1.4;
-          font-weight: 700;
+          font-weight: 800;
         }
 
         .heroButtons {
@@ -571,7 +544,8 @@ export default function AboutPage() {
         }
 
         .primaryBtn,
-        .secondaryBtn {
+        .secondaryBtn,
+        .miniBtn {
           height: 62px;
           padding: 0 34px;
           border-radius: 18px;
@@ -579,8 +553,10 @@ export default function AboutPage() {
           align-items: center;
           justify-content: center;
           text-decoration: none;
-          font-weight: 700;
+          font-weight: 800;
           transition: 0.35s ease;
+          position: relative;
+          overflow: hidden;
         }
 
         .primaryBtn {
@@ -588,21 +564,28 @@ export default function AboutPage() {
           color: black;
         }
 
-        .primaryBtn:hover {
-          transform: translateY(-4px);
-          box-shadow: 0 20px 50px rgba(255,255,255,0.2);
+        .primaryBtn::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(120deg, transparent, rgba(255,255,255,0.8), transparent);
+          transform: translateX(-120%);
+          animation: btnShine 3.5s infinite;
         }
 
-        .secondaryBtn {
-          border: 1px solid rgba(255,255,255,0.12);
+        .primaryBtn:hover,
+        .secondaryBtn:hover,
+        .miniBtn:hover {
+          transform: translateY(-5px) scale(1.02);
+          box-shadow: 0 25px 70px rgba(255,255,255,0.18);
+        }
+
+        .secondaryBtn,
+        .miniBtn {
+          border: 1px solid rgba(255,255,255,0.14);
           color: white;
-          background: rgba(255,255,255,0.04);
+          background: rgba(255,255,255,0.045);
           backdrop-filter: blur(20px);
-        }
-
-        .secondaryBtn:hover {
-          background: rgba(255,255,255,0.08);
-          transform: translateY(-4px);
         }
 
         .metricsGrid {
@@ -615,8 +598,8 @@ export default function AboutPage() {
         .metricCard {
           padding: 28px;
           border-radius: 26px;
-          background: rgba(255,255,255,0.04);
-          border: 1px solid rgba(255,255,255,0.08);
+          background: rgba(255,255,255,0.045);
+          border: 1px solid rgba(255,255,255,0.09);
           backdrop-filter: blur(30px);
         }
 
@@ -626,8 +609,74 @@ export default function AboutPage() {
         }
 
         .metricCard p {
-          color: rgba(255,255,255,0.6);
+          color: rgba(255,255,255,0.62);
           line-height: 1.6;
+        }
+
+        .floatingCard {
+          position: absolute;
+          z-index: 4;
+          width: 230px;
+          padding: 20px;
+          border-radius: 26px;
+          background: rgba(255,255,255,0.07);
+          border: 1px solid rgba(214,165,82,0.25);
+          backdrop-filter: blur(25px);
+          box-shadow: 0 35px 100px rgba(0,0,0,0.55);
+          animation: floatCard 6s ease-in-out infinite;
+        }
+
+        .floatingCard small {
+          color: #d6a552;
+          font-weight: 900;
+          letter-spacing: 1px;
+          font-size: 11px;
+        }
+
+        .floatingCard strong {
+          display: block;
+          margin-top: 8px;
+          font-size: 18px;
+        }
+
+        .floatOne {
+          top: 210px;
+          right: 7%;
+        }
+
+        .floatTwo {
+          top: 500px;
+          left: 5%;
+          animation-delay: 1.1s;
+        }
+
+        .floatThree {
+          bottom: 150px;
+          right: 12%;
+          animation-delay: 2s;
+        }
+
+        .marquee {
+          overflow: hidden;
+          background: #050707;
+          border-block: 1px solid rgba(255,255,255,0.08);
+          padding: 18px 0;
+        }
+
+        .marquee div {
+          display: flex;
+          gap: 18px;
+          width: max-content;
+          animation: marqueeMove 28s linear infinite;
+        }
+
+        .marquee span {
+          padding: 12px 20px;
+          border-radius: 999px;
+          background: rgba(255,255,255,0.05);
+          border: 1px solid rgba(255,255,255,0.08);
+          white-space: nowrap;
+          color: rgba(255,255,255,0.8);
         }
 
         .sectionWrap {
@@ -644,6 +693,7 @@ export default function AboutPage() {
           color: #00ffcc;
           letter-spacing: 2px;
           font-size: 13px;
+          font-weight: 900;
         }
 
         .sectionHeading h2 {
@@ -654,19 +704,42 @@ export default function AboutPage() {
           max-width: 950px;
         }
 
+        .glassCard,
+        .ecosystemCard,
+        .miniCard,
+        .coreCard,
+        .visionCard,
+        .hxnCard {
+          border-radius: 34px;
+          background:
+            linear-gradient(145deg, rgba(255,255,255,0.075), rgba(255,255,255,0.025));
+          border: 1px solid rgba(255,255,255,0.09);
+          backdrop-filter: blur(30px);
+          box-shadow: 0 35px 110px rgba(0,0,0,0.45);
+        }
+
         .glassCard {
           padding: 50px;
-          border-radius: 34px;
-          background: rgba(255,255,255,0.04);
-          border: 1px solid rgba(255,255,255,0.08);
-          backdrop-filter: blur(30px);
         }
 
         .glassCard p {
           font-size: 22px;
           line-height: 1.9;
-          color: rgba(255,255,255,0.7);
+          color: rgba(255,255,255,0.72);
           margin-bottom: 26px;
+        }
+
+        .animatedCard {
+          animation: revealScroll linear both;
+          animation-timeline: view();
+          animation-range: entry 0% cover 35%;
+          transition: 0.4s ease;
+        }
+
+        .animatedCard:hover {
+          transform: translateY(-10px) scale(1.015);
+          border-color: rgba(0,255,204,0.35);
+          box-shadow: 0 45px 140px rgba(0,0,0,0.65), 0 0 60px rgba(0,255,204,0.08);
         }
 
         .problemGrid,
@@ -684,8 +757,18 @@ export default function AboutPage() {
         .lineItem {
           padding: 14px 20px;
           border-radius: 999px;
-          background: rgba(255,255,255,0.05);
-          border: 1px solid rgba(255,255,255,0.08);
+          background: rgba(255,255,255,0.055);
+          border: 1px solid rgba(255,255,255,0.09);
+          transition: 0.3s ease;
+        }
+
+        .problemItem:hover,
+        .industryItem:hover,
+        .bulletItem:hover,
+        .lineItem:hover {
+          transform: translateY(-4px);
+          background: rgba(0,255,204,0.08);
+          border-color: rgba(0,255,204,0.25);
         }
 
         .ecosystemGrid,
@@ -695,13 +778,9 @@ export default function AboutPage() {
           gap: 24px;
         }
 
-        .ecosystemGrid {
-          grid-template-columns: repeat(2,1fr);
-        }
-
+        .ecosystemGrid,
         .doubleGrid {
           grid-template-columns: repeat(2,1fr);
-          margin-top: 40px;
         }
 
         .coreGrid {
@@ -710,12 +789,14 @@ export default function AboutPage() {
 
         .ecosystemCard,
         .miniCard,
-        .coreCard,
-        .visionCard {
+        .coreCard {
           padding: 40px;
-          border-radius: 34px;
-          background: rgba(255,255,255,0.04);
-          border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .goldGlow {
+          background:
+            radial-gradient(circle at top right, rgba(214,165,82,0.16), transparent 35%),
+            linear-gradient(145deg, rgba(255,255,255,0.075), rgba(255,255,255,0.025));
         }
 
         .ecosystemCard h3,
@@ -728,7 +809,7 @@ export default function AboutPage() {
         .miniCard p,
         .coreCard p,
         .visionCard p {
-          color: rgba(255,255,255,0.68);
+          color: rgba(255,255,255,0.7);
           line-height: 1.8;
           font-size: 19px;
         }
@@ -736,16 +817,52 @@ export default function AboutPage() {
         .highlightText {
           margin-top: 30px;
           font-size: 24px;
-          font-weight: 700;
+          font-weight: 800;
+          color: #d6a552;
+        }
+
+        .miniBtn {
+          margin-top: 28px;
         }
 
         .hxnCard {
           padding: 50px;
-          border-radius: 36px;
           background:
-            radial-gradient(circle at top right, rgba(0,255,200,0.12), transparent 35%),
+            radial-gradient(circle at top right, rgba(0,255,200,0.14), transparent 35%),
+            radial-gradient(circle at bottom left, rgba(0,94,255,0.12), transparent 34%),
             rgba(255,255,255,0.04);
-          border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .aiConsole {
+          margin-bottom: 34px;
+          border-radius: 24px;
+          background: rgba(0,0,0,0.55);
+          border: 1px solid rgba(0,255,204,0.18);
+          padding: 18px;
+          box-shadow: inset 0 0 30px rgba(0,255,204,0.05);
+        }
+
+        .consoleTop {
+          display: flex;
+          gap: 8px;
+          margin-bottom: 16px;
+        }
+
+        .consoleTop span {
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background: #00ffcc;
+        }
+
+        .typingLine {
+          overflow: hidden;
+          white-space: nowrap;
+          width: 0;
+          border-right: 2px solid #00ffcc;
+          animation: typing 5s steps(54, end) infinite, blink 0.8s infinite;
+          color: rgba(255,255,255,0.85);
+          margin: 0;
         }
 
         .miniCard h4 {
@@ -761,17 +878,34 @@ export default function AboutPage() {
           width: 72px;
           height: 72px;
           border-radius: 24px;
-          background: rgba(255,255,255,0.06);
+          background:
+            radial-gradient(circle, rgba(0,255,204,0.14), rgba(255,255,255,0.06));
           display: flex;
           align-items: center;
           justify-content: center;
           font-size: 34px;
           margin-bottom: 26px;
+          animation: iconPulse 3s ease-in-out infinite;
+        }
+
+        .coreCard {
+          position: relative;
+          overflow: hidden;
+        }
+
+        .coreCard::before {
+          content: "";
+          position: absolute;
+          inset: -80%;
+          background: linear-gradient(120deg, transparent, rgba(214,165,82,0.18), transparent);
+          transform: rotate(25deg);
+          animation: cardShine 5s infinite;
         }
 
         .premiumCard {
           background:
-            radial-gradient(circle at top right, rgba(0,255,200,0.1), transparent 30%),
+            radial-gradient(circle at top right, rgba(0,255,200,0.12), transparent 30%),
+            radial-gradient(circle at bottom left, rgba(214,165,82,0.12), transparent 30%),
             rgba(255,255,255,0.04);
         }
 
@@ -784,6 +918,10 @@ export default function AboutPage() {
           margin: 0 auto;
           text-align: center;
           padding: 80px 40px;
+          background:
+            radial-gradient(circle at top, rgba(0,255,204,0.14), transparent 34%),
+            radial-gradient(circle at bottom, rgba(214,165,82,0.12), transparent 32%),
+            rgba(255,255,255,0.04);
         }
 
         .center {
@@ -792,11 +930,16 @@ export default function AboutPage() {
 
         .finalStatement {
           margin-top: 60px;
+          padding: 34px;
+          border-radius: 30px;
+          background: rgba(255,255,255,0.05);
+          border: 1px solid rgba(214,165,82,0.2);
         }
 
         .finalStatement h3 {
           font-size: 48px;
           margin-bottom: 20px;
+          color: #d6a552;
         }
 
         .finalStatement span {
@@ -804,6 +947,7 @@ export default function AboutPage() {
           margin-top: 24px;
           color: #00ffcc;
           font-size: 20px;
+          font-weight: 800;
         }
 
         .centerButtons {
@@ -811,19 +955,69 @@ export default function AboutPage() {
         }
 
         @keyframes floatOrb {
-          0% {
-            transform: translateY(0px);
-          }
-          50% {
-            transform: translateY(30px);
-          }
-          100% {
-            transform: translateY(0px);
-          }
+          0%, 100% { transform: translateY(0px) scale(1); }
+          50% { transform: translateY(35px) scale(1.12); }
+        }
+
+        @keyframes floatCard {
+          0%, 100% { transform: translateY(0) rotate(0deg); }
+          50% { transform: translateY(-24px) rotate(1.5deg); }
+        }
+
+        @keyframes revealHero {
+          from { opacity: 0; transform: translateY(40px) scale(0.98); }
+          to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        @keyframes revealScroll {
+          from { opacity: 0; transform: translateY(60px) scale(0.96); }
+          to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        @keyframes textShine {
+          0%, 100% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+        }
+
+        @keyframes linePulse {
+          0%, 100% { opacity: 0.55; }
+          50% { opacity: 1; }
+        }
+
+        @keyframes btnShine {
+          0% { transform: translateX(-120%); }
+          45% { transform: translateX(120%); }
+          100% { transform: translateX(120%); }
+        }
+
+        @keyframes marqueeMove {
+          from { transform: translateX(0); }
+          to { transform: translateX(-50%); }
+        }
+
+        @keyframes typing {
+          0% { width: 0; }
+          45% { width: 100%; }
+          75% { width: 100%; }
+          100% { width: 0; }
+        }
+
+        @keyframes blink {
+          50% { border-color: transparent; }
+        }
+
+        @keyframes iconPulse {
+          0%, 100% { box-shadow: 0 0 0 rgba(0,255,204,0); }
+          50% { box-shadow: 0 0 40px rgba(0,255,204,0.16); }
+        }
+
+        @keyframes cardShine {
+          0% { transform: translateX(-120%) rotate(25deg); }
+          50% { transform: translateX(120%) rotate(25deg); }
+          100% { transform: translateX(120%) rotate(25deg); }
         }
 
         @media (max-width: 980px) {
-
           .metricsGrid,
           .ecosystemGrid,
           .doubleGrid,
@@ -831,8 +1025,27 @@ export default function AboutPage() {
             grid-template-columns: 1fr;
           }
 
+          .floatingCard {
+            width: 165px;
+            padding: 14px;
+          }
+
+          .floatOne {
+            top: 115px;
+            right: -18px;
+          }
+
+          .floatTwo {
+            top: 520px;
+            left: -18px;
+          }
+
+          .floatThree {
+            display: none;
+          }
+
           h1 {
-            font-size: 68px;
+            font-size: 62px;
             letter-spacing: -3px;
           }
 
@@ -860,8 +1073,11 @@ export default function AboutPage() {
           .visionCard p {
             font-size: 17px;
           }
-        }
 
+          .metricsGrid {
+            grid-template-columns: 1fr;
+          }
+        }
       `}</style>
     </>
   );
