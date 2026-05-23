@@ -1559,6 +1559,35 @@ export default function AboutPage() {
   50% {
     transform: translateY(-7px);
   }
+.floatingCard {
+  opacity: 0.75 !important;
+}
+
+.floatOne {
+  top: 180px !important;
+  right: -25px !important;
+}
+
+.floatTwo {
+  top: 760px !important;
+  left: -25px !important;
+}
+
+@media (max-width: 980px) {
+  .floatingCard {
+    opacity: 0.7 !important;
+    width: 145px !important;
+  }
+
+  .floatOne {
+    top: 180px !important;
+    right: -18px !important;
+  }
+
+  .floatTwo {
+    top: 850px !important;
+    left: -18px !important;
+  }
 }
 `}</style>
   </>
