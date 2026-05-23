@@ -1078,6 +1078,142 @@ export default function AboutPage() {
             grid-template-columns: 1fr;
           }
         }
+          /* FINAL FIXES */
+
+.heroButtons {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(180px, 1fr));
+  gap: 16px;
+  margin-top: 44px;
+  max-width: 760px;
+}
+
+.primaryBtn,
+.secondaryBtn,
+.miniBtn {
+  width: 100%;
+  height: 64px;
+  border-radius: 22px;
+}
+
+.floatingCard {
+  animation:
+    floatCard 6s ease-in-out infinite,
+    cardMoveDown linear both;
+  animation-timeline: auto, scroll(root);
+  animation-range: auto, 0 100%;
+}
+
+@keyframes cardMoveDown {
+  from {
+    translate: 0 0;
+  }
+  to {
+    translate: 0 520px;
+  }
+}
+
+.visionCard,
+.premiumCard,
+.glassCard,
+.ecosystemCard,
+.hxnCard,
+.coreCard,
+.miniCard {
+  background:
+    radial-gradient(circle at top right, rgba(0, 255, 204, 0.22), transparent 38%),
+    radial-gradient(circle at bottom left, rgba(214, 165, 82, 0.18), transparent 42%),
+    linear-gradient(145deg, rgba(255,255,255,0.09), rgba(255,255,255,0.035)) !important;
+}
+
+.visionCard p,
+.premiumCard p,
+.glassCard p,
+.ecosystemCard p,
+.hxnCard p,
+.coreCard p,
+.miniCard p {
+  color: rgba(255, 255, 255, 0.82) !important;
+}
+
+.sectionHeading h2 {
+  color: #ffffff;
+  text-shadow: 0 0 30px rgba(0, 255, 204, 0.18);
+}
+
+.coreCard:first-child .iconBox {
+  animation: globeRotate 4s linear infinite, iconPulse 3s ease-in-out infinite;
+}
+
+@keyframes globeRotate {
+  from {
+    transform: rotateY(0deg) rotateZ(0deg);
+  }
+  to {
+    transform: rotateY(360deg) rotateZ(360deg);
+  }
+}
+
+.problemItem,
+.industryItem,
+.bulletItem,
+.lineItem {
+  animation: softFloat 5s ease-in-out infinite;
+}
+
+@keyframes softFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@media (max-width: 980px) {
+  .heroButtons {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+    gap: 14px;
+    margin-top: 34px;
+  }
+
+  .primaryBtn,
+  .secondaryBtn,
+  .miniBtn {
+    width: 100%;
+    height: 66px;
+    border-radius: 24px;
+  }
+
+  .floatingCard {
+    width: 150px;
+    padding: 13px;
+    opacity: 0.88;
+  }
+
+  .floatOne {
+    top: 120px;
+    right: -50px;
+  }
+
+  .floatTwo {
+    top: 690px;
+    left: -50px;
+  }
+
+  .floatThree {
+    display: none;
+  }
+
+  .visionCard,
+  .premiumCard {
+    background:
+      radial-gradient(circle at top right, rgba(0,255,204,0.28), transparent 45%),
+      radial-gradient(circle at bottom left, rgba(214,165,82,0.22), transparent 45%),
+      linear-gradient(145deg, rgba(255,255,255,0.1), rgba(255,255,255,0.04)) !important;
+  }
+}
       `}</style>
     </>
   );
