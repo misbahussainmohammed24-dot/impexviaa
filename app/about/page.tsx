@@ -1255,7 +1255,142 @@ export default function AboutPage() {
     .quoteBox span {
       width: 4px;
     }
+  /* FINAL FIX: mobile alignment, bright text, floating cards, animations */
+
+.floatingCardsWrap {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  animation: cardsFall linear both;
+  animation-timeline: scroll(root);
+}
+
+@keyframes cardsFall {
+  from { transform: translateY(0); }
+  to { transform: translateY(900px); }
+}
+
+.heroContent {
+  z-index: 5;
+}
+
+.floatingCard {
+  opacity: 0.35;
+  filter: blur(0.2px);
+}
+
+.floatOne {
+  right: -70px;
+}
+
+.floatTwo {
+  left: -80px;
+}
+
+.sectionHeading h2,
+.ecosystemCard h3,
+.coreCard h3,
+.premiumCard h2,
+.visionCard h2 {
+  text-align: left;
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+.glassCard p,
+.ecosystemCard p,
+.coreCard p,
+.hxnCard p,
+.visionCard p,
+.premiumCard p,
+.finalStatement p {
+  color: rgba(255,255,255,0.88) !important;
+  opacity: 1 !important;
+}
+
+.iconBox {
+  animation: iconFloat 2.8s ease-in-out infinite;
+}
+
+.coreCard:first-child .iconBox {
+  animation: globeSpin 3s linear infinite, iconFloat 2.8s ease-in-out infinite;
+}
+
+@keyframes globeSpin {
+  from { transform: rotateY(0deg) rotateZ(0deg); }
+  to { transform: rotateY(360deg) rotateZ(360deg); }
+}
+
+@keyframes iconFloat {
+  0%,100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-10px) scale(1.08); }
+}
+
+.coreCard,
+.ecosystemCard,
+.glassCard,
+.hxnCard,
+.premiumCard,
+.visionCard,
+.metricCard {
+  animation: cardReveal 0.9s ease both, cardGlow 5s ease-in-out infinite;
+}
+
+@keyframes cardGlow {
+  0%,100% { box-shadow: 0 35px 110px rgba(0,0,0,0.45); }
+  50% { box-shadow: 0 45px 140px rgba(0,255,204,0.10); }
+}
+
+@keyframes cardReveal {
+  from { opacity: 0; transform: translateY(45px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (max-width: 640px) {
+  .sectionWrap {
+    padding: 90px 22px;
   }
+
+  .sectionHeading {
+    margin-bottom: 40px;
+  }
+
+  .sectionHeading h2 {
+    font-size: 42px !important;
+    line-height: 1.08 !important;
+    letter-spacing: -2px !important;
+  }
+
+  .ecosystemCard,
+  .coreCard,
+  .glassCard,
+  .hxnCard,
+  .premiumCard,
+  .visionCard {
+    padding: 30px 26px !important;
+  }
+
+  .coreCard h3,
+  .ecosystemCard h3 {
+    font-size: 31px !important;
+    line-height: 1.15 !important;
+  }
+
+  .coreCard p,
+  .ecosystemCard p,
+  .glassCard p,
+  .hxnCard p,
+  .premiumCard p,
+  .visionCard p {
+    font-size: 18px !important;
+    line-height: 1.75 !important;
+  }
+
+  .floatingCard {
+    opacity: 0.22 !important;
+  }
+}
 `}</style>
   </>
   );
