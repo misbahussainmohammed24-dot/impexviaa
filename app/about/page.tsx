@@ -1588,6 +1588,37 @@ export default function AboutPage() {
     top: 850px !important;
     left: -18px !important;
   }
+/* FIX DIM TEXT */
+.visionCard,
+.premiumCard {
+  opacity: 1 !important;
+}
+
+.visionCard h2,
+.premiumCard h2,
+.visionCard p,
+.premiumCard p,
+.finalStatement p,
+.finalStatement span {
+  opacity: 1 !important;
+  color: rgba(255,255,255,0.9) !important;
+}
+
+.visionCard h2,
+.premiumCard h2 {
+  color: #ffffff !important;
+}
+
+.finalStatement h3 {
+  opacity: 1 !important;
+  color: #d6a552 !important;
+}
+
+.premiumCard .primaryBtn,
+.visionCard .primaryBtn {
+  opacity: 1 !important;
+  background: #ffffff !important;
+  color: #000000 !important;
 }
 `}</style>
   </>
