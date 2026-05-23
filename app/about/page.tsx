@@ -131,7 +131,7 @@ export default function AboutPage() {
     <small>SECURE QUOTE</small>
     <strong>$48,700 USD</strong>
   </div>
-</div>s
+</div>
 
           <div className="heroContent">
             <div className="topBadge">GLOBAL AI-POWERED B2B ECOSYSTEM</div>
@@ -1082,54 +1082,87 @@ export default function AboutPage() {
         }
          
   /* FIX FLOATING CARDS COVERING TEXT */
-
-.floatingCardsWrap {
-  position: absolute !important;
-  inset: 0 !important;
-  z-index: 1 !important;
-  pointer-events: none !important;
-}
+/* CLEAN FINAL FIX */
 
 .heroContent {
-  position: relative !important;
-  z-index: 5 !important;
+  position: relative;
+  z-index: 5;
+}
+
+.floatingCardsWrap {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
 }
 
 .floatingCard {
-  opacity: 0.55 !important;
-  animation: floatAway 8s ease-in-out infinite !important;
+  position: absolute;
+  width: 190px;
+  padding: 18px;
+  border-radius: 24px;
+  background: rgba(18, 32, 38, 0.78);
+  border: 1px solid rgba(214, 165, 82, 0.45);
+  backdrop-filter: blur(22px);
+  box-shadow: 0 25px 80px rgba(0,0,0,0.55);
+  opacity: 0.75;
+  animation: floatCard 6s ease-in-out infinite;
 }
 
-@keyframes floatAway {
-  0%, 100% {
-    transform: translateY(0) scale(1);
-  }
+.floatOne {
+  top: 140px;
+  right: 20px;
+}
 
-  50% {
-    transform: translateY(35px) scale(0.96);
-  }
+.floatTwo {
+  top: 900px;
+  left: 20px;
+}
+
+.floatThree {
+  display: none;
+}
+
+.visionCard p,
+.premiumCard p,
+.glassCard p,
+.ecosystemCard p,
+.hxnCard p,
+.coreCard p,
+.miniCard p {
+  color: rgba(255,255,255,0.82) !important;
 }
 
 @media (max-width: 980px) {
   .floatingCard {
-    opacity: 0.35 !important;
-    filter: blur(0.3px);
+    width: 135px;
+    padding: 12px;
+    opacity: 0.55;
+  }
+
+  .floatingCard small {
+    font-size: 9px;
+  }
+
+  .floatingCard strong {
+    font-size: 14px;
   }
 
   .floatOne {
-    top: 130px !important;
-    right: -80px !important;
+    top: 160px;
+    right: -70px;
   }
 
   .floatTwo {
-    top: 760px !important;
-    left: -95px !important;
+    top: 980px;
+    left: -75px;
   }
 
   .floatThree {
-    display: none !important;
+    display: none;
   }
 }
+
       `}</style>
     </>
   );
