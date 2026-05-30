@@ -79,7 +79,7 @@ function OTPContent() {
 
       if (data.success) {
         localStorage.setItem("user", email);
-        router.push("/subscription");
+        router.push("/choose-plan");
       } else {
         alert(data.message || "Invalid OTP ❌");
       }

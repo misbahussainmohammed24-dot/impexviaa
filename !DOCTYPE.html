@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Generate PDF - Legal Notice</title>
+    <!-- Loading the industry-standard html2pdf library securely -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body style="font-family: Arial, sans-serif; text-align: center; background: #f4f6f9; padding: 50px; margin: 0;">
+
+    <div style="max-width: 500px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+        <h2 style="color: #0056b3; margin-top: 0;">Generating Your PDF...</h2>
+        <p style="color: #555; font-size: 14px;">Your official legal notice document is processing and will download directly to your device momentarily.</p>
+        <div style="margin: 20px 0;">
+            <div style="display: inline-block; width: 40px; height: 40px; border: 4px solid #f3f3f3; border-top: 4px solid #0056b3; border-radius: 50%; animation: spin 1s linear infinite;"></div>
+        </div>
+        <button id="retryBtn" style="display: none; padding: 10px 20px; font-weight: bold; background-color: #28a745; color: white; border: none; border-radius: 4px; cursor: pointer; margin-top: 10px;">Download Again</button>
+    </div>
+
+    <style>
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    </style>
+
+    <!-- Hidden source container with precise legal layout formatting -->
+    <div id="legal-notice-content" style="display: none; font-family: 'Times New Roman', Times, serif; line-height: 1.6; color: #000; padding: 40px; background-color: #fff;">
+        
+        <!-- Office Letterhead Header -->
+        <div style="text-align: center; border-bottom: 2px solid #000; padding-bottom: 12px; margin-bottom: 25px;">
+            <h1 style="font-size: 24px; font-weight: bold; letter-spacing: 1px; margin: 0;">B. RADHAKRISHNAN, KARAMANA</h1>
+            <p style="font-size: 14px; font-style: italic; margin: 5px 0 8px 0;">Criminal Lawyer & International Legal Consultant</p>
+            <p style="font-size: 11px; margin: 3px 0;">Hrishikesh Building, Vanchiyoor East, Thiruvananthapuram – 695001, Kerala, India</p>
+            <p style="font-size: 11px; margin: 3px 0;">(Practising before the High Court of Kerala, Supreme Court of India, and International Court of Justice, The Netherlands)</p>
+            <p style="font-size: 12px; font-weight: bold; margin: 5px 0 0 0;">Mobile: +91 98460 63506 &nbsp;|&nbsp; WhatsApp: +91 98460 63506 &nbsp;|&nbsp; Email: rkpillai53@gmail.com</p>
+        </div>
+
+        <!-- Metadata Details -->
+        <table style="width: 100%; margin-bottom: 25px; font-size: 12px;">
+            <tr>
+                <td style="font-weight: bold; text-decoration: underline;">BY REGISTERED POST WITH ACKNOWLEDGEMENT DUE / EMAIL / WHATSAPP</td>
+                <td style="text-align: right; font-weight: bold;">Date: 24.05.2026</td>
+            </tr>
+        </table>
+
+        <!-- Title -->
+        <div style="text-align: center; font-size: 18px; font-weight: bold; text-decoration: underline; margin-bottom: 25px; letter-spacing: 1px;">INDIVIDUAL LEGAL NOTICE</div>
+
+        <!-- Addressee Information -->
+        <div style="margin-bottom: 25px; font-size: 13px; text-align: left;">
+            <span style="font-weight: bold; display: block; margin-bottom: 4px;">To,</span>
+            <strong style="font-size: 14px;">MANADI SAIKARTHIK</strong><br>
+            S/o Srinivas Manadi & Chandrakala Manadi<br>
+            Date of Birth: 30/06/2003<br>
+            Permanent Address: New, Main Road, Pullareddy Gudem, Perur, Nalgonda, Telangana, India - 508202<br>
+            Aadhaar Card No: 5584 1204 3034<br>
+            Passport No: X8731363 (File No: MA3065386254123)<br>
+            Georgian Personal No: 01191070385 | Mobile: +995 557 305 896 / +91 95504 70249<br>
+            <span style="font-style: italic; display: block; margin-top: 4px;">Presently residing, hiding, and/or pursuing medical education in Tbilisi, Georgia.</span>
+        </div>
+
+        <!-- Subject Block -->
+        <div style="margin-bottom: 25px; font-size: 13px; text-align: justify;">
+            <table style="width: 100%; border-collapse: collapse;">
+                <tr>
+                    <td style="font-weight: bold; vertical-align: top; white-space: nowrap;">SUBJECT:&nbsp;</td>
+                    <td style="font-weight: bold; text-align: justify; text-decoration: underline;">
+                        Final Legal Demand for the immediate restitution of ₹8,00,000/- fraudulently extracted under false promises and systematic deception; Intimation of severe financial, emotional, and asset-liquidation injury inflicted upon my client; and pending federal criminal prosecution under the Bharatiya Nyaya Sanhita, 2023.
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Notice Body -->
+        <div style="font-size: 13px; text-align: justify;">
+            <span style="font-weight: bold; display: block; margin-bottom: 10px;">Sir,</span>
+            
+            <p style="margin-bottom: 15px; text-indent: 30px;">Under instructions from and on behalf of my client, <strong>Mr. Jagadeesh Chandra Prakash Kancharagunta</strong> (Personal No: 01191068073), a medical student currently residing in Tbilisi, Georgia, I hereby serve you this reinforced, absolute Individual Legal Notice:</p>
+            
+            <p style="margin-bottom: 15px; text-indent: 30px;">1. My client states that you, the above-named addressee (<strong>MANADI SAIKARTHIK</strong>), whose verified foundational identity records including Indian Passport (No: X8731363) and Government of India Aadhaar Card (No: 5584 1204 3034) are permanently appended hereto, acted as the primary instigator and ringleader of a syndicated financial operation targeting my client over the past 12 months. By intentionally engineering completely fabricated crises, manufacturing emotional vulnerabilities, and exploiting my client's trust under false pretenses, you induced my client to hand over a principal sum of <strong>₹8,00,000/-</strong> under the solemn assurance of prompt repayment.</p>
+            
+            <p style="margin-bottom: 15px; text-indent: 30px;">2. You formally acknowledged this financial liability and your identity by executing an official, state-registered <strong>Loan Agreement on 09.08.2025 (Notary Registration No: N251027606)</strong>. Following a continuous cycle of willful defaults, evasions, and aggressive behavior, you were legally compelled to execute a bilingual <strong>"Judicial Confession & Irrevocable Indemnity" on 12.05.2026 (Notary Registration No: N260610574)</strong> before Public Notary Aleksandre Chachalashvili in Tbilisi, Georgia. In that official state document, your definitive personal data—as verified from the original identification images provided in the files named "1000578551.jpg", "1000578552.jpg", and "1000575567_3.jpg"—was officially incorporated into the notary registry. In said state documents, you explicitly confessed to the <strong>fraudulent misappropriation of funds</strong>, admitting under oath that your actions constitute a severe criminal breach of trust under <strong>Article 180 (Fraud) of the Criminal Code of Georgia</strong>.</p>
+            
+            <p style="margin-bottom: 15px; text-indent: 30px;">3. My client states that your false promises, calculated deceptions, and broken guarantees have caused him catastrophic, irreversible financial ruin and severe psychological trauma. Because you intentionally withheld his funds, my client was placed under unmanageable, crushing pressure from the individuals and relatives from whom he initially secured the money. To survive this crisis, protect his family's honor, and manage the immediate debt you forced upon him, my client was pushed to the absolute brink. He was forced to raise high-interest loans from various external lenders by keeping his personal belongings as surety and <strong>pawning his private gold</strong> just to meet the relentless monthly interest demands. The fact that an innocent medical student has been driven to liquidate his personal gold and assets while you enjoy the proceeds of his scammed money highlights the predatory, malicious nature of your crime.</p>
+            
+            <p style="margin-bottom: 15px; text-indent: 30px;">4. My client further states that you have been <strong>intentionally postponing the payment</strong> through a series of calculated delays, false deadlines, and deceptive excuses designed purely to evade your legal obligations. By continuously shifting dates and manufacturing fraudulent assurances of upcoming settlement, you have weaponized these delays to keep my client in a state of financial distress. You have unified with your co-conspirators to actively state that you will not pay the required amounts, using these intentional postponements to wear down my client and escape liability. This persistent, deceptive postponement combined with your post-facto refusal establishes a definitive, undisputed criminal intention to cheat and defraud from inception.</p>
+            
+            <p style="margin-bottom: 15px; text-indent: 30px;">5. Take notice that your actions constitute clear federal offenses under Indian law, specifically <strong>Section 61 (Criminal Conspiracy), Section 316 (Criminal Breach of Trust), and Section 318 (Cheating) of the Bharatiya Nyaya Sanhita (BNS), 2023</strong>.</p>
+            
+            <p style="margin-bottom: 15px; text-indent: 30px;">6. <strong>TAKE NOTE THAT THE GEORGIAN CENTRAL GOVERNMENT IS ALREADY MOBILIZED.</strong> An emergency petition backed by unedited electronic chat logs, international bank transfers, and live witness testimonies has been formally taken up by the central <strong>Ministry of Internal Affairs (MIA) of Georgia</strong>. Pursuant to your signed Notarial Confession (Act No: N260610574), formal execution protocols to place you on the state border <strong>"Stop-List"</strong> to block you from leaving Georgia have been triggered, alongside actions to attach your familial assets and terminate your student visa.</p>
+        </div>
+
+        <!-- Final Demand Section -->
+        <div style="font-size: 14px; font-weight: bold; text-align: center; margin: 25px 0 15px 0; text-decoration: underline;">NOW, THEREFORE, I HEREBY CALL UPON YOU:</div>
+        
+        <div style="font-size: 13px; text-align: justify;">
+            <p style="text-indent: 0; font-weight: bold; text-align: center; margin-bottom: 20px;">
+                To clear, return, and remit the entire outstanding principal sum of ₹8,00,000/- (Rupees Eight Lakh Only) into my client's designated bank account within 15 (Fifteen) days from the receipt/issuance of this notice.
+            </p>
+            
+            <p style="text-indent: 0; font-weight: bold; margin-bottom: 10px; text-decoration: underline;">
+                FAILING WHICH, WITHOUT FURTHER REMINDER, I HOLD STRICT INSTRUCTIONS TO:
+            </p>
+            
+            <ol style="margin-left: 20px; margin-bottom: 25px; padding-left: 5px;">
+                <li style="margin-bottom: 8px;">File formal, non-bailable Criminal Complaints under Sections 61, 316, and 318 of the BNS, 2023, before the competent Judicial First-Class Magistrate Court in India, actively naming your parents (<strong>Srinivas Manadi</strong> and <strong>Chandrakala Manadi</strong>) and attaching your family's properties at Nalgonda, Telangana, India for recovery.</li>
+                <li style="margin-bottom: 8px;">Formally petition the <strong>Ministry of External Affairs (MEA), India</strong>, and the <strong>Indian Embassy in Tbilisi</strong> to impound/cancel your Indian passport (No: X8731363) under the Passports Act, 1967, and order your immediate deportation to face criminal trial and imprisonment in India.</li>
+                <li style="margin-bottom: 8px;">Coordinate directly with the central <strong>Ministry of Internal Affairs (MIA) of Georgia</strong> to enforce your local arrest, freeze your financial channels, and pursue your permanent expulsion from your medical university.</li>
+            </ol>
+            
+            <p style="text-indent: 0; font-style: italic; font-weight: bold;">
+                You are hereby warned to comply immediately at your own severe costs and permanent legal peril.
+            </p>
+        </div>
+
+        <!-- Closing and Signature -->
+        <div style="margin-top: 35px; float: right; text-align: left; width: 250px; font-size: 13px; page-break-inside: avoid;">
+            <p style="margin: 0;">Yours faithfully,</p>
+            <div style="height: 50px;"></div>
+            <p style="margin: 0; font-weight: bold;">B. Radhakrishnan, Karamana</p>
+            <p style="margin: 0; font-style: italic; font-size: 12px;">Advocate</p>
+            <p style="margin: 0; font-size: 11px; color: #333;">International Arbitrator, Solicitor & Senior Criminal Counsel</p>
+        </div>
+        <div style="clear: both;"></div>
+    </div>
+
+    <!-- Orchestration Execution Script -->
+    <script>
+        function generatePDF() {
+            const element = document.getElementById('legal-notice-content');
+            
+            // Temporary reveal style flags for deep element visibility processing
+            element.style.display = 'block';
+
+            // High-fidelity standard configuration guidelines for legal processing
+            const opt = {
+                margin:       [15, 15, 15, 15], // Perfect clean modern framing margins
+                filename:     'Legal_Notice_Manadi_Saikarthik.pdf',
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { scale: 2, letterRendering: true, useCORS: true },
+                jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+
+            // Process payload conversion execution pipeline 
+            html2pdf().set(opt).from(element).save().then(() => {
+                // Re-enforce concealment optimization properties safely post-rendering
+                element.style.display = 'none';
+                document.getElementById('retryBtn').style.display = 'inline-block';
+            }).catch(err => {
+                console.error("PDF Processing Exception Event: ", err);
+                element.style.display = 'none';
+            });
+        }
+
+        // Auto-run trigger instantly when environmental processing context stabilizes safely
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(generatePDF, 1200);
+        });
+
+        document.getElementById('retryBtn').addEventListener('click', generatePDF);
+    </script>
+</body>
+</html>
