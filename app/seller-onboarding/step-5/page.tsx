@@ -238,7 +238,7 @@ function Step5FinalApproval() {
         updatedAt: serverTimestamp(),
       });
 
-      window.location.href = `/seller-onboarding/complete?finalApprovalId=${approvalDoc.id}&productStoreId=${productStoreId}`;
+window.location.href = `/seller-onboarding/activation?finalApprovalId=${approvalDoc.id}`;
     } catch (error) {
       console.error("STEP 5 SUBMISSION ERROR:", error);
 
