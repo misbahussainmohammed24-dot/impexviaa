@@ -1,5 +1,7 @@
 "use client";
+
 import { Suspense, useEffect, useState } from "react";
+import type { CSSProperties } from "react";
 import { useSearchParams } from "next/navigation";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
@@ -67,7 +69,6 @@ function Step3BusinessStore() {
   const [loading, setLoading] = useState(false);
   const [chatOpen, setChatOpen] = useState(false);
   const [typedText, setTypedText] = useState("");
-
   const [hxnMessage, setHxnMessage] = useState(
     "HXN AI is reviewing your product information, export readiness, marketplace visibility, and AI store structure."
   );
@@ -108,43 +109,33 @@ function Step3BusinessStore() {
     productCatalog: null,
     certificationDocuments: [],
   });
+
   useEffect(() => {
     let index = 0;
 
     const timer = setInterval(() => {
       setTypedText(fullText.slice(0, index));
       index += 1;
-
-      if (index > fullText.length) {
-        clearInterval(timer);
-      }
+      if (index > fullText.length) clearInterval(timer);
     }, 32);
 
     return () => clearInterval(timer);
   }, []);
 
   const handleChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
-
-    setForm((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    setForm((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSingleFile = (
     e: React.ChangeEvent<HTMLInputElement>,
     key: "mainProductImage" | "productVideo" | "productCatalog"
   ) => {
-    const selectedFile = e.target.files?.[0] || null;
-
     setFiles((prev) => ({
       ...prev,
-      [key]: selectedFile,
+      [key]: e.target.files?.[0] || null,
     }));
   };
 
@@ -157,11 +148,9 @@ function Step3BusinessStore() {
       | "warehouseImages"
       | "certificationDocuments"
   ) => {
-    const selectedFiles = Array.from(e.target.files || []);
-
     setFiles((prev) => ({
       ...prev,
-      [key]: selectedFiles,
+      [key]: Array.from(e.target.files || []),
     }));
   };
 
@@ -169,14 +158,12 @@ function Step3BusinessStore() {
     if (!file) return "";
 
     const safeName = file.name.replace(/\s+/g, "-").toLowerCase();
-
     const fileRef = ref(
       storage,
       `seller-onboarding/step-3/${Date.now()}-${folder}-${safeName}`
     );
 
     await uploadBytes(fileRef, file);
-
     return await getDownloadURL(fileRef);
   };
 
@@ -185,21 +172,19 @@ function Step3BusinessStore() {
 
     for (const file of fileList) {
       const safeName = file.name.replace(/\s+/g, "-").toLowerCase();
-
       const fileRef = ref(
         storage,
         `seller-onboarding/step-3/${Date.now()}-${folder}-${safeName}`
       );
 
       await uploadBytes(fileRef, file);
-
-      const url = await getDownloadURL(fileRef);
-      urls.push(url);
+      urls.push(await getDownloadURL(fileRef));
     }
 
     return urls;
   };
-const submitStep3 = async () => {
+
+  const submitStep3 = async () => {
     const error = validateStep3(form, {
       mainProductImage: files.mainProductImage,
       additionalProductImages: files.additionalProductImages,
@@ -312,21 +297,21 @@ const submitStep3 = async () => {
       setLoading(false);
     }
   };
+
   return (
-    <main style={{ minHeight: "100vh" }}>
+    <main style={styles.page}>
+      <style>{globalCss}</style>
+
+      <div style={styles.topGlow} />
+      <div style={styles.sideGlow} />
+
       <Hero
         typedText={typedText}
         hxnMessage={hxnMessage}
         onOpenChat={() => setChatOpen(true)}
       />
 
-      <div
-        style={{
-          maxWidth: 1200,
-          margin: "0 auto",
-          padding: "30px 20px 100px",
-        }}
-      >
+      <section style={styles.formShell}>
         <ProductProfile
           primaryBusinessActivity={form.primaryBusinessActivity}
           mainProductCategories={form.mainProductCategories}
@@ -381,29 +366,13 @@ const submitStep3 = async () => {
           onChange={handleChange}
         />
 
-        <div
-          style={{
-            marginTop: 40,
-            display: "flex",
-            gap: 16,
-            flexWrap: "wrap",
-          }}
-        >
+        <div style={styles.actionRow}>
           <button
             type="button"
             onClick={() => setChatOpen(true)}
-            style={{
-              padding: "16px 24px",
-              borderRadius: 16,
-              border: "none",
-              cursor: "pointer",
-              background:
-                "linear-gradient(135deg,#0ea5e9,#2563eb)",
-              color: "#fff",
-              fontWeight: 700,
-            }}
+            style={styles.helpButton}
           >
-            HXN AI Help
+            Open HXN AI Help
           </button>
 
           <button
@@ -411,45 +380,150 @@ const submitStep3 = async () => {
             disabled={loading}
             onClick={submitStep3}
             style={{
-              padding: "16px 28px",
-              borderRadius: 16,
-              border: "none",
-              cursor: "pointer",
-              background:
-                "linear-gradient(135deg,#7c3aed,#2563eb)",
-              color: "#fff",
-              fontWeight: 700,
+              ...styles.submitButton,
+              opacity: loading ? 0.65 : 1,
+              cursor: loading ? "not-allowed" : "pointer",
             }}
           >
             {loading
-              ? "Creating AI Store..."
+              ? "Creating AI Product Store..."
               : "Complete Step 3 & Continue"}
           </button>
         </div>
-      </div>
+      </section>
 
-     <HXNChat
-  open={chatOpen}
-  onClose={() => setChatOpen(false)}
-  onSelectHelp={(message) => setHxnMessage(message)}
-
-/>
+      <HXNChat
+        open={chatOpen}
+        onClose={() => setChatOpen(false)}
+        onSelectHelp={(message) => setHxnMessage(message)}
+      />
     </main>
   );
 }
+
 function LoadingScreen() {
   return (
-    <main
-      style={{
-        minHeight: "100vh",
-        display: "grid",
-        placeItems: "center",
-        background: "#020617",
-        color: "#fff",
-        fontFamily: "sans-serif",
-      }}
-    >
-      <h1>Loading Step 3...</h1>
+    <main style={styles.page}>
+      <h1 style={{ color: "#fff" }}>Loading Step 3...</h1>
     </main>
   );
 }
+
+const globalCss = `
+  html, body {
+    background: #020617 !important;
+  }
+
+  .premium-field::placeholder {
+    color: rgba(203,213,225,.78) !important;
+  }
+
+  .premium-field:focus {
+    outline: none !important;
+    border-color: rgba(125,211,252,.95) !important;
+    box-shadow: 0 0 0 4px rgba(125,211,252,.18) !important;
+  }
+
+  option {
+    color: #020617;
+    background: #ffffff;
+  }
+
+  @media (max-width: 760px) {
+    .hero-title {
+      font-size: 42px !important;
+      letter-spacing: -2px !important;
+    }
+
+    .ai-box {
+      grid-template-columns: 1fr !important;
+      text-align: center !important;
+    }
+
+    .robot-wrap {
+      margin: 0 auto !important;
+    }
+  }
+`;
+
+const styles: Record<string, CSSProperties> = {
+  page: {
+    minHeight: "100vh",
+    position: "relative",
+    overflowX: "hidden",
+    background:
+      "radial-gradient(circle at top,#172554 0%,#0f172a 38%,#020617 100%)",
+    color: "#ffffff",
+    padding: "60px 18px 100px",
+    fontFamily:
+      "-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif",
+  },
+
+  topGlow: {
+    position: "absolute",
+    top: -180,
+    left: "20%",
+    width: 520,
+    height: 520,
+    borderRadius: "50%",
+    background: "rgba(56,189,248,.18)",
+    filter: "blur(120px)",
+    pointerEvents: "none",
+  },
+
+  sideGlow: {
+    position: "absolute",
+    bottom: 200,
+    right: -170,
+    width: 520,
+    height: 520,
+    borderRadius: "50%",
+    background: "rgba(168,85,247,.16)",
+    filter: "blur(120px)",
+    pointerEvents: "none",
+  },
+
+  formShell: {
+    maxWidth: 1120,
+    margin: "40px auto 0",
+    padding: "42px",
+    borderRadius: 42,
+    background:
+      "linear-gradient(145deg,rgba(15,23,42,.94),rgba(30,41,59,.82))",
+    border: "1px solid rgba(148,163,184,.24)",
+    boxShadow:
+      "0 45px 140px rgba(0,0,0,.62), inset 0 1px 0 rgba(255,255,255,.08)",
+    backdropFilter: "blur(24px)",
+    position: "relative",
+    zIndex: 2,
+  },
+
+  actionRow: {
+    marginTop: 44,
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit,minmax(240px,1fr))",
+    gap: 16,
+  },
+
+  helpButton: {
+    minHeight: 62,
+    borderRadius: 22,
+    border: "1px solid rgba(125,211,252,.32)",
+    background: "rgba(255,255,255,.08)",
+    color: "#dbeafe",
+    fontWeight: 950,
+    fontSize: 16,
+    cursor: "pointer",
+  },
+
+  submitButton: {
+    minHeight: 62,
+    borderRadius: 22,
+    border: "none",
+    background: "linear-gradient(135deg,#7dd3fc,#38bdf8,#2563eb)",
+    color: "#020617",
+    fontWeight: 950,
+    fontSize: 16,
+    boxShadow: "0 25px 90px rgba(14,165,233,.35)",
+  },
+};
