@@ -1,19 +1,25 @@
 @media (min-width: 1024px) {
-  .desktop-footer,
-  .premium-footer {
-    min-height: auto !important;
-    height: auto !important;
-    scroll-snap-align: none !important;
-    scroll-snap-stop: normal !important;
-    transform: none !important;
-    overflow: hidden !important;
-  }
-
   .desktop-sections-page {
     scroll-snap-type: none !important;
+    overflow: visible !important;
+    height: auto !important;
   }
 
-  .premium-footer * {
+  .desktop-sections-page section {
+    scroll-snap-align: none !important;
+  }
+
+  .no-scroll-jump {
+    min-height: unset !important;
+    height: auto !important;
+    max-height: none !important;
+    scroll-snap-align: none !important;
+    scroll-margin-top: 0 !important;
+    transform: none !important;
+    margin-top: 0 !important;
+  }
+
+  .no-scroll-jump * {
     scroll-snap-align: none !important;
   }
 }

@@ -139,7 +139,7 @@ export default function DesktopSections() {
 
         <img src="/images/trade8.webp" alt="Global trade" />
       </section>
-     <footer className="desktop-footer premium-footer">
+     <footer id="footer" className="desktop-footer premium-footer no-scroll-jump">
   <div className="premium-footer-glow" />
 
   <div className="premium-footer-top">
