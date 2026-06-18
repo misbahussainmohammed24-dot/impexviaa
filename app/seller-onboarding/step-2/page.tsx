@@ -239,8 +239,8 @@ function Step2LegalVerification() {
         files.complianceDocuments,
         "optional-compliance-documents"
       );
-
-      const docRef = await addDoc(collection(db, "sellerLegalVerifications"), {
+      alert("Test 1");
+      const docRef = await addDoc(collection(db, "legalBusinessVerification"), {
         step: 2,
         parentApplicationId: applicationId,
         supplierUid: localStorage.getItem("supplierUid") || "",
@@ -281,7 +281,7 @@ function Step2LegalVerification() {
         createdAt: serverTimestamp(),
         updatedAt: serverTimestamp(),
       });
-
+alert("Test 2");
       window.location.href = `/seller-onboarding/step-3?legalVerificationId=${
         docRef.id
       }&applicationId=${applicationId}&country=${encodeURIComponent(

@@ -20,7 +20,7 @@ export default function MobileHome() {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const [activeShowcase, setActiveShowcase] = useState(0);
-
+const [menuOpen, setMenuOpen] = useState(false);
   const isValidEmail = email.includes("@") && email.includes(".");
 
   useEffect(() => {
@@ -75,10 +75,12 @@ export default function MobileHome() {
           <div className="mobile-impex-logo">IMPEXVIAA</div>
 
           <button className="mobile-nav-link" onClick={handleStart}>
-            Start for free
+            
           </button>
 
-          <button className="mobile-menu-btn">☰</button>
+          <button className="mobile-menu-btn" onClick={() => setMenuOpen(true)}>
+  ☰
+</button>
         </header>
 
         <div className="mobile-hero-content">
@@ -297,6 +299,55 @@ export default function MobileHome() {
           </div>
         </div>
       </section>
+      {menuOpen && (
+  <div className="drawer-overlay" onClick={() => setMenuOpen(false)}>
+    <div className="drawer" onClick={(e) => e.stopPropagation()}>
+      <button className="drawer-close" onClick={() => setMenuOpen(false)}>
+        ×
+      </button>
+
+      <h2>IMPEXVIAA</h2>
+      <p>AI-powered global trade marketplace</p>
+
+      <button className="drawer-login" onClick={() => router.push("/login")}>
+        Log in
+      </button>
+
+      
+
+      <div className="drawer-group">
+        <span>Platform</span>
+        <button onClick={() => router.push("/about")}>About IMPEXVIAA →</button>
+        <button onClick={() => router.push("/supplier-verification")}>Supplier verification →</button>
+        <button onClick={() => router.push("/trust-score-center")}>Trust Score Center →</button>
+      </div>
+
+      <div className="drawer-group">
+        <span>Marketplace</span>
+        <button onClick={() => router.push("/marketplace/agriculture")}>Agriculture →</button>
+        <button onClick={() => router.push("/marketplace/pharmaceuticals")}>Pharmaceuticals →</button>
+        <button onClick={() => router.push("/marketplace/electronics")}>Electronics →</button>
+      </div>
+
+      <div className="drawer-group">
+        <span>Resources</span>
+        <button onClick={() => router.push("/resources/global-sourcing")}>Global Sourcing →</button>
+        <button onClick={() => router.push("/resources/buyer-protection")}>Buyer Protection →</button>
+        <button onClick={() => router.push("/resources/seller-tools")}>Seller Tools →</button>
+        <button onClick={() => router.push("/resources/trade-guides")}>Trade Guides →</button>
+      </div>
+
+      <div className="drawer-group">
+        <span>Support</span>
+        <button onClick={() => router.push("/support/help-center")}>Help Center →</button>
+        <button onClick={() => router.push("/support/contact-support")}>Contact Support →</button>
+        <button onClick={() => router.push("/support/report-supplier")}>Report Supplier →</button>
+      </div>
+
+     
+    </div>
+  </div>
+)}
  <section className="mobile-footer-section">
   <div className="footer-column">
     <h3>IMPEXVIAA</h3>

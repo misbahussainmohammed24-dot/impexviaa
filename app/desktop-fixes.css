@@ -1,0 +1,19 @@
+@media (min-width: 1024px) {
+  .desktop-footer,
+  .premium-footer {
+    min-height: auto !important;
+    height: auto !important;
+    scroll-snap-align: none !important;
+    scroll-snap-stop: normal !important;
+    transform: none !important;
+    overflow: hidden !important;
+  }
+
+  .desktop-sections-page {
+    scroll-snap-type: none !important;
+  }
+
+  .premium-footer * {
+    scroll-snap-align: none !important;
+  }
+}

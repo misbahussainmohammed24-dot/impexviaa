@@ -112,7 +112,7 @@ export default function CreateAccountPage() {
       localStorage.setItem("supplierUid", user.uid);
       localStorage.setItem("supplierEmail", form.email);
 
-      window.location.href = "/seller-onboarding";
+      window.location.href = "/seller-onboarding/step-2";
     } catch (error: any) {
       console.error("CREATE ACCOUNT ERROR:", error);
 
@@ -146,7 +146,7 @@ export default function CreateAccountPage() {
       localStorage.setItem("supplierUid", userCredential.user.uid);
       localStorage.setItem("supplierEmail", form.email);
 
-      window.location.href = "/seller-onboarding";
+      window.location.href = "/seller-onboarding/step-2";
     } catch (error) {
       console.error("LOGIN ERROR:", error);
       alert("Login failed. Please check your email and password.");
